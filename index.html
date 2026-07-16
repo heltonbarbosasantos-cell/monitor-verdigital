@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monitor de Clientes — Ver Digital</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap');
+
+  :root {
+    --bg:        #0c0e14;
+    --surface:   #161922;
+    --surface2:  #1f2330;
+    --border:    #2a2e3d;
+    --green:     #00e676;
+    --green-bg:  #0d3a26;
+    --green-border: #1a6b42;
+    --red:       #ff4757;
+    --red-bg:    #3a1418;
+    --red-border: #7a2530;
+    --yellow:       #ffc107;
+    --yellow-bg:    #3a2e00;
+    --yellow-border:#7a6000;
+    --text:      #e8eaf6;
+    --muted:     #7986cb;
+    --accent:    #00e676;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    padding: 0 0 60px;
+  }
+
+  header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .logo { display: flex; align-items: center; gap: 16px; }
+  .logo img { height: 32px; width: auto; }
+  .logo-divider { width: 1px; height: 24px; background: var(--border); }
+  .logo-text h1 { font-size: 14px; font-weight: 700; letter-spacing: 0.02em; }
+  .logo-text span { font-size: 11px; color: var(--muted); display: block; font-weight: 400; font-family: 'JetBrains Mono', monospace; }
+
+  .btn-refresh {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    font-family: 'Inter', sans-serif;
+    transition: background 0.2s;
+  }
+  .btn-refresh:hover { background: var(--accent); color: #04150c; border-color: var(--accent); }
+
+  /* ── CARDS DE RESUMO (clicáveis) ── */
+  .summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 14px;
+    padding: 20px 32px 0;
+  }
+
+  .card-stat {
+    background: var(--surface);
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 20px;
+    cursor: pointer;
+    transition: border-color 0.2s, transform 0.12s, box-shadow 0.2s;
+    user-select: none;
+  }
+  .card-stat:hover { transform: translateY(-2px); }
+  .card-stat.total.ativo    { border-color: var(--muted); box-shadow: 0 0 12px #7986cb30; }
+  .card-stat.verde.ativo    { border-color: var(--green); box-shadow: 0 0 12px #00e67630; }
+  .card-stat.amarelo.ativo  { border-color: var(--yellow); box-shadow: 0 0 12px #ffc10730; }
+  .card-stat.vermelho.ativo { border-color: var(--red); box-shadow: 0 0 12px #ff475730; }
+
+  .card-stat .numero { font-size: 30px; font-weight: 800; font-family: 'JetBrains Mono', monospace; line-height: 1; }
+  .card-stat .label { font-size: 11px; color: var(--muted); margin-top: 6px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .card-stat.total .numero   { color: var(--text); }
+  .card-stat.verde .numero   { color: var(--green); }
+  .card-stat.amarelo .numero { color: var(--yellow); }
+  .card-stat.vermelho .numero { color: var(--red); }
+
+  /* ── CONTROLES (busca + ordenação) ── */
+  .controles {
+    padding: 14px 32px 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .busca {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 7px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-family: 'Inter', sans-serif;
+    width: 200px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .busca:focus { border-color: var(--accent); }
+  .busca::placeholder { color: var(--muted); }
+
+  .sort-group { display: flex; align-items: center; gap: 6px; }
+  .sort-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+  .sort-btn {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    padding: 5px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 11px;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.2s;
+  }
+  .sort-btn:hover { border-color: var(--accent); color: var(--text); }
+  .sort-btn.ativo { background: var(--surface2); border-color: var(--accent); color: var(--accent); font-weight: 600; }
+
+  /* ── GRID — múltiplas colunas, ordem esquerda→direita ── */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    grid-auto-flow: row;
+    gap: 10px;
+    padding: 16px 32px 0;
+  }
+
+  .card-cliente {
+    border-radius: 10px;
+    padding: 12px 14px;
+    transition: transform 0.12s;
+    border: 1px solid transparent;
+    box-sizing: border-box;
+  }
+  .card-cliente:hover { transform: translateY(-2px); }
+  .card-cliente.ok    { background: var(--green-bg); border-color: var(--green-border); }
+  .card-cliente.erro  { background: var(--red-bg); border-color: var(--red-border); }
+  .card-cliente.lento { background: var(--yellow-bg); border-color: var(--yellow-border); }
+  .card-cliente.nc    { background: var(--surface); border-color: var(--border); }
+
+  .status-row { display: flex; align-items: center; gap: 6px; margin-bottom: 6px; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .dot.ok     { background: var(--green);  box-shadow: 0 0 8px var(--green); }
+  .dot.erro   { background: var(--red);    box-shadow: 0 0 8px var(--red); }
+  .dot.lento  { background: var(--yellow); box-shadow: 0 0 8px var(--yellow); }
+  .dot.nc     { background: var(--muted); }
+
+  .status-label { font-size: 9px; font-weight: 700; letter-spacing: 0.06em; font-family: 'JetBrains Mono', monospace; }
+  .card-cliente.ok .status-label     { color: var(--green); }
+  .card-cliente.lento .status-label  { color: var(--yellow); }
+  .card-cliente.erro .status-label   { color: var(--red); }
+  .card-cliente.nc .status-label     { color: var(--muted); }
+
+  .nome-cliente { font-size: 13px; font-weight: 600; line-height: 1.3; margin-bottom: 4px; word-break: break-word; }
+  .url-cliente { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .card-cliente.ok .url-cliente     { color: #6fd9a3; }
+  .card-cliente.lento .url-cliente  { color: #d4a800; }
+  .card-cliente.erro .url-cliente   { color: #e89aa1; }
+
+  .detalhe-erro { font-size: 9px; color: #e89aa1; margin-top: 4px; font-family: 'JetBrains Mono', monospace; line-height: 1.3; }
+
+  .vazio { grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: var(--muted); }
+  .vazio .icone { font-size: 48px; margin-bottom: 12px; }
+
+  #loading { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 80px 20px; color: var(--muted); gap: 16px; }
+  .spinner { width: 32px; height: 32px; border: 3px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin 0.8s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .statusbar {
+    position: fixed; bottom: 0; left: 0; right: 0;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 10px 32px;
+    font-size: 11px;
+    color: var(--muted);
+    display: flex; align-items: center; gap: 16px;
+  }
+  .pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--green); animation: pulsar 2s infinite; flex-shrink: 0; }
+  @keyframes pulsar { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.8); } }
+
+  @media (max-width: 600px) {
+    header { padding: 14px 16px; }
+    .summary, .controles, .grid { padding-left: 16px; padding-right: 16px; }
+    .busca { width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="logo.png" alt="Ver Digital">
+    <div class="logo-divider"></div>
+    <div class="logo-text">
+      <h1>Monitor de Clientes</h1>
+      <span id="ultima-verificacao">Carregando...</span>
+    </div>
+  </div>
+  <div class="header-right">
+    <button class="btn-refresh" onclick="carregar()">↻ Atualizar</button>
+  </div>
+</header>
+
+<div class="summary" id="summary"></div>
+
+<div class="controles">
+  <input class="busca" id="busca" type="text" placeholder="🔍 Buscar por nome..." oninput="renderCards()">
+  <div class="sort-group">
+    <span class="sort-label">Ordenar:</span>
+    <button class="sort-btn ativo" id="sort-nome" onclick="setOrdem('nome', this)">A–Z</button>
+    <button class="sort-btn" id="sort-rapido" onclick="setOrdem('rapido', this)">⚡ Mais rápido</button>
+    <button class="sort-btn" id="sort-lento" onclick="setOrdem('lento', this)">🐢 Mais lento</button>
+  </div>
+</div>
+
+<div id="loading">
+  <div class="spinner"></div>
+  <span>Carregando status...</span>
+</div>
+
+<div class="grid" id="grid" style="display:none"></div>
+
+<div class="statusbar">
+  <div class="pulse"></div>
+  <span>Atualização automática a cada 60 segundos</span>
+  <span style="margin-left:auto" id="prox-update"></span>
+</div>
+
+<script>
+  // URL do status.json publicado pelo GitHub Actions / GitHub Pages
+  const STATUS_URL = 'https://heltonbarbosasantos-cell.github.io/monitor-verdigital/status.json';
+
+  let dadosGlobais = [];
+  let filtroAtivo  = 'todos';
+  let ordemAtiva   = 'nome';
+  let countdown    = 60;
+  let timer;
+
+  function setOrdem(tipo, btn) {
+    ordemAtiva = tipo;
+    document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('ativo'));
+    btn.classList.add('ativo');
+    renderCards();
+  }
+
+  function setFiltro(tipo) {
+    filtroAtivo = tipo;
+    document.querySelectorAll('.card-stat').forEach(c => c.classList.remove('ativo'));
+    const mapa = { todos: 'card-todos', ok: 'card-ok', lento: 'card-lento', erro: 'card-erro' };
+    const el = document.getElementById(mapa[tipo]);
+    if (el) el.classList.add('ativo');
+    renderCards();
+  }
+
+  async function carregar() {
+    document.getElementById('loading').style.display = 'flex';
+    document.getElementById('grid').style.display    = 'none';
+    clearInterval(timer);
+    countdown = 60;
+
+    try {
+      const resp = await fetch(STATUS_URL + '?t=' + Date.now());
+      if (!resp.ok) throw new Error('Não foi possível carregar o status.json');
+      const dados = await resp.json();
+
+      dadosGlobais = dados.clientes || [];
+
+      document.getElementById('ultima-verificacao').textContent =
+        'Última verificação: ' + dados.ultima_verificacao;
+
+      const s = document.getElementById('summary');
+      s.innerHTML = `
+        <div class="card-stat total ativo" id="card-todos" onclick="setFiltro('todos')" title="Ver todos">
+          <div class="numero">${dados.total_clientes}</div>
+          <div class="label">Clientes monitorados</div>
+        </div>
+        <div class="card-stat verde" id="card-ok" onclick="setFiltro('ok')" title="Ver online">
+          <div class="numero">${dados.total_ok}</div>
+          <div class="label">Online</div>
+        </div>
+        <div class="card-stat amarelo" id="card-lento" onclick="setFiltro('lento')" title="Ver lentos">
+          <div class="numero">${dados.total_lento || 0}</div>
+          <div class="label">Lentos</div>
+        </div>
+        <div class="card-stat vermelho" id="card-erro" onclick="setFiltro('erro')" title="Ver com problema">
+          <div class="numero">${dados.total_erro}</div>
+          <div class="label">Com problema</div>
+        </div>
+      `;
+
+      renderCards();
+
+    } catch (e) {
+      document.getElementById('grid').innerHTML =
+        `<div class="vazio"><div class="icone">⚠️</div><div>Não foi possível carregar o status.json<br><small>${e.message}</small></div></div>`;
+      document.getElementById('loading').style.display = 'none';
+      document.getElementById('grid').style.display    = 'grid';
+    }
+
+    timer = setInterval(() => {
+      countdown--;
+      document.getElementById('prox-update').textContent = `Próxima atualização em ${countdown}s`;
+      if (countdown <= 0) carregar();
+    }, 1000);
+  }
+
+  function renderCards() {
+    const busca = (document.getElementById('busca').value || '').toLowerCase();
+    const grid  = document.getElementById('grid');
+    document.getElementById('loading').style.display = 'none';
+    grid.style.display = 'grid';
+
+    const filtrados = dadosGlobais.filter(c => {
+      if (filtroAtivo === 'erro'  && c.status !== 'fora')  return false;
+      if (filtroAtivo === 'ok'    && c.status !== 'ok')    return false;
+      if (filtroAtivo === 'lento' && c.status !== 'lento') return false;
+      if (busca && !c.cliente.toLowerCase().includes(busca)) return false;
+      return true;
+    });
+
+    filtrados.sort((a, b) => {
+      if (ordemAtiva === 'nome') return a.cliente.localeCompare(b.cliente, 'pt-BR');
+      if (ordemAtiva === 'rapido') return (a.tempo_ms ?? 99999) - (b.tempo_ms ?? 99999);
+      if (ordemAtiva === 'lento')  return (b.tempo_ms ?? 0) - (a.tempo_ms ?? 0);
+      return 0;
+    });
+
+    if (filtrados.length === 0) {
+      grid.innerHTML = `<div class="vazio"><div class="icone">🔍</div><div>Nenhum cliente encontrado</div></div>`;
+      return;
+    }
+
+    grid.innerHTML = filtrados.map(c => {
+      const status = c.status || 'nc';
+      let classe, label, dotClass;
+
+      if (status === 'ok')         { classe = 'ok'; label = 'ONLINE'; dotClass = 'ok'; }
+      else if (status === 'lento') { classe = 'lento'; label = 'LENTO'; dotClass = 'lento'; }
+      else if (status === 'fora')  { classe = 'erro'; label = 'FORA'; dotClass = 'erro'; }
+      else                         { classe = 'nc'; label = 'N/C'; dotClass = 'nc'; }
+
+      const urlLimpa  = (c.site_url || '—').replace(/^https?:\/\//, '').replace(/\/$/, '');
+      const tempoInfo = c.tempo_ms ? `<span style="font-size:9px;color:var(--muted);font-family:monospace">${c.tempo_ms}ms</span>` : '';
+      const erroInfo  = status === 'fora'  ? `<div class="detalhe-erro">⚠ ${c.site_info}</div>` : '';
+      const lentoInfo = status === 'lento' ? `<div class="detalhe-erro" style="color:#d4a800">⚠ ${c.site_info}</div>` : '';
+
+      return `
+        <div class="card-cliente ${classe}">
+          <div class="status-row">
+            <span class="dot ${dotClass}"></span>
+            <span class="status-label">${label}</span>
+            ${tempoInfo}
+          </div>
+          <div class="nome-cliente">${c.cliente}</div>
+          <div class="url-cliente">${urlLimpa}</div>
+          ${erroInfo}${lentoInfo}
+        </div>`;
+    }).join('');
+  }
+
+  carregar();
+</script>
+</body>
+</html>
