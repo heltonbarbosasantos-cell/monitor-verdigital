@@ -37,6 +37,11 @@ IGNORAR_LINKS = {
 # FUNÇÕES
 # ─────────────────────────────────────────────
 
+def normalizar(texto):
+    """Remove espaços extras e coloca em minúsculo pra comparação segura"""
+    return texto.strip().lower()
+
+
 def buscar_clientes():
     """Lê planilha do Google Sheets e retorna lista de clientes ativos com site"""
     url = f"https://docs.google.com/spreadsheets/d/{SHEET_ID}/export?format=csv&gid={SHEET_GID}"
@@ -45,18 +50,21 @@ def buscar_clientes():
     try:
         resp = requests.get(url, timeout=30, allow_redirects=True)
         resp.raise_for_status()
+        # Força a codificação correta — o Google às vezes não declara o charset certo
+        resp.encoding = 'utf-8'
+        texto_csv = resp.text
     except Exception as e:
         print(f"❌ Erro ao ler planilha: {e}")
         return []
 
     clientes = []
-    linhas   = resp.text.strip().split('\n')
+    linhas   = texto_csv.strip().split('\n')
 
     for i, linha in enumerate(linhas):
         if i == 0:
             continue  # pula cabeçalho
 
-        # Parse CSV simples
+        # Parse CSV simples (lida com aspas e vírgulas dentro de campos)
         campos = []
         campo_atual = ''
         dentro_aspas = False
@@ -76,13 +84,24 @@ def buscar_clientes():
 
         if not nome:
             continue
-        if situacao.lower() != 'ativo':
+        if normalizar(situacao) != 'ativo':
             continue
-        if link.lower() in IGNORAR_LINKS:
+
+        link_normalizado = normalizar(link)
+        if link_normalizado in IGNORAR_LINKS:
+            continue
+
+        # Se o texto contém "não tem site" em qualquer variação, ignora também
+        # (proteção extra contra problemas de acentuação)
+        if 'tem site' in link_normalizado or 'nao achei' in link_normalizado or 'não achei' in link_normalizado:
             continue
 
         # Pega só primeira linha se tiver quebra
         link = link.split('\n')[0].strip()
+
+        # Se não parece uma URL válida (sem ponto, ou com espaços), ignora
+        if not link or ' ' in link or '.' not in link:
+            continue
 
         if not link.startswith('http'):
             link = 'https://' + link
@@ -175,7 +194,6 @@ def main():
         elif status == "lento": total_ok += 1; total_lento += 1
         elif status == "fora":  total_erro += 1
 
-        # Detecta mudança de estado pra não spammar WhatsApp
         ant_status = status_anterior.get(nome, {}).get("status", "ok")
 
         if status == "fora" and ant_status != "fora":
@@ -193,14 +211,12 @@ def main():
             "tempo_ms": res["tempo_ms"],
         })
 
-        time.sleep(0.5)  # 0.5s entre cada verificação
+        time.sleep(0.5)
 
-    # Envia alertas WhatsApp
     for alerta in alertas:
         print(f"[ALERTA] {alerta}")
         enviar_whatsapp(alerta)
 
-    # Salva status.json
     output = {
         "ultima_verificacao": datetime.now().strftime("%d/%m/%Y %H:%M:%S"),
         "total_clientes":     len(clientes),
