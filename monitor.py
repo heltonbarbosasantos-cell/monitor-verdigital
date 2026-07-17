@@ -24,9 +24,21 @@ COL_CLIENTE  = 0   # Coluna A
 COL_SITUACAO = 3   # Coluna D
 COL_LINK     = 18  # Coluna S
 
-TIMEOUT       = 8
+TIMEOUT       = 10
 TAMANHO_MIN   = 1000   # HTML menor que isso = página com problema
 TEMPO_LENTO   = 3000   # ms — acima disso = lento
+
+# Cabeçalhos que imitam um navegador Chrome real —
+# ajuda a passar por proteções anti-bot que bloqueiam requisições "de robô"
+HEADERS_NAVEGADOR = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                  "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+    "Accept-Language": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Connection": "keep-alive",
+    "Upgrade-Insecure-Requests": "1",
+}
 
 IGNORAR_LINKS = {
     '', 'nao achei', 'não achei', 'deixar em branco', '-',
@@ -38,7 +50,6 @@ IGNORAR_LINKS = {
 # ─────────────────────────────────────────────
 
 def normalizar(texto):
-    """Remove espaços extras e coloca em minúsculo pra comparação segura"""
     return texto.strip().lower()
 
 
@@ -50,7 +61,6 @@ def buscar_clientes():
     try:
         resp = requests.get(url, timeout=30, allow_redirects=True)
         resp.raise_for_status()
-        # Força a codificação correta — o Google às vezes não declara o charset certo
         resp.encoding = 'utf-8'
         texto_csv = resp.text
     except Exception as e:
@@ -62,9 +72,8 @@ def buscar_clientes():
 
     for i, linha in enumerate(linhas):
         if i == 0:
-            continue  # pula cabeçalho
+            continue
 
-        # Parse CSV simples (lida com aspas e vírgulas dentro de campos)
         campos = []
         campo_atual = ''
         dentro_aspas = False
@@ -90,16 +99,11 @@ def buscar_clientes():
         link_normalizado = normalizar(link)
         if link_normalizado in IGNORAR_LINKS:
             continue
-
-        # Se o texto contém "não tem site" em qualquer variação, ignora também
-        # (proteção extra contra problemas de acentuação)
         if 'tem site' in link_normalizado or 'nao achei' in link_normalizado or 'não achei' in link_normalizado:
             continue
 
-        # Pega só primeira linha se tiver quebra
         link = link.split('\n')[0].strip()
 
-        # Se não parece uma URL válida (sem ponto, ou com espaços), ignora
         if not link or ' ' in link or '.' not in link:
             continue
 
@@ -112,39 +116,60 @@ def buscar_clientes():
     return clientes
 
 
-def checar_site(url):
-    """Verifica se o site está online, mede tempo e verifica tamanho do HTML"""
-    headers = {"User-Agent": "MonitorBot/1.0"}
-
+def _tentar_requisicao(url):
+    """Faz uma única tentativa de requisição, retorna (sucesso, resultado)"""
     try:
         inicio = time.time()
-        resp   = requests.get(url, timeout=TIMEOUT, headers=headers,
+        resp   = requests.get(url, timeout=TIMEOUT, headers=HEADERS_NAVEGADOR,
                               verify=False, allow_redirects=True)
         tempo_ms = round((time.time() - inicio) * 1000)
         codigo   = resp.status_code
         tamanho  = len(resp.text)
 
         if codigo >= 400:
-            return {"status": "fora", "detalhe": f"HTTP {codigo}", "tempo_ms": tempo_ms}
+            return False, {"status": "fora", "detalhe": f"HTTP {codigo}", "tempo_ms": tempo_ms}
 
         if tamanho < TAMANHO_MIN:
-            return {"status": "fora", "detalhe": f"Página vazia ({tamanho} chars)", "tempo_ms": tempo_ms}
+            return False, {"status": "fora", "detalhe": f"Página vazia ({tamanho} chars)", "tempo_ms": tempo_ms}
 
         if tempo_ms > TEMPO_LENTO:
-            return {"status": "lento", "detalhe": f"{tempo_ms}ms — {tamanho} chars", "tempo_ms": tempo_ms}
+            return True, {"status": "lento", "detalhe": f"{tempo_ms}ms — {tamanho} chars", "tempo_ms": tempo_ms}
 
-        return {"status": "ok", "detalhe": f"HTTP {codigo} — {tempo_ms}ms", "tempo_ms": tempo_ms}
+        return True, {"status": "ok", "detalhe": f"HTTP {codigo} — {tempo_ms}ms", "tempo_ms": tempo_ms}
 
     except requests.exceptions.ConnectionError as e:
-        return {"status": "fora", "detalhe": f"Sem conexão: {str(e)[:80]}", "tempo_ms": None}
+        return False, {"status": "fora", "detalhe": f"Sem conexão: {str(e)[:80]}", "tempo_ms": None}
     except requests.exceptions.Timeout:
-        return {"status": "fora", "detalhe": f"Timeout após {TIMEOUT}s", "tempo_ms": None}
+        return False, {"status": "fora", "detalhe": f"Timeout após {TIMEOUT}s", "tempo_ms": None}
     except Exception as e:
-        return {"status": "fora", "detalhe": str(e)[:80], "tempo_ms": None}
+        return False, {"status": "fora", "detalhe": str(e)[:80], "tempo_ms": None}
+
+
+def checar_site(url):
+    """
+    Verifica o site com até 2 tentativas.
+    Se a primeira falhar, espera alguns segundos e tenta de novo —
+    evita marcar como 'fora' problemas passageiros de rede ou bloqueio temporário.
+    """
+    sucesso, resultado = _tentar_requisicao(url)
+
+    if sucesso:
+        return resultado
+
+    # Primeira tentativa falhou — espera um pouco e tenta de novo
+    time.sleep(4)
+    sucesso2, resultado2 = _tentar_requisicao(url)
+
+    if sucesso2:
+        # Site voltou na segunda tentativa — provavelmente era bloqueio temporário
+        resultado2["detalhe"] += " (confirmado OK na 2ª tentativa)"
+        return resultado2
+
+    # Falhou nas duas tentativas — problema real
+    return resultado2
 
 
 def enviar_whatsapp(mensagem):
-    """Envia alerta no WhatsApp via Callmebot"""
     if not WHATSAPP_NUMERO or not WHATSAPP_APIKEY:
         return
     try:
@@ -155,7 +180,6 @@ def enviar_whatsapp(mensagem):
 
 
 def carregar_status_anterior():
-    """Carrega o status.json anterior pra detectar mudanças"""
     try:
         with open("output/status.json", "r", encoding="utf-8") as f:
             dados = json.load(f)
