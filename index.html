@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="logo.png">
 <title>Monitor de Clientes — Ver Digital</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap');
@@ -69,7 +70,6 @@
   }
   .btn-refresh:hover { background: var(--accent); color: #04150c; border-color: var(--accent); }
 
-  /* ── CARDS DE RESUMO (clicáveis) ── */
   .summary {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -99,7 +99,6 @@
   .card-stat.amarelo .numero { color: var(--yellow); }
   .card-stat.vermelho .numero { color: var(--red); }
 
-  /* ── CONTROLES (busca + ordenação) ── */
   .controles {
     padding: 14px 32px 0;
     display: flex;
@@ -139,10 +138,9 @@
   .sort-btn:hover { border-color: var(--accent); color: var(--text); }
   .sort-btn.ativo { background: var(--surface2); border-color: var(--accent); color: var(--accent); font-weight: 600; }
 
-  /* ── GRID — múltiplas colunas, ordem esquerda→direita ── */
   .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
     grid-auto-flow: row;
     gap: 10px;
     padding: 16px 32px 0;
@@ -151,15 +149,34 @@
   .card-cliente {
     border-radius: 10px;
     padding: 12px 14px;
-    transition: transform 0.12s;
+    transition: transform 0.12s, box-shadow 0.12s;
     border: 1px solid transparent;
     box-sizing: border-box;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    position: relative;
   }
-  .card-cliente:hover { transform: translateY(-2px); }
+  .card-cliente:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+  }
   .card-cliente.ok    { background: var(--green-bg); border-color: var(--green-border); }
   .card-cliente.erro  { background: var(--red-bg); border-color: var(--red-border); }
   .card-cliente.lento { background: var(--yellow-bg); border-color: var(--yellow-border); }
-  .card-cliente.nc    { background: var(--surface); border-color: var(--border); }
+  .card-cliente.nc    { background: var(--surface); border-color: var(--border); cursor: default; }
+  .card-cliente.silenciado { opacity: 0.55; }
+
+  .link-icone {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 11px;
+    color: var(--muted);
+    opacity: 0;
+    transition: opacity 0.15s;
+  }
+  .card-cliente:hover .link-icone { opacity: 0.8; }
 
   .status-row { display: flex; align-items: center; gap: 6px; margin-bottom: 6px; }
   .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
@@ -174,13 +191,42 @@
   .card-cliente.erro .status-label   { color: var(--red); }
   .card-cliente.nc .status-label     { color: var(--muted); }
 
-  .nome-cliente { font-size: 13px; font-weight: 600; line-height: 1.3; margin-bottom: 4px; word-break: break-word; }
+  .nome-cliente { font-size: 13px; font-weight: 600; line-height: 1.3; margin-bottom: 4px; word-break: break-word; color: var(--text); }
   .url-cliente { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .card-cliente.ok .url-cliente     { color: #6fd9a3; }
   .card-cliente.lento .url-cliente  { color: #d4a800; }
   .card-cliente.erro .url-cliente   { color: #e89aa1; }
 
+  .hospedagem-badge {
+    display: inline-block;
+    margin-top: 5px;
+    font-size: 9px;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--muted);
+    background: rgba(255,255,255,0.06);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+
   .detalhe-erro { font-size: 9px; color: #e89aa1; margin-top: 4px; font-family: 'JetBrains Mono', monospace; line-height: 1.3; }
+
+  .btn-silenciar {
+    display: block;
+    width: 100%;
+    margin-top: 8px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: var(--text);
+    padding: 5px 8px;
+    border-radius: 6px;
+    font-size: 9px;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.15s;
+  }
+  .btn-silenciar:hover { background: rgba(255,255,255,0.16); }
+  .btn-silenciar.ja-silenciado { background: rgba(255,255,255,0.04); color: var(--muted); cursor: default; }
 
   .vazio { grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: var(--muted); }
   .vazio .icone { font-size: 48px; margin-bottom: 12px; }
@@ -250,8 +296,11 @@
 </div>
 
 <script>
-  // URL do status.json publicado pelo GitHub Actions / GitHub Pages
   const STATUS_URL = 'https://heltonbarbosasantos-cell.github.io/monitor-verdigital/status.json';
+  const GITHUB_OWNER  = 'heltonbarbosasantos-cell';
+  const GITHUB_REPO   = 'monitor-verdigital';
+  const GITHUB_BRANCH = 'gh-pages';
+  const ACK_PATH      = 'acknowledged.json';
 
   let dadosGlobais = [];
   let filtroAtivo  = 'todos';
@@ -274,6 +323,87 @@
     if (el) el.classList.add('ativo');
     renderCards();
   }
+
+  function escapeHtml(texto) {
+    if (texto === null || texto === undefined) return '';
+    return String(texto)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+  }
+
+  function getToken() {
+    let token = localStorage.getItem('gh_pat');
+    if (!token) {
+      token = prompt('Cole seu GitHub Token (Personal Access Token com permissão de escrita neste repositório) para poder silenciar alertas:\n\nEsse token fica salvo só no seu navegador.');
+      if (token) localStorage.setItem('gh_pat', token.trim());
+    }
+    return token ? token.trim() : null;
+  }
+
+  async function silenciarAlerta(nomeCliente, btnEl) {
+    const token = getToken();
+    if (!token) return;
+
+    btnEl.textContent = 'Salvando...';
+
+    try {
+      const apiUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${ACK_PATH}`;
+      let sha = null;
+      let lista = [];
+
+      const getResp = await fetch(apiUrl + `?ref=${GITHUB_BRANCH}`, {
+        headers: { Authorization: `token ${token}` }
+      });
+      if (getResp.ok) {
+        const data = await getResp.json();
+        sha = data.sha;
+        lista = JSON.parse(decodeURIComponent(escape(atob(data.content))));
+      }
+      if (!lista.includes(nomeCliente)) lista.push(nomeCliente);
+
+      const novoConteudo = btoa(unescape(encodeURIComponent(JSON.stringify(lista, null, 2))));
+      const putResp = await fetch(apiUrl, {
+        method: 'PUT',
+        headers: { Authorization: `token ${token}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          message: `Silenciar alertas: ${nomeCliente}`,
+          content: novoConteudo,
+          branch: GITHUB_BRANCH,
+          ...(sha ? { sha } : {})
+        })
+      });
+
+      if (!putResp.ok) {
+        if (putResp.status === 401) {
+          localStorage.removeItem('gh_pat');
+          throw new Error('Token inválido ou sem permissão — tente de novo');
+        }
+        throw new Error('Falha ao salvar');
+      }
+
+      btnEl.textContent = '🔕 Silenciado até resolver';
+      btnEl.classList.add('ja-silenciado');
+      btnEl.disabled = true;
+
+    } catch (e) {
+      alert('Erro ao silenciar: ' + e.message);
+      btnEl.textContent = '🔕 Estou ciente — silenciar';
+    }
+  }
+
+  // Delegação de evento — evita ter que "costurar" o nome do cliente
+  // dentro de atributos HTML (o que quebraria com nomes tendo & ou aspas)
+  document.getElementById('grid').addEventListener('click', function(e) {
+    const btn = e.target.closest('.btn-silenciar');
+    if (!btn || btn.classList.contains('ja-silenciado')) return;
+    e.preventDefault();
+    e.stopPropagation();
+    const nomeCliente = btn.dataset.cliente;
+    silenciarAlerta(nomeCliente, btn);
+  });
 
   async function carregar() {
     document.getElementById('loading').style.display = 'flex';
@@ -362,22 +492,42 @@
       else if (status === 'fora')  { classe = 'erro'; label = 'FORA'; dotClass = 'erro'; }
       else                         { classe = 'nc'; label = 'N/C'; dotClass = 'nc'; }
 
+      const silenciadoClasse = c.silenciado ? ' silenciado' : '';
+
       const urlLimpa  = (c.site_url || '—').replace(/^https?:\/\//, '').replace(/\/$/, '');
       const tempoInfo = c.tempo_ms ? `<span style="font-size:9px;color:var(--muted);font-family:monospace">${c.tempo_ms}ms</span>` : '';
-      const erroInfo  = status === 'fora'  ? `<div class="detalhe-erro">⚠ ${c.site_info}</div>` : '';
-      const lentoInfo = status === 'lento' ? `<div class="detalhe-erro" style="color:#d4a800">⚠ ${c.site_info}</div>` : '';
+      const erroInfo  = status === 'fora'  ? `<div class="detalhe-erro">⚠ ${escapeHtml(c.site_info)}</div>` : '';
+      const lentoInfo = status === 'lento' ? `<div class="detalhe-erro" style="color:#d4a800">⚠ ${escapeHtml(c.site_info)}</div>` : '';
+      const linkIcone = c.site_url ? `<span class="link-icone">↗</span>` : '';
+      const hospedagemTexto = c.hospedagem ? String(c.hospedagem).slice(0, 30) : '';
+      const hospedagemBadge = hospedagemTexto ? `<span class="hospedagem-badge">${escapeHtml(hospedagemTexto)}</span><br>` : '';
 
-      return `
-        <div class="card-cliente ${classe}">
+      let botaoSilenciar = '';
+      if (status === 'fora') {
+        if (c.silenciado) {
+          botaoSilenciar = `<button class="btn-silenciar ja-silenciado" disabled>🔕 Silenciado até resolver</button>`;
+        } else {
+          botaoSilenciar = `<button class="btn-silenciar" data-cliente="${escapeHtml(c.cliente)}">🔕 Estou ciente — silenciar</button>`;
+        }
+      }
+
+      const conteudo = `
           <div class="status-row">
             <span class="dot ${dotClass}"></span>
             <span class="status-label">${label}</span>
             ${tempoInfo}
           </div>
-          <div class="nome-cliente">${c.cliente}</div>
-          <div class="url-cliente">${urlLimpa}</div>
+          <div class="nome-cliente">${escapeHtml(c.cliente)}</div>
+          <div class="url-cliente">${escapeHtml(urlLimpa)}</div>
+          ${hospedagemBadge}
           ${erroInfo}${lentoInfo}
-        </div>`;
+          ${botaoSilenciar}
+          ${linkIcone}`;
+
+      if (c.site_url) {
+        return `<a class="card-cliente ${classe}${silenciadoClasse}" href="${escapeHtml(c.site_url)}" target="_blank" rel="noopener noreferrer">${conteudo}</a>`;
+      }
+      return `<div class="card-cliente ${classe}${silenciadoClasse}">${conteudo}</div>`;
     }).join('');
   }
 
