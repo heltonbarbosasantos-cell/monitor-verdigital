@@ -20,16 +20,18 @@ SHEET_GID       = os.environ.get("SHEET_GID", "675222443")
 WHATSAPP_NUMERO = os.environ.get("WHATSAPP_NUMERO", "")
 WHATSAPP_APIKEY = os.environ.get("WHATSAPP_APIKEY", "")
 
-COL_CLIENTE  = 0   # Coluna A
-COL_SITUACAO = 3   # Coluna D
-COL_LINK     = 18  # Coluna S
+COL_CLIENTE     = 0    # Coluna A
+COL_SITUACAO    = 3    # Coluna D
+COL_LINK        = 18   # Coluna S
+COL_HOSPEDAGEM  = 19   # Coluna T
 
 TIMEOUT       = 10
-TAMANHO_MIN   = 1000   # HTML menor que isso = página com problema
-TEMPO_LENTO   = 3000   # ms — acima disso = lento
+TAMANHO_MIN   = 1000
+TEMPO_LENTO   = 3000
 
-# Cabeçalhos que imitam um navegador Chrome real —
-# ajuda a passar por proteções anti-bot que bloqueiam requisições "de robô"
+# URL pública onde o acknowledged.json fica publicado (mesma do painel)
+ACK_URL = "https://heltonbarbosasantos-cell.github.io/monitor-verdigital/acknowledged.json"
+
 HEADERS_NAVEGADOR = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
                   "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
@@ -53,8 +55,18 @@ def normalizar(texto):
     return texto.strip().lower()
 
 
+def buscar_acknowledged():
+    """Busca a lista de clientes com alertas silenciados (marcados como 'ciente')"""
+    try:
+        resp = requests.get(ACK_URL, timeout=10)
+        if resp.status_code == 200:
+            return set(resp.json())
+    except Exception:
+        pass
+    return set()
+
+
 def buscar_clientes():
-    """Lê planilha do Google Sheets e retorna lista de clientes ativos com site"""
     url = f"https://docs.google.com/spreadsheets/d/{SHEET_ID}/export?format=csv&gid={SHEET_GID}"
     print(f"📋 Buscando planilha...")
 
@@ -87,9 +99,10 @@ def buscar_clientes():
                 campo_atual += char
         campos.append(campo_atual.strip())
 
-        nome     = campos[COL_CLIENTE].strip()  if len(campos) > COL_CLIENTE  else ''
-        situacao = campos[COL_SITUACAO].strip() if len(campos) > COL_SITUACAO else ''
-        link     = campos[COL_LINK].strip()     if len(campos) > COL_LINK     else ''
+        nome        = campos[COL_CLIENTE].strip()       if len(campos) > COL_CLIENTE      else ''
+        situacao    = campos[COL_SITUACAO].strip()       if len(campos) > COL_SITUACAO     else ''
+        link        = campos[COL_LINK].strip()           if len(campos) > COL_LINK         else ''
+        hospedagem  = campos[COL_HOSPEDAGEM].strip()     if len(campos) > COL_HOSPEDAGEM   else ''
 
         if not nome:
             continue
@@ -110,14 +123,20 @@ def buscar_clientes():
         if not link.startswith('http'):
             link = 'https://' + link
 
-        clientes.append({"cliente": nome, "site": link.rstrip('/')})
+        if not hospedagem or normalizar(hospedagem) in ('-', 'none'):
+            hospedagem = ''
+
+        clientes.append({
+            "cliente": nome,
+            "site": link.rstrip('/'),
+            "hospedagem": hospedagem,
+        })
 
     print(f"✅ {len(clientes)} clientes ativos encontrados")
     return clientes
 
 
 def _tentar_requisicao(url):
-    """Faz uma única tentativa de requisição, retorna (sucesso, resultado)"""
     try:
         inicio = time.time()
         resp   = requests.get(url, timeout=TIMEOUT, headers=HEADERS_NAVEGADOR,
@@ -128,13 +147,10 @@ def _tentar_requisicao(url):
 
         if codigo >= 400:
             return False, {"status": "fora", "detalhe": f"HTTP {codigo}", "tempo_ms": tempo_ms}
-
         if tamanho < TAMANHO_MIN:
             return False, {"status": "fora", "detalhe": f"Página vazia ({tamanho} chars)", "tempo_ms": tempo_ms}
-
         if tempo_ms > TEMPO_LENTO:
             return True, {"status": "lento", "detalhe": f"{tempo_ms}ms — {tamanho} chars", "tempo_ms": tempo_ms}
-
         return True, {"status": "ok", "detalhe": f"HTTP {codigo} — {tempo_ms}ms", "tempo_ms": tempo_ms}
 
     except requests.exceptions.ConnectionError as e:
@@ -146,26 +162,17 @@ def _tentar_requisicao(url):
 
 
 def checar_site(url):
-    """
-    Verifica o site com até 2 tentativas.
-    Se a primeira falhar, espera alguns segundos e tenta de novo —
-    evita marcar como 'fora' problemas passageiros de rede ou bloqueio temporário.
-    """
     sucesso, resultado = _tentar_requisicao(url)
-
     if sucesso:
         return resultado
 
-    # Primeira tentativa falhou — espera um pouco e tenta de novo
     time.sleep(4)
     sucesso2, resultado2 = _tentar_requisicao(url)
 
     if sucesso2:
-        # Site voltou na segunda tentativa — provavelmente era bloqueio temporário
         resultado2["detalhe"] += " (confirmado OK na 2ª tentativa)"
         return resultado2
 
-    # Falhou nas duas tentativas — problema real
     return resultado2
 
 
@@ -200,6 +207,7 @@ def main():
 
     clientes         = buscar_clientes()
     status_anterior  = carregar_status_anterior()
+    acknowledged     = buscar_acknowledged()  # clientes com alerta silenciado
     resultados       = []
     alertas          = []
     total_ok         = 0
@@ -207,8 +215,9 @@ def main():
     total_erro       = 0
 
     for cliente in clientes:
-        nome = cliente["cliente"]
-        site = cliente["site"]
+        nome       = cliente["cliente"]
+        site       = cliente["site"]
+        hospedagem = cliente["hospedagem"]
 
         print(f"  🔍 {nome} ({site})")
         res    = checar_site(site)
@@ -219,20 +228,23 @@ def main():
         elif status == "fora":  total_erro += 1
 
         ant_status = status_anterior.get(nome, {}).get("status", "ok")
+        esta_silenciado = nome in acknowledged
 
-        if status == "fora" and ant_status != "fora":
+        # Só alerta no WhatsApp quando o site está FORA (lento não avisa mais)
+        # e só se o cliente não estiver marcado como "ciente"
+        if status == "fora" and ant_status != "fora" and not esta_silenciado:
             alertas.append(f"🔴 SITE FORA: {nome}\n{site}\n{res['detalhe']}")
-        if status == "lento" and ant_status != "lento":
-            alertas.append(f"🟡 SITE LENTO: {nome}\n{site}\n{res['detalhe']}")
         if status == "ok" and ant_status == "fora":
             alertas.append(f"✅ SITE VOLTOU: {nome}\n{site}")
 
         resultados.append({
-            "cliente":  nome,
-            "site_url": site,
-            "status":   status,
-            "site_info": res["detalhe"],
-            "tempo_ms": res["tempo_ms"],
+            "cliente":    nome,
+            "site_url":   site,
+            "hospedagem": hospedagem,
+            "status":     status,
+            "site_info":  res["detalhe"],
+            "tempo_ms":   res["tempo_ms"],
+            "silenciado": esta_silenciado,
         })
 
         time.sleep(0.5)
@@ -240,6 +252,15 @@ def main():
     for alerta in alertas:
         print(f"[ALERTA] {alerta}")
         enviar_whatsapp(alerta)
+
+    # Limpa a lista de "silenciados" — mantém só quem ainda está fora.
+    # Assim que o site volta ao normal, ele sai da lista automaticamente
+    # e volta a alertar numa próxima queda.
+    nomes_fora_agora = {r["cliente"] for r in resultados if r["status"] == "fora"}
+    acknowledged_atualizado = sorted(acknowledged & nomes_fora_agora)
+
+    with open("output/acknowledged.json", "w", encoding="utf-8") as f:
+        json.dump(acknowledged_atualizado, f, ensure_ascii=False, indent=2)
 
     output = {
         "ultima_verificacao": datetime.now().strftime("%d/%m/%Y %H:%M:%S"),
