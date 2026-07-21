@@ -1,5 +1,5 @@
 {
-  "ultima_verificacao": "21/07/2026 00:18:39",
+  "ultima_verificacao": "21/07/2026 09:48:12",
   "total_clientes": 93,
   "total_ok": 90,
   "total_lento": 5,
@@ -9,85 +9,85 @@
       "cliente": "Abramo e Kaam Advocacia",
       "site_url": "https://abramoekaam.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 1944ms",
-      "tempo_ms": 1944
+      "site_info": "HTTP 200 — 1812ms",
+      "tempo_ms": 1812
     },
     {
       "cliente": "2F Engenharia",
       "site_url": "https://2findustrial.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 1886ms",
-      "tempo_ms": 1886
+      "site_info": "HTTP 200 — 1741ms",
+      "tempo_ms": 1741
     },
     {
       "cliente": "Basic Marcas",
       "site_url": "https://basicmarcas.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 1679ms",
-      "tempo_ms": 1679
+      "site_info": "HTTP 200 — 1412ms",
+      "tempo_ms": 1412
     },
     {
       "cliente": "Machado Guedes Adv",
       "site_url": "https://fullservice.machadoguedes.adv.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 968ms",
-      "tempo_ms": 968
+      "site_info": "HTTP 200 — 910ms",
+      "tempo_ms": 910
     },
     {
       "cliente": "EPEX",
       "site_url": "https://epex.ind.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 1302ms",
-      "tempo_ms": 1302
+      "site_info": "HTTP 200 — 1144ms",
+      "tempo_ms": 1144
     },
     {
       "cliente": "Pisoplan",
       "site_url": "https://pisoplan.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 642ms",
-      "tempo_ms": 642
+      "site_info": "HTTP 200 — 746ms",
+      "tempo_ms": 746
     },
     {
       "cliente": "Diogo Adv Curitiba",
       "site_url": "https://dmb.adv.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 1485ms",
-      "tempo_ms": 1485
+      "site_info": "HTTP 200 — 1573ms",
+      "tempo_ms": 1573
     },
     {
       "cliente": "Autocenter 101",
       "site_url": "https://autocenter101.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 1494ms",
-      "tempo_ms": 1494
+      "site_info": "HTTP 200 — 1606ms",
+      "tempo_ms": 1606
     },
     {
       "cliente": "Juan Sareta Adv",
       "site_url": "https://saretacorrea.adv.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 1567ms",
-      "tempo_ms": 1567
+      "site_info": "HTTP 200 — 1546ms",
+      "tempo_ms": 1546
     },
     {
       "cliente": "José Lucio Adv",
       "site_url": "https://joselucio.adv.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 460ms",
-      "tempo_ms": 460
+      "site_info": "HTTP 200 — 384ms",
+      "tempo_ms": 384
     },
     {
       "cliente": "Leticia Adv",
       "site_url": "https://leticiacosta.adv.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 1617ms",
-      "tempo_ms": 1617
+      "site_info": "HTTP 200 — 1352ms",
+      "tempo_ms": 1352
     },
     {
       "cliente": "Enkartes",
       "site_url": "https://enkartes.com.br",
-      "status": "lento",
-      "site_info": "3285ms — 20537 chars",
-      "tempo_ms": 3285
+      "status": "ok",
+      "site_info": "HTTP 200 — 2929ms",
+      "tempo_ms": 2929
     },
     {
       "cliente": "SSM Advocacia",
@@ -100,211 +100,211 @@
       "cliente": "Apoio Mix",
       "site_url": "https://apoiomixedescartaveis.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 1579ms",
-      "tempo_ms": 1579
+      "site_info": "HTTP 200 — 1356ms",
+      "tempo_ms": 1356
     },
     {
       "cliente": "Cristiano Campos Adv",
       "site_url": "https://camposcarvalhoadvocacia.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 1637ms",
-      "tempo_ms": 1637
+      "site_info": "HTTP 200 — 1617ms",
+      "tempo_ms": 1617
     },
     {
       "cliente": "Cendefi",
       "site_url": "https://cendefi.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 2755ms",
-      "tempo_ms": 2755
+      "site_info": "HTTP 200 — 1759ms",
+      "tempo_ms": 1759
     },
     {
       "cliente": "Renarts",
       "site_url": "https://renartsdecor.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 1826ms",
-      "tempo_ms": 1826
+      "site_info": "HTTP 200 — 1733ms",
+      "tempo_ms": 1733
     },
     {
       "cliente": "LFSG",
       "site_url": "https://lfsgadvocacia.com.br",
       "status": "fora",
       "site_info": "HTTP 500",
-      "tempo_ms": 355
+      "tempo_ms": 311
     },
     {
       "cliente": "Freskura",
       "site_url": "https://freskura.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 1632ms",
-      "tempo_ms": 1632
+      "site_info": "HTTP 200 — 1723ms",
+      "tempo_ms": 1723
     },
     {
       "cliente": "Funeraria Aster",
       "site_url": "https://centralfunerariaaster.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 1911ms",
-      "tempo_ms": 1911
+      "site_info": "HTTP 200 — 1704ms",
+      "tempo_ms": 1704
     },
     {
       "cliente": "Zecchin Advocacia",
       "site_url": "https://zecchinadvocacia.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 802ms",
-      "tempo_ms": 802
+      "site_info": "HTTP 200 — 611ms",
+      "tempo_ms": 611
     },
     {
       "cliente": "Roma Eventos",
       "site_url": "https://romaeventoscampinas.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 2018ms",
-      "tempo_ms": 2018
+      "site_info": "HTTP 200 — 1712ms",
+      "tempo_ms": 1712
     },
     {
       "cliente": "Pedro Puig Adv",
       "site_url": "https://puigadvogados.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 1446ms",
-      "tempo_ms": 1446
+      "site_info": "HTTP 200 — 1614ms",
+      "tempo_ms": 1614
     },
     {
       "cliente": "Torres e Cruz",
       "site_url": "https://torresecruz.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 1855ms",
-      "tempo_ms": 1855
+      "site_info": "HTTP 200 — 1667ms",
+      "tempo_ms": 1667
     },
     {
       "cliente": "Leticia e Nádia Adv",
       "site_url": "https://leticiaenadia.adv.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 2911ms",
-      "tempo_ms": 2911
+      "site_info": "HTTP 200 — 1576ms",
+      "tempo_ms": 1576
     },
     {
       "cliente": "Rafael Adv",
       "site_url": "https://rafaelstarling.adv.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 2095ms",
-      "tempo_ms": 2095
+      "site_info": "HTTP 200 — 1699ms",
+      "tempo_ms": 1699
     },
     {
       "cliente": "Paulo Adv",
       "site_url": "https://prj.adv.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 1737ms",
-      "tempo_ms": 1737
+      "site_info": "HTTP 200 — 1771ms",
+      "tempo_ms": 1771
     },
     {
       "cliente": "Holdefer & MAchado",
       "site_url": "https://holdeferemachado.adv.br",
-      "status": "lento",
-      "site_info": "3191ms — 23513 chars",
-      "tempo_ms": 3191
+      "status": "ok",
+      "site_info": "HTTP 200 — 877ms",
+      "tempo_ms": 877
     },
     {
       "cliente": "Arquitetura com Villanueva",
       "site_url": "https://arquiteturacomvillanueva.com",
       "status": "ok",
-      "site_info": "HTTP 200 — 2044ms",
-      "tempo_ms": 2044
+      "site_info": "HTTP 200 — 1946ms",
+      "tempo_ms": 1946
     },
     {
       "cliente": "Peixinhos Confecções",
       "site_url": "https://peixinhocollection.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 680ms",
-      "tempo_ms": 680
+      "site_info": "HTTP 200 — 533ms",
+      "tempo_ms": 533
     },
     {
       "cliente": "Sousa e Balista",
       "site_url": "https://sousaebalista.adv.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 1579ms",
-      "tempo_ms": 1579
+      "site_info": "HTTP 200 — 1527ms",
+      "tempo_ms": 1527
     },
     {
       "cliente": "Montarelli Engenharia",
       "site_url": "https://montarelliengenharia.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 430ms",
-      "tempo_ms": 430
+      "site_info": "HTTP 200 — 416ms",
+      "tempo_ms": 416
     },
     {
       "cliente": "Verônica Fonseca Adv",
       "site_url": "https://veronicafonseca.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 2652ms",
-      "tempo_ms": 2652
+      "site_info": "HTTP 200 — 553ms",
+      "tempo_ms": 553
     },
     {
       "cliente": "S.Fernandes",
       "site_url": "https://sfernandesadv.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 1675ms",
-      "tempo_ms": 1675
+      "site_info": "HTTP 200 — 1639ms",
+      "tempo_ms": 1639
     },
     {
       "cliente": "Metal Porte",
       "site_url": "https://mpestruturasmetalicas.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 1802ms",
-      "tempo_ms": 1802
+      "site_info": "HTTP 200 — 1666ms",
+      "tempo_ms": 1666
     },
     {
       "cliente": "Pergamum",
       "site_url": "https://pergamumcontabilidade.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 887ms",
-      "tempo_ms": 887
+      "site_info": "HTTP 200 — 993ms",
+      "tempo_ms": 993
     },
     {
       "cliente": "Rosangela Adv",
       "site_url": "https://rosangelameneses.adv.br",
       "status": "lento",
-      "site_info": "3425ms — 21170 chars",
-      "tempo_ms": 3425
+      "site_info": "3309ms — 21235 chars",
+      "tempo_ms": 3309
     },
     {
       "cliente": "Durigon Advocacia",
       "site_url": "https://durigonadvogados.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 475ms",
-      "tempo_ms": 475
+      "site_info": "HTTP 200 — 392ms",
+      "tempo_ms": 392
     },
     {
       "cliente": "AIM Advogados",
       "site_url": "https://trabalhista.aimadvogados.com",
       "status": "ok",
-      "site_info": "HTTP 200 — 299ms",
-      "tempo_ms": 299
+      "site_info": "HTTP 200 — 2080ms",
+      "tempo_ms": 2080
     },
     {
       "cliente": "Safa Tendas",
       "site_url": "https://safatendas.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 1875ms",
-      "tempo_ms": 1875
+      "site_info": "HTTP 200 — 1559ms",
+      "tempo_ms": 1559
     },
     {
       "cliente": "Brazicom",
       "site_url": "https://brazicom.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 278ms",
-      "tempo_ms": 278
+      "site_info": "HTTP 200 — 233ms",
+      "tempo_ms": 233
     },
     {
       "cliente": "Casa Armani",
       "site_url": "https://casaarmani.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 1787ms",
-      "tempo_ms": 1787
+      "site_info": "HTTP 200 — 1555ms",
+      "tempo_ms": 1555
     },
     {
       "cliente": "Guerra e Oliveira",
       "site_url": "https://guerraeoliveira.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 631ms",
-      "tempo_ms": 631
+      "site_info": "HTTP 200 — 546ms",
+      "tempo_ms": 546
     },
     {
       "cliente": "Koru Contabilidade",
@@ -317,344 +317,344 @@
       "cliente": "MR Porto e Parceria",
       "site_url": "https://mrportoeparceria.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 634ms",
-      "tempo_ms": 634
+      "site_info": "HTTP 200 — 687ms",
+      "tempo_ms": 687
     },
     {
       "cliente": "Evanda Adv",
       "site_url": "https://evandaferreira.adv.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 629ms",
-      "tempo_ms": 629
+      "site_info": "HTTP 200 — 687ms",
+      "tempo_ms": 687
     },
     {
       "cliente": "Infonet",
       "site_url": "https://infonetfibra.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 752ms",
-      "tempo_ms": 752
+      "site_info": "HTTP 200 — 679ms",
+      "tempo_ms": 679
     },
     {
       "cliente": "Clinica Priscila Nascimento",
       "site_url": "https://clinicapriscilanascimento.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 1064ms",
-      "tempo_ms": 1064
+      "site_info": "HTTP 200 — 1093ms",
+      "tempo_ms": 1093
     },
     {
       "cliente": "DWR Hospitalar",
       "site_url": "https://dwrhospitalar.com.br",
       "status": "lento",
-      "site_info": "5991ms — 394797 chars",
-      "tempo_ms": 5991
+      "site_info": "6486ms — 394797 chars",
+      "tempo_ms": 6486
     },
     {
       "cliente": "M3Tecno",
       "site_url": "https://m3tecno.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 470ms",
-      "tempo_ms": 470
+      "site_info": "HTTP 200 — 248ms",
+      "tempo_ms": 248
     },
     {
       "cliente": "Flávio Balduino",
       "site_url": "https://advocaciaflaviobalduino.com",
       "status": "ok",
-      "site_info": "HTTP 200 — 1434ms",
-      "tempo_ms": 1434
+      "site_info": "HTTP 200 — 2347ms",
+      "tempo_ms": 2347
     },
     {
       "cliente": "Crespo e Caires",
       "site_url": "https://crespoecairesadvogados.com",
-      "status": "ok",
-      "site_info": "HTTP 200 — 1200ms",
-      "tempo_ms": 1200
+      "status": "lento",
+      "site_info": "7504ms — 22303 chars",
+      "tempo_ms": 7504
     },
     {
       "cliente": "Jacsys",
       "site_url": "https://jacsys.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 2283ms",
-      "tempo_ms": 2283
+      "site_info": "HTTP 200 — 1992ms",
+      "tempo_ms": 1992
     },
     {
       "cliente": "WL Tintas",
       "site_url": "https://lojawltintas.com.br",
-      "status": "ok",
-      "site_info": "HTTP 200 — 2120ms",
-      "tempo_ms": 2120
+      "status": "lento",
+      "site_info": "3482ms — 430014 chars",
+      "tempo_ms": 3482
     },
     {
       "cliente": "Inovision Contabilidade",
       "site_url": "https://inovisioncontabilidade.com.br",
       "status": "lento",
-      "site_info": "3545ms — 201690 chars",
-      "tempo_ms": 3545
+      "site_info": "3515ms — 201690 chars",
+      "tempo_ms": 3515
     },
     {
       "cliente": "Dinamix",
       "site_url": "https://comercialdinamix.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 2398ms",
-      "tempo_ms": 2398
+      "site_info": "HTTP 200 — 2495ms",
+      "tempo_ms": 2495
     },
     {
       "cliente": "Bianca Adv",
       "site_url": "https://biancasilveiraadv.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 303ms",
-      "tempo_ms": 303
+      "site_info": "HTTP 200 — 217ms",
+      "tempo_ms": 217
     },
     {
       "cliente": "Vital Transportes",
       "site_url": "https://vitaltransportes.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 463ms",
-      "tempo_ms": 463
+      "site_info": "HTTP 200 — 397ms",
+      "tempo_ms": 397
     },
     {
       "cliente": "André RN",
       "site_url": "https://andrern.adv.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 299ms",
-      "tempo_ms": 299
+      "site_info": "HTTP 200 — 402ms",
+      "tempo_ms": 402
     },
     {
       "cliente": "Paula Roberta",
       "site_url": "https://paulaseifertpsicologia.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 297ms",
-      "tempo_ms": 297
+      "site_info": "HTTP 200 — 384ms",
+      "tempo_ms": 384
     },
     {
       "cliente": "M F Brindes",
       "site_url": "https://mfbrindesegravacao.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 308ms",
-      "tempo_ms": 308
+      "site_info": "HTTP 200 — 228ms",
+      "tempo_ms": 228
     },
     {
       "cliente": "Diego Adv",
       "site_url": "https://diegobritoadvogados.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 296ms",
-      "tempo_ms": 296
+      "site_info": "HTTP 200 — 247ms",
+      "tempo_ms": 247
     },
     {
       "cliente": "Luis Gustavo Advogado",
       "site_url": "https://lgsprevidenciarista.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 463ms",
-      "tempo_ms": 463
+      "site_info": "HTTP 200 — 388ms",
+      "tempo_ms": 388
     },
     {
       "cliente": "Luiz Motta Advogado",
       "site_url": "https://mottadeoliveira.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 299ms",
-      "tempo_ms": 299
+      "site_info": "HTTP 200 — 216ms",
+      "tempo_ms": 216
     },
     {
       "cliente": "Toca Engenharia",
       "site_url": "https://tocaarqeng.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 306ms",
-      "tempo_ms": 306
+      "site_info": "HTTP 200 — 216ms",
+      "tempo_ms": 216
     },
     {
       "cliente": "HSS Contabilidade",
       "site_url": "https://hsscontabil.com",
       "status": "ok",
-      "site_info": "HTTP 200 — 228ms",
-      "tempo_ms": 228
+      "site_info": "HTTP 200 — 359ms",
+      "tempo_ms": 359
     },
     {
       "cliente": "Gabriela Psicóloga",
       "site_url": "https://psicologagabrielastrabello.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 299ms",
-      "tempo_ms": 299
+      "site_info": "HTTP 200 — 394ms",
+      "tempo_ms": 394
     },
     {
       "cliente": "MD Neto",
       "site_url": "https://mdnetotrabalhista.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 293ms",
-      "tempo_ms": 293
+      "site_info": "HTTP 200 — 517ms",
+      "tempo_ms": 517
     },
     {
       "cliente": "RGE Projetos e Obras (ALM Construção)",
       "site_url": "https://rgeprojetoseobras.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 611ms",
-      "tempo_ms": 611
+      "site_info": "HTTP 200 — 218ms",
+      "tempo_ms": 218
     },
     {
       "cliente": "DFW",
       "site_url": "https://dfwjateamento.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 702ms",
-      "tempo_ms": 702
+      "site_info": "HTTP 200 — 610ms",
+      "tempo_ms": 610
     },
     {
       "cliente": "Lucas Oliveira Adv",
       "site_url": "https://oliveiradvocacia.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 474ms",
-      "tempo_ms": 474
+      "site_info": "HTTP 200 — 218ms",
+      "tempo_ms": 218
     },
     {
       "cliente": "Delus Contabilidade",
       "site_url": "https://deluscontabilidade.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 311ms",
-      "tempo_ms": 311
+      "site_info": "HTTP 200 — 382ms",
+      "tempo_ms": 382
     },
     {
       "cliente": "Suzele Advogada",
       "site_url": "https://suzelecarvalho.adv.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 307ms",
-      "tempo_ms": 307
+      "site_info": "HTTP 200 — 221ms",
+      "tempo_ms": 221
     },
     {
       "cliente": "Ateliê D&D",
       "site_url": "https://atelieded.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 494ms",
-      "tempo_ms": 494
+      "site_info": "HTTP 200 — 381ms",
+      "tempo_ms": 381
     },
     {
       "cliente": "Efficace Contábil",
       "site_url": "https://efficacecontabilidade.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 304ms",
-      "tempo_ms": 304
+      "site_info": "HTTP 200 — 229ms",
+      "tempo_ms": 229
     },
     {
       "cliente": "Moretti Contabilidade",
       "site_url": "https://moretticontabilidade.cnt.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 307ms",
-      "tempo_ms": 307
+      "site_info": "HTTP 200 — 384ms",
+      "tempo_ms": 384
     },
     {
       "cliente": "ECM Advocacia",
       "site_url": "https://ecmadvocacia.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 301ms",
-      "tempo_ms": 301
+      "site_info": "HTTP 200 — 228ms",
+      "tempo_ms": 228
     },
     {
       "cliente": "Bruno Advocacia",
       "site_url": "https://brunocoelhoadvogados.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 318ms",
-      "tempo_ms": 318
+      "site_info": "HTTP 200 — 217ms",
+      "tempo_ms": 217
     },
     {
       "cliente": "Bueno Pasqualotto Advocacia",
       "site_url": "https://cbuenoadvocacia.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 480ms",
-      "tempo_ms": 480
+      "site_info": "HTTP 200 — 386ms",
+      "tempo_ms": 386
     },
     {
       "cliente": "Rafael Contador",
       "site_url": "https://rrdassessoriacontabil.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 294ms",
-      "tempo_ms": 294
+      "site_info": "HTTP 200 — 608ms",
+      "tempo_ms": 608
     },
     {
       "cliente": "Andrea e Ricardo",
       "site_url": "https://aeradvocacia.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 296ms",
-      "tempo_ms": 296
+      "site_info": "HTTP 200 — 213ms",
+      "tempo_ms": 213
     },
     {
       "cliente": "Viviane Adv",
       "site_url": "https://advocaciavps.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 308ms",
-      "tempo_ms": 308
+      "site_info": "HTTP 200 — 409ms",
+      "tempo_ms": 409
     },
     {
       "cliente": "Fagner Adv",
       "site_url": "https://britoeviana.adv.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 2599ms",
-      "tempo_ms": 2599
+      "site_info": "HTTP 200 — 1888ms",
+      "tempo_ms": 1888
     },
     {
       "cliente": "Mateus Burtet Adv",
       "site_url": "https://mateusburtet.adv.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 313ms",
-      "tempo_ms": 313
+      "site_info": "HTTP 200 — 390ms",
+      "tempo_ms": 390
     },
     {
       "cliente": "Vanuza Adv",
       "site_url": "https://vssadvocacia.com",
       "status": "ok",
-      "site_info": "HTTP 200 — 917ms",
-      "tempo_ms": 917
+      "site_info": "HTTP 200 — 863ms",
+      "tempo_ms": 863
     },
     {
       "cliente": "Matheus Zanoni",
       "site_url": "https://matheuszanoni.adv.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 326ms",
-      "tempo_ms": 326
+      "site_info": "HTTP 200 — 347ms",
+      "tempo_ms": 347
     },
     {
       "cliente": "Paulo Puig adv",
       "site_url": "https://puigecosta.adv.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 467ms",
-      "tempo_ms": 467
+      "site_info": "HTTP 200 — 396ms",
+      "tempo_ms": 396
     },
     {
       "cliente": "André Barbosa Advogado",
       "site_url": "https://advogadoandrebarbosa.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 296ms",
-      "tempo_ms": 296
+      "site_info": "HTTP 200 — 391ms",
+      "tempo_ms": 391
     },
     {
       "cliente": "Gabriela Miranda",
       "site_url": "https://gabrielamiranda.adv.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 300ms",
-      "tempo_ms": 300
+      "site_info": "HTTP 200 — 225ms",
+      "tempo_ms": 225
     },
     {
       "cliente": "Moraes & Moraes",
       "site_url": "https://moraesemoraesadv.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 468ms",
-      "tempo_ms": 468
+      "site_info": "HTTP 200 — 220ms",
+      "tempo_ms": 220
     },
     {
       "cliente": "Mauad Pitot & Caroli",
       "site_url": "https://mauadpitotcaroli.adv.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 453ms",
-      "tempo_ms": 453
+      "site_info": "HTTP 200 — 221ms",
+      "tempo_ms": 221
     },
     {
       "cliente": "Jorge Noé Vizeu da Silva",
       "site_url": "https://noevizeuadvogados.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 456ms",
-      "tempo_ms": 456
+      "site_info": "HTTP 200 — 421ms",
+      "tempo_ms": 421
     },
     {
       "cliente": "RGM Advocacia",
       "site_url": "https://direito-trabalhista.rgmadv.com.br",
       "status": "ok",
-      "site_info": "HTTP 200 — 1626ms",
-      "tempo_ms": 1626
+      "site_info": "HTTP 200 — 1639ms",
+      "tempo_ms": 1639
     }
   ]
 }
