@@ -196,6 +196,7 @@ def enviar_whatsapp(mensagem):
 
 def enviar_email(assunto, mensagem):
     if not EMAIL_REMETENTE or not EMAIL_SENHA or not EMAIL_DESTINO:
+        print("[Email] Não enviado: faltam credenciais (EMAIL_REMETENTE/EMAIL_SENHA/EMAIL_DESTINO)")
         return
     try:
         msg = MIMEText(mensagem)
@@ -203,12 +204,14 @@ def enviar_email(assunto, mensagem):
         msg["From"]    = EMAIL_REMETENTE
         msg["To"]      = EMAIL_DESTINO
 
+        print(f"[Email] Conectando em {EMAIL_SMTP_HOST}:{EMAIL_SMTP_PORT}...")
         with smtplib.SMTP(EMAIL_SMTP_HOST, EMAIL_SMTP_PORT, timeout=15) as servidor:
             servidor.starttls()
             servidor.login(EMAIL_REMETENTE, EMAIL_SENHA)
             servidor.sendmail(EMAIL_REMETENTE, [EMAIL_DESTINO], msg.as_string())
+        print(f"[Email] ✅ Enviado com sucesso para {EMAIL_DESTINO}")
     except Exception as e:
-        print(f"[Email] Erro: {e}")
+        print(f"[Email] ❌ Erro ao enviar: {type(e).__name__}: {e}")
 
 
 def carregar_status_anterior():
@@ -229,6 +232,12 @@ def main():
     urllib3.disable_warnings()
 
     os.makedirs("output", exist_ok=True)
+
+    # Diagnóstico — confirma se as credenciais foram carregadas, sem expor valores sensíveis
+    print(f"[Config] WhatsApp configurado: {'sim' if (WHATSAPP_NUMERO and WHATSAPP_APIKEY) else 'não'}")
+    print(f"[Config] Email configurado: {'sim' if (EMAIL_REMETENTE and EMAIL_SENHA and EMAIL_DESTINO) else 'não'}")
+    if EMAIL_REMETENTE:
+        print(f"[Config] Email remetente: {EMAIL_REMETENTE} | destino: {EMAIL_DESTINO} | servidor: {EMAIL_SMTP_HOST}:{EMAIL_SMTP_PORT}")
 
     clientes         = buscar_clientes()
     status_anterior  = carregar_status_anterior()
