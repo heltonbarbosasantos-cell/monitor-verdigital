@@ -25,7 +25,7 @@ WHATSAPP_APIKEY = os.environ.get("WHATSAPP_APIKEY", "")
 EMAIL_REMETENTE = os.environ.get("EMAIL_REMETENTE", "")
 EMAIL_SENHA     = os.environ.get("EMAIL_SENHA", "")
 EMAIL_DESTINO   = os.environ.get("EMAIL_DESTINO", "")
-EMAIL_SMTP_HOST = os.environ.get("EMAIL_SMTP_HOST", "smtp-mail.outlook.com")
+EMAIL_SMTP_HOST = os.environ.get("EMAIL_SMTP_HOST", "smtp.gmail.com")
 EMAIL_SMTP_PORT = int(os.environ.get("EMAIL_SMTP_PORT", "587"))
 
 COL_CLIENTE     = 0    # Coluna A
