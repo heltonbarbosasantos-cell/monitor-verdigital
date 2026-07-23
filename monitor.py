@@ -8,7 +8,9 @@ Roda via GitHub Actions a cada 15 minutos
 import json
 import os
 import time
+import smtplib
 import requests
+from email.mime.text import MIMEText
 from datetime import datetime
 
 # ─────────────────────────────────────────────
@@ -19,6 +21,12 @@ SHEET_ID        = os.environ.get("SHEET_ID", "")
 SHEET_GID       = os.environ.get("SHEET_GID", "675222443")
 WHATSAPP_NUMERO = os.environ.get("WHATSAPP_NUMERO", "")
 WHATSAPP_APIKEY = os.environ.get("WHATSAPP_APIKEY", "")
+
+EMAIL_REMETENTE = os.environ.get("EMAIL_REMETENTE", "")
+EMAIL_SENHA     = os.environ.get("EMAIL_SENHA", "")
+EMAIL_DESTINO   = os.environ.get("EMAIL_DESTINO", "")
+EMAIL_SMTP_HOST = os.environ.get("EMAIL_SMTP_HOST", "smtp-mail.outlook.com")
+EMAIL_SMTP_PORT = int(os.environ.get("EMAIL_SMTP_PORT", "587"))
 
 COL_CLIENTE     = 0    # Coluna A
 COL_SITUACAO    = 3    # Coluna D
@@ -186,6 +194,23 @@ def enviar_whatsapp(mensagem):
         print(f"[WhatsApp] Erro: {e}")
 
 
+def enviar_email(assunto, mensagem):
+    if not EMAIL_REMETENTE or not EMAIL_SENHA or not EMAIL_DESTINO:
+        return
+    try:
+        msg = MIMEText(mensagem)
+        msg["Subject"] = assunto
+        msg["From"]    = EMAIL_REMETENTE
+        msg["To"]      = EMAIL_DESTINO
+
+        with smtplib.SMTP(EMAIL_SMTP_HOST, EMAIL_SMTP_PORT, timeout=15) as servidor:
+            servidor.starttls()
+            servidor.login(EMAIL_REMETENTE, EMAIL_SENHA)
+            servidor.sendmail(EMAIL_REMETENTE, [EMAIL_DESTINO], msg.as_string())
+    except Exception as e:
+        print(f"[Email] Erro: {e}")
+
+
 def carregar_status_anterior():
     try:
         with open("output/status.json", "r", encoding="utf-8") as f:
@@ -224,7 +249,7 @@ def main():
         status = res["status"]
 
         if status == "ok":    total_ok += 1
-        elif status == "lento": total_ok += 1; total_lento += 1
+        elif status == "lento": total_lento += 1
         elif status == "fora":  total_erro += 1
 
         ant_status = status_anterior.get(nome, {}).get("status", "ok")
@@ -252,6 +277,8 @@ def main():
     for alerta in alertas:
         print(f"[ALERTA] {alerta}")
         enviar_whatsapp(alerta)
+        assunto = alerta.split('\n')[0]  # primeira linha vira o assunto do email
+        enviar_email(f"Monitor Ver Digital — {assunto}", alerta)
 
     # Limpa a lista de "silenciados" — mantém só quem ainda está fora.
     # Assim que o site volta ao normal, ele sai da lista automaticamente
