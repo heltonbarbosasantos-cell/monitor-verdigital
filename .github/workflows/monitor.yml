@@ -27,6 +27,9 @@ jobs:
           SHEET_GID: ${{ secrets.SHEET_GID }}
           WHATSAPP_NUMERO: ${{ secrets.WHATSAPP_NUMERO }}
           WHATSAPP_APIKEY: ${{ secrets.WHATSAPP_APIKEY }}
+          EMAIL_REMETENTE: ${{ secrets.EMAIL_REMETENTE }}
+          EMAIL_SENHA: ${{ secrets.EMAIL_SENHA }}
+          EMAIL_DESTINO: ${{ secrets.EMAIL_DESTINO }}
         run: python monitor.py
 
       - name: Publicar status.json no GitHub Pages
