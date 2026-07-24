@@ -1,17 +1,17 @@
 {
-  "ultima_verificacao": "23/07/2026 20:22:59",
+  "ultima_verificacao": "24/07/2026 00:13:40",
   "total_clientes": 92,
-  "total_ok": 85,
-  "total_lento": 4,
-  "total_erro": 3,
+  "total_ok": 52,
+  "total_lento": 0,
+  "total_erro": 40,
   "clientes": [
     {
       "cliente": "Abramo e Kaam Advocacia",
       "site_url": "https://abramoekaam.com.br",
       "hospedagem": "CPANEL 01",
       "status": "ok",
-      "site_info": "HTTP 200 — 1706ms",
-      "tempo_ms": 1706,
+      "site_info": "HTTP 200 — 416ms",
+      "tempo_ms": 416,
       "silenciado": false
     },
     {
@@ -19,8 +19,8 @@
       "site_url": "https://2findustrial.com.br",
       "hospedagem": "CPANEL 01",
       "status": "ok",
-      "site_info": "HTTP 200 — 1737ms",
-      "tempo_ms": 1737,
+      "site_info": "HTTP 200 — 596ms",
+      "tempo_ms": 596,
       "silenciado": false
     },
     {
@@ -28,8 +28,8 @@
       "site_url": "https://basicmarcas.com.br",
       "hospedagem": "CPANEL 01",
       "status": "ok",
-      "site_info": "HTTP 200 — 1352ms",
-      "tempo_ms": 1352,
+      "site_info": "HTTP 200 — 273ms",
+      "tempo_ms": 273,
       "silenciado": false
     },
     {
@@ -37,8 +37,8 @@
       "site_url": "https://fullservice.machadoguedes.adv.br",
       "hospedagem": "CPANEL 01",
       "status": "ok",
-      "site_info": "HTTP 200 — 724ms",
-      "tempo_ms": 724,
+      "site_info": "HTTP 200 — 608ms",
+      "tempo_ms": 608,
       "silenciado": false
     },
     {
@@ -46,8 +46,8 @@
       "site_url": "https://epex.ind.br",
       "hospedagem": "CPANEL 01",
       "status": "ok",
-      "site_info": "HTTP 200 — 1043ms",
-      "tempo_ms": 1043,
+      "site_info": "HTTP 200 — 278ms",
+      "tempo_ms": 278,
       "silenciado": false
     },
     {
@@ -55,8 +55,8 @@
       "site_url": "https://pisoplan.com.br",
       "hospedagem": "CPANEL 02",
       "status": "ok",
-      "site_info": "HTTP 200 — 483ms",
-      "tempo_ms": 483,
+      "site_info": "HTTP 200 — 390ms",
+      "tempo_ms": 390,
       "silenciado": false
     },
     {
@@ -64,8 +64,8 @@
       "site_url": "https://dmb.adv.br",
       "hospedagem": "CPANEL 02",
       "status": "ok",
-      "site_info": "HTTP 200 — 1385ms",
-      "tempo_ms": 1385,
+      "site_info": "HTTP 200 — 317ms",
+      "tempo_ms": 317,
       "silenciado": false
     },
     {
@@ -73,8 +73,8 @@
       "site_url": "https://autocenter101.com.br",
       "hospedagem": "CPANEL 02",
       "status": "ok",
-      "site_info": "HTTP 200 — 1325ms",
-      "tempo_ms": 1325,
+      "site_info": "HTTP 200 — 417ms",
+      "tempo_ms": 417,
       "silenciado": false
     },
     {
@@ -82,8 +82,8 @@
       "site_url": "https://saretacorrea.adv.br",
       "hospedagem": "CPANEL 02",
       "status": "ok",
-      "site_info": "HTTP 200 — 1590ms",
-      "tempo_ms": 1590,
+      "site_info": "HTTP 200 — 230ms",
+      "tempo_ms": 230,
       "silenciado": false
     },
     {
@@ -91,8 +91,8 @@
       "site_url": "https://joselucio.adv.br",
       "hospedagem": "CPANEL 02",
       "status": "ok",
-      "site_info": "HTTP 200 — 320ms",
-      "tempo_ms": 320,
+      "site_info": "HTTP 200 — 261ms",
+      "tempo_ms": 261,
       "silenciado": false
     },
     {
@@ -100,8 +100,8 @@
       "site_url": "https://leticiacosta.adv.br",
       "hospedagem": "CPANEL 02",
       "status": "ok",
-      "site_info": "HTTP 200 — 1481ms",
-      "tempo_ms": 1481,
+      "site_info": "HTTP 200 — 312ms",
+      "tempo_ms": 312,
       "silenciado": false
     },
     {
@@ -109,8 +109,8 @@
       "site_url": "https://enkartes.com.br",
       "hospedagem": "CPANEL 03",
       "status": "ok",
-      "site_info": "HTTP 200 — 2732ms",
-      "tempo_ms": 2732,
+      "site_info": "HTTP 200 — 305ms",
+      "tempo_ms": 305,
       "silenciado": false
     },
     {
@@ -127,8 +127,8 @@
       "site_url": "https://apoiomixedescartaveis.com.br",
       "hospedagem": "CPANEL 03",
       "status": "ok",
-      "site_info": "HTTP 200 — 1290ms",
-      "tempo_ms": 1290,
+      "site_info": "HTTP 200 — 270ms",
+      "tempo_ms": 270,
       "silenciado": false
     },
     {
@@ -136,8 +136,8 @@
       "site_url": "https://camposcarvalhoadvocacia.com.br",
       "hospedagem": "CPANEL 03",
       "status": "ok",
-      "site_info": "HTTP 200 — 1584ms",
-      "tempo_ms": 1584,
+      "site_info": "HTTP 200 — 231ms",
+      "tempo_ms": 231,
       "silenciado": false
     },
     {
@@ -145,8 +145,8 @@
       "site_url": "https://cendefi.com.br",
       "hospedagem": "CPANEL 03",
       "status": "ok",
-      "site_info": "HTTP 200 — 1763ms",
-      "tempo_ms": 1763,
+      "site_info": "HTTP 200 — 305ms",
+      "tempo_ms": 305,
       "silenciado": false
     },
     {
@@ -154,17 +154,17 @@
       "site_url": "https://renartsdecor.com.br",
       "hospedagem": "CPANEL 03",
       "status": "ok",
-      "site_info": "HTTP 200 — 1819ms",
-      "tempo_ms": 1819,
+      "site_info": "HTTP 200 — 300ms",
+      "tempo_ms": 300,
       "silenciado": false
     },
     {
       "cliente": "LFSG",
       "site_url": "https://lfsgadvocacia.com.br",
       "hospedagem": "CPANEL 04",
-      "status": "fora",
-      "site_info": "HTTP 500",
-      "tempo_ms": 280,
+      "status": "ok",
+      "site_info": "HTTP 200 — 440ms",
+      "tempo_ms": 440,
       "silenciado": false
     },
     {
@@ -172,8 +172,8 @@
       "site_url": "https://freskura.com.br",
       "hospedagem": "CPANEL 04",
       "status": "ok",
-      "site_info": "HTTP 200 — 1780ms",
-      "tempo_ms": 1780,
+      "site_info": "HTTP 200 — 260ms",
+      "tempo_ms": 260,
       "silenciado": false
     },
     {
@@ -181,8 +181,8 @@
       "site_url": "https://centralfunerariaaster.com.br",
       "hospedagem": "CPANEL 04",
       "status": "ok",
-      "site_info": "HTTP 200 — 1704ms",
-      "tempo_ms": 1704,
+      "site_info": "HTTP 200 — 351ms",
+      "tempo_ms": 351,
       "silenciado": false
     },
     {
@@ -190,8 +190,8 @@
       "site_url": "https://zecchinadvocacia.com.br",
       "hospedagem": "CPANEL 04",
       "status": "ok",
-      "site_info": "HTTP 200 — 512ms",
-      "tempo_ms": 512,
+      "site_info": "HTTP 200 — 289ms",
+      "tempo_ms": 289,
       "silenciado": false
     },
     {
@@ -199,8 +199,8 @@
       "site_url": "https://romaeventoscampinas.com.br",
       "hospedagem": "CPANEL 04",
       "status": "ok",
-      "site_info": "HTTP 200 — 1721ms",
-      "tempo_ms": 1721,
+      "site_info": "HTTP 200 — 314ms",
+      "tempo_ms": 314,
       "silenciado": false
     },
     {
@@ -208,8 +208,8 @@
       "site_url": "https://puigadvogados.com.br",
       "hospedagem": "CPANEL 04",
       "status": "ok",
-      "site_info": "HTTP 200 — 1325ms",
-      "tempo_ms": 1325,
+      "site_info": "HTTP 200 — 292ms",
+      "tempo_ms": 292,
       "silenciado": false
     },
     {
@@ -217,8 +217,8 @@
       "site_url": "https://torresecruz.com.br",
       "hospedagem": "CPANEL 04",
       "status": "ok",
-      "site_info": "HTTP 200 — 1418ms",
-      "tempo_ms": 1418,
+      "site_info": "HTTP 200 — 293ms",
+      "tempo_ms": 293,
       "silenciado": false
     },
     {
@@ -226,8 +226,8 @@
       "site_url": "https://leticiaenadia.adv.br",
       "hospedagem": "CPANEL 04",
       "status": "ok",
-      "site_info": "HTTP 200 — 1557ms",
-      "tempo_ms": 1557,
+      "site_info": "HTTP 200 — 234ms",
+      "tempo_ms": 234,
       "silenciado": false
     },
     {
@@ -235,8 +235,8 @@
       "site_url": "https://rafaelstarling.adv.br",
       "hospedagem": "CPANEL 04",
       "status": "ok",
-      "site_info": "HTTP 200 — 1550ms",
-      "tempo_ms": 1550,
+      "site_info": "HTTP 200 — 199ms",
+      "tempo_ms": 199,
       "silenciado": false
     },
     {
@@ -244,8 +244,8 @@
       "site_url": "https://prj.adv.br",
       "hospedagem": "CPANEL 04",
       "status": "ok",
-      "site_info": "HTTP 200 — 1586ms",
-      "tempo_ms": 1586,
+      "site_info": "HTTP 200 — 312ms",
+      "tempo_ms": 312,
       "silenciado": false
     },
     {
@@ -253,8 +253,8 @@
       "site_url": "https://arquiteturacomvillanueva.com",
       "hospedagem": "CPANEL 05",
       "status": "ok",
-      "site_info": "HTTP 200 — 1966ms",
-      "tempo_ms": 1966,
+      "site_info": "HTTP 200 — 205ms",
+      "tempo_ms": 205,
       "silenciado": false
     },
     {
@@ -262,8 +262,8 @@
       "site_url": "https://peixinhocollection.com.br",
       "hospedagem": "CPANEL 05",
       "status": "ok",
-      "site_info": "HTTP 200 — 465ms",
-      "tempo_ms": 465,
+      "site_info": "HTTP 200 — 299ms",
+      "tempo_ms": 299,
       "silenciado": false
     },
     {
@@ -271,8 +271,8 @@
       "site_url": "https://sousaebalista.adv.br",
       "hospedagem": "CPANEL 05",
       "status": "ok",
-      "site_info": "HTTP 200 — 1607ms",
-      "tempo_ms": 1607,
+      "site_info": "HTTP 200 — 322ms",
+      "tempo_ms": 322,
       "silenciado": false
     },
     {
@@ -280,8 +280,8 @@
       "site_url": "https://montarelliengenharia.com.br",
       "hospedagem": "CPANEL 05",
       "status": "ok",
-      "site_info": "HTTP 200 — 362ms",
-      "tempo_ms": 362,
+      "site_info": "HTTP 200 — 226ms",
+      "tempo_ms": 226,
       "silenciado": false
     },
     {
@@ -289,8 +289,8 @@
       "site_url": "https://veronicafonseca.com.br",
       "hospedagem": "CPANEL 05",
       "status": "ok",
-      "site_info": "HTTP 200 — 462ms",
-      "tempo_ms": 462,
+      "site_info": "HTTP 200 — 309ms",
+      "tempo_ms": 309,
       "silenciado": false
     },
     {
@@ -298,8 +298,8 @@
       "site_url": "https://sfernandesadv.com.br",
       "hospedagem": "CPANEL 06",
       "status": "ok",
-      "site_info": "HTTP 200 — 1622ms",
-      "tempo_ms": 1622,
+      "site_info": "HTTP 200 — 221ms",
+      "tempo_ms": 221,
       "silenciado": false
     },
     {
@@ -307,8 +307,8 @@
       "site_url": "https://mpestruturasmetalicas.com.br",
       "hospedagem": "CPANEL 06",
       "status": "ok",
-      "site_info": "HTTP 200 — 1551ms",
-      "tempo_ms": 1551,
+      "site_info": "HTTP 200 — 296ms",
+      "tempo_ms": 296,
       "silenciado": false
     },
     {
@@ -316,17 +316,17 @@
       "site_url": "https://pergamumcontabilidade.com.br",
       "hospedagem": "CPANEL 06",
       "status": "ok",
-      "site_info": "HTTP 200 — 697ms",
-      "tempo_ms": 697,
+      "site_info": "HTTP 200 — 394ms",
+      "tempo_ms": 394,
       "silenciado": false
     },
     {
       "cliente": "Rosangela Adv",
       "site_url": "https://rosangelameneses.adv.br",
       "hospedagem": "CPANEL 06",
-      "status": "lento",
-      "site_info": "3205ms — 21025 chars",
-      "tempo_ms": 3205,
+      "status": "ok",
+      "site_info": "HTTP 200 — 289ms",
+      "tempo_ms": 289,
       "silenciado": false
     },
     {
@@ -334,8 +334,8 @@
       "site_url": "https://durigonadvogados.com.br",
       "hospedagem": "CPANEL 06",
       "status": "ok",
-      "site_info": "HTTP 200 — 336ms",
-      "tempo_ms": 336,
+      "site_info": "HTTP 200 — 278ms",
+      "tempo_ms": 278,
       "silenciado": false
     },
     {
@@ -343,8 +343,8 @@
       "site_url": "https://trabalhista.aimadvogados.com",
       "hospedagem": "CPANEL 06",
       "status": "ok",
-      "site_info": "HTTP 200 — 295ms",
-      "tempo_ms": 295,
+      "site_info": "HTTP 200 — 226ms",
+      "tempo_ms": 226,
       "silenciado": false
     },
     {
@@ -352,17 +352,17 @@
       "site_url": "https://safatendas.com.br",
       "hospedagem": "CPANEL 07",
       "status": "ok",
-      "site_info": "HTTP 200 — 1622ms",
-      "tempo_ms": 1622,
+      "site_info": "HTTP 200 — 288ms",
+      "tempo_ms": 288,
       "silenciado": false
     },
     {
       "cliente": "Brazicom",
       "site_url": "https://brazicom.com.br",
       "hospedagem": "CPANEL 07",
-      "status": "ok",
-      "site_info": "HTTP 200 — 489ms",
-      "tempo_ms": 489,
+      "status": "fora",
+      "site_info": "Sem conexão: HTTPSConnectionPool(host='brazicom.com.br', port=443): Max retries exceeded with",
+      "tempo_ms": null,
       "silenciado": false
     },
     {
@@ -370,8 +370,8 @@
       "site_url": "https://casaarmani.com.br",
       "hospedagem": "CPANEL 07",
       "status": "ok",
-      "site_info": "HTTP 200 — 1486ms",
-      "tempo_ms": 1486,
+      "site_info": "HTTP 200 — 405ms",
+      "tempo_ms": 405,
       "silenciado": false
     },
     {
@@ -379,8 +379,8 @@
       "site_url": "https://guerraeoliveira.com.br",
       "hospedagem": "CPANEL 07",
       "status": "ok",
-      "site_info": "HTTP 200 — 460ms",
-      "tempo_ms": 460,
+      "site_info": "HTTP 200 — 377ms",
+      "tempo_ms": 377,
       "silenciado": false
     },
     {
@@ -397,8 +397,8 @@
       "site_url": "https://mrportoeparceria.com.br",
       "hospedagem": "CPANEL 07",
       "status": "ok",
-      "site_info": "HTTP 200 — 431ms",
-      "tempo_ms": 431,
+      "site_info": "HTTP 200 — 374ms",
+      "tempo_ms": 374,
       "silenciado": false
     },
     {
@@ -406,8 +406,8 @@
       "site_url": "https://evandaferreira.adv.br",
       "hospedagem": "CPANEL 07",
       "status": "ok",
-      "site_info": "HTTP 200 — 422ms",
-      "tempo_ms": 422,
+      "site_info": "HTTP 200 — 478ms",
+      "tempo_ms": 478,
       "silenciado": false
     },
     {
@@ -415,8 +415,8 @@
       "site_url": "https://infonetfibra.com.br",
       "hospedagem": "CPANEL 07",
       "status": "ok",
-      "site_info": "HTTP 200 — 431ms",
-      "tempo_ms": 431,
+      "site_info": "HTTP 200 — 395ms",
+      "tempo_ms": 395,
       "silenciado": false
     },
     {
@@ -424,44 +424,44 @@
       "site_url": "https://clinicapriscilanascimento.com.br",
       "hospedagem": "EM DESENVOLVIMENTO",
       "status": "ok",
-      "site_info": "HTTP 200 — 641ms",
-      "tempo_ms": 641,
+      "site_info": "HTTP 200 — 498ms",
+      "tempo_ms": 498,
       "silenciado": false
     },
     {
       "cliente": "DWR Hospitalar",
       "site_url": "https://dwrhospitalar.com.br",
       "hospedagem": "HOSPEDAGEM DO CLIENTE",
-      "status": "lento",
-      "site_info": "4015ms — 394797 chars",
-      "tempo_ms": 4015,
+      "status": "ok",
+      "site_info": "HTTP 200 — 2288ms",
+      "tempo_ms": 2288,
       "silenciado": false
     },
     {
       "cliente": "M3Tecno",
       "site_url": "https://m3tecno.com.br",
       "hospedagem": "HOSPEDAGEM DO CLIENTE",
-      "status": "ok",
-      "site_info": "HTTP 200 — 313ms",
-      "tempo_ms": 313,
+      "status": "fora",
+      "site_info": "Sem conexão: HTTPSConnectionPool(host='m3tecno.com.br', port=443): Max retries exceeded with ",
+      "tempo_ms": null,
       "silenciado": false
     },
     {
       "cliente": "Flávio Balduino",
       "site_url": "https://advocaciaflaviobalduino.com",
       "hospedagem": "HOSPEDAGEM DO CLIENTE",
-      "status": "ok",
-      "site_info": "HTTP 200 — 2296ms",
-      "tempo_ms": 2296,
+      "status": "fora",
+      "site_info": "Sem conexão: HTTPSConnectionPool(host='advocaciaflaviobalduino.com', port=443): Max retries e",
+      "tempo_ms": null,
       "silenciado": false
     },
     {
       "cliente": "Crespo e Caires",
       "site_url": "https://crespoecairesadvogados.com",
       "hospedagem": "HOSPEDAGEM DO CLIENTE",
-      "status": "lento",
-      "site_info": "3703ms — 22292 chars",
-      "tempo_ms": 3703,
+      "status": "ok",
+      "site_info": "HTTP 200 — 1077ms",
+      "tempo_ms": 1077,
       "silenciado": false
     },
     {
@@ -469,8 +469,8 @@
       "site_url": "https://jacsys.com.br",
       "hospedagem": "HOSPEDAGEM DO CLIENTE",
       "status": "ok",
-      "site_info": "HTTP 200 — 2020ms",
-      "tempo_ms": 2020,
+      "site_info": "HTTP 200 — 1409ms",
+      "tempo_ms": 1409,
       "silenciado": false
     },
     {
@@ -478,17 +478,17 @@
       "site_url": "https://lojawltintas.com.br",
       "hospedagem": "HOSPEDAGEM DO CLIENTE",
       "status": "ok",
-      "site_info": "HTTP 200 — 1536ms",
-      "tempo_ms": 1536,
+      "site_info": "HTTP 200 — 2281ms",
+      "tempo_ms": 2281,
       "silenciado": false
     },
     {
       "cliente": "Inovision Contabilidade",
       "site_url": "https://inovisioncontabilidade.com.br",
       "hospedagem": "HOSTGATOR",
-      "status": "lento",
-      "site_info": "3131ms — 201755 chars",
-      "tempo_ms": 3131,
+      "status": "ok",
+      "site_info": "HTTP 200 — 2933ms",
+      "tempo_ms": 2933,
       "silenciado": false
     },
     {
@@ -496,89 +496,89 @@
       "site_url": "https://comercialdinamix.com.br",
       "hospedagem": "HOSTINGER",
       "status": "ok",
-      "site_info": "HTTP 200 — 575ms",
-      "tempo_ms": 575,
+      "site_info": "HTTP 200 — 540ms",
+      "tempo_ms": 540,
       "silenciado": false
     },
     {
       "cliente": "Bianca Adv",
       "site_url": "https://biancasilveiraadv.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 482ms",
-      "tempo_ms": 482,
+      "status": "fora",
+      "site_info": "Sem conexão: HTTPSConnectionPool(host='biancasilveiraadv.com.br', port=443): Max retries exce",
+      "tempo_ms": null,
       "silenciado": false
     },
     {
       "cliente": "Vital Transportes",
       "site_url": "https://vitaltransportes.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 487ms",
-      "tempo_ms": 487,
+      "status": "fora",
+      "site_info": "Sem conexão: HTTPSConnectionPool(host='vitaltransportes.com.br', port=443): Max retries excee",
+      "tempo_ms": null,
       "silenciado": false
     },
     {
       "cliente": "André RN",
       "site_url": "https://andrern.adv.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 351ms",
-      "tempo_ms": 351,
+      "status": "fora",
+      "site_info": "Sem conexão: HTTPSConnectionPool(host='andrern.adv.br', port=443): Max retries exceeded with ",
+      "tempo_ms": null,
       "silenciado": false
     },
     {
       "cliente": "Paula Roberta",
       "site_url": "https://paulaseifertpsicologia.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 345ms",
-      "tempo_ms": 345,
+      "status": "fora",
+      "site_info": "Sem conexão: HTTPSConnectionPool(host='paulaseifertpsicologia.com.br', port=443): Max retries",
+      "tempo_ms": null,
       "silenciado": false
     },
     {
       "cliente": "M F Brindes",
       "site_url": "https://mfbrindesegravacao.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 332ms",
-      "tempo_ms": 332,
+      "status": "fora",
+      "site_info": "Sem conexão: HTTPSConnectionPool(host='mfbrindesegravacao.com.br', port=443): Max retries exc",
+      "tempo_ms": null,
       "silenciado": false
     },
     {
       "cliente": "Diego Adv",
       "site_url": "https://diegobritoadvogados.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 320ms",
-      "tempo_ms": 320,
+      "status": "fora",
+      "site_info": "Sem conexão: HTTPSConnectionPool(host='diegobritoadvogados.com.br', port=443): Max retries ex",
+      "tempo_ms": null,
       "silenciado": false
     },
     {
       "cliente": "Luis Gustavo Advogado",
       "site_url": "https://lgsprevidenciarista.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 480ms",
-      "tempo_ms": 480,
+      "status": "fora",
+      "site_info": "Sem conexão: HTTPSConnectionPool(host='lgsprevidenciarista.com.br', port=443): Max retries ex",
+      "tempo_ms": null,
       "silenciado": false
     },
     {
       "cliente": "Luiz Motta Advogado",
       "site_url": "https://mottadeoliveira.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 321ms",
-      "tempo_ms": 321,
+      "status": "fora",
+      "site_info": "Sem conexão: HTTPSConnectionPool(host='mottadeoliveira.com.br', port=443): Max retries exceed",
+      "tempo_ms": null,
       "silenciado": false
     },
     {
       "cliente": "Toca Engenharia",
       "site_url": "https://tocaarqeng.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 339ms",
-      "tempo_ms": 339,
+      "status": "fora",
+      "site_info": "Sem conexão: HTTPSConnectionPool(host='tocaarqeng.com.br', port=443): Max retries exceeded wi",
+      "tempo_ms": null,
       "silenciado": false
     },
     {
@@ -586,242 +586,242 @@
       "site_url": "https://hsscontabil.com",
       "hospedagem": "HOSTINGER",
       "status": "ok",
-      "site_info": "HTTP 200 — 325ms",
-      "tempo_ms": 325,
+      "site_info": "HTTP 200 — 299ms",
+      "tempo_ms": 299,
       "silenciado": false
     },
     {
       "cliente": "Gabriela Psicóloga",
       "site_url": "https://psicologagabrielastrabello.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 481ms",
-      "tempo_ms": 481,
+      "status": "fora",
+      "site_info": "Sem conexão: HTTPSConnectionPool(host='psicologagabrielastrabello.com.br', port=443): Max ret",
+      "tempo_ms": null,
       "silenciado": false
     },
     {
       "cliente": "MD Neto",
       "site_url": "https://mdnetotrabalhista.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 505ms",
-      "tempo_ms": 505,
+      "status": "fora",
+      "site_info": "Sem conexão: HTTPSConnectionPool(host='mdnetotrabalhista.com.br', port=443): Max retries exce",
+      "tempo_ms": null,
       "silenciado": false
     },
     {
       "cliente": "RGE Projetos e Obras (ALM Construção)",
       "site_url": "https://rgeprojetoseobras.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 365ms",
-      "tempo_ms": 365,
+      "status": "fora",
+      "site_info": "Sem conexão: HTTPSConnectionPool(host='rgeprojetoseobras.com.br', port=443): Max retries exce",
+      "tempo_ms": null,
       "silenciado": false
     },
     {
       "cliente": "DFW",
       "site_url": "https://dfwjateamento.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 859ms",
-      "tempo_ms": 859,
+      "status": "fora",
+      "site_info": "Sem conexão: HTTPSConnectionPool(host='dfwjateamento.com.br', port=443): Max retries exceeded",
+      "tempo_ms": null,
       "silenciado": false
     },
     {
       "cliente": "Lucas Oliveira Adv",
       "site_url": "https://oliveiradvocacia.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 463ms",
-      "tempo_ms": 463,
+      "status": "fora",
+      "site_info": "Sem conexão: HTTPSConnectionPool(host='oliveiradvocacia.com.br', port=443): Max retries excee",
+      "tempo_ms": null,
       "silenciado": false
     },
     {
       "cliente": "Delus Contabilidade",
       "site_url": "https://deluscontabilidade.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 325ms",
-      "tempo_ms": 325,
+      "status": "fora",
+      "site_info": "Sem conexão: HTTPSConnectionPool(host='deluscontabilidade.com.br', port=443): Max retries exc",
+      "tempo_ms": null,
       "silenciado": false
     },
     {
       "cliente": "Suzele Advogada",
       "site_url": "https://suzelecarvalho.adv.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 567ms",
-      "tempo_ms": 567,
+      "status": "fora",
+      "site_info": "Sem conexão: HTTPSConnectionPool(host='suzelecarvalho.adv.br', port=443): Max retries exceede",
+      "tempo_ms": null,
       "silenciado": false
     },
     {
       "cliente": "Ateliê D&D",
       "site_url": "https://atelieded.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 323ms",
-      "tempo_ms": 323,
+      "status": "fora",
+      "site_info": "Sem conexão: HTTPSConnectionPool(host='atelieded.com.br', port=443): Max retries exceeded wit",
+      "tempo_ms": null,
       "silenciado": false
     },
     {
       "cliente": "Efficace Contábil",
       "site_url": "https://efficacecontabilidade.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 469ms",
-      "tempo_ms": 469,
+      "status": "fora",
+      "site_info": "Sem conexão: HTTPSConnectionPool(host='efficacecontabilidade.com.br', port=443): Max retries ",
+      "tempo_ms": null,
       "silenciado": false
     },
     {
       "cliente": "Moretti Contabilidade",
       "site_url": "https://moretticontabilidade.cnt.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 429ms",
-      "tempo_ms": 429,
+      "status": "fora",
+      "site_info": "Sem conexão: HTTPSConnectionPool(host='moretticontabilidade.cnt.br', port=443): Max retries e",
+      "tempo_ms": null,
       "silenciado": false
     },
     {
       "cliente": "ECM Advocacia",
       "site_url": "https://ecmadvocacia.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 322ms",
-      "tempo_ms": 322,
+      "status": "fora",
+      "site_info": "Sem conexão: HTTPSConnectionPool(host='ecmadvocacia.com.br', port=443): Max retries exceeded ",
+      "tempo_ms": null,
       "silenciado": false
     },
     {
       "cliente": "Bruno Advocacia",
       "site_url": "https://brunocoelhoadvogados.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 461ms",
-      "tempo_ms": 461,
+      "status": "fora",
+      "site_info": "Sem conexão: HTTPSConnectionPool(host='brunocoelhoadvogados.com.br', port=443): Max retries e",
+      "tempo_ms": null,
       "silenciado": false
     },
     {
       "cliente": "Bueno Pasqualotto Advocacia",
       "site_url": "https://cbuenoadvocacia.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 482ms",
-      "tempo_ms": 482,
+      "status": "fora",
+      "site_info": "Sem conexão: HTTPSConnectionPool(host='cbuenoadvocacia.com.br', port=443): Max retries exceed",
+      "tempo_ms": null,
       "silenciado": false
     },
     {
       "cliente": "Rafael Contador",
       "site_url": "https://rrdassessoriacontabil.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 330ms",
-      "tempo_ms": 330,
+      "status": "fora",
+      "site_info": "Sem conexão: HTTPSConnectionPool(host='rrdassessoriacontabil.com.br', port=443): Max retries ",
+      "tempo_ms": null,
       "silenciado": false
     },
     {
       "cliente": "Andrea e Ricardo",
       "site_url": "https://aeradvocacia.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 685ms",
-      "tempo_ms": 685,
+      "status": "fora",
+      "site_info": "Sem conexão: HTTPSConnectionPool(host='aeradvocacia.com.br', port=443): Max retries exceeded ",
+      "tempo_ms": null,
       "silenciado": false
     },
     {
       "cliente": "Viviane Adv",
       "site_url": "https://advocaciavps.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 679ms",
-      "tempo_ms": 679,
+      "status": "fora",
+      "site_info": "Sem conexão: HTTPSConnectionPool(host='advocaciavps.com.br', port=443): Max retries exceeded ",
+      "tempo_ms": null,
       "silenciado": false
     },
     {
       "cliente": "Fagner Adv",
       "site_url": "https://britoeviana.adv.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 1952ms",
-      "tempo_ms": 1952,
+      "status": "fora",
+      "site_info": "Sem conexão: HTTPSConnectionPool(host='britoeviana.adv.br', port=443): Max retries exceeded w",
+      "tempo_ms": null,
       "silenciado": false
     },
     {
       "cliente": "Mateus Burtet Adv",
       "site_url": "https://mateusburtet.adv.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 320ms",
-      "tempo_ms": 320,
+      "status": "fora",
+      "site_info": "Sem conexão: HTTPSConnectionPool(host='mateusburtet.adv.br', port=443): Max retries exceeded ",
+      "tempo_ms": null,
       "silenciado": false
     },
     {
       "cliente": "Vanuza Adv",
       "site_url": "https://vssadvocacia.com",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 1007ms",
-      "tempo_ms": 1007,
+      "status": "fora",
+      "site_info": "Sem conexão: HTTPSConnectionPool(host='vssadvocacia.com', port=443): Max retries exceeded wit",
+      "tempo_ms": null,
       "silenciado": false
     },
     {
       "cliente": "Matheus Zanoni",
       "site_url": "https://matheuszanoni.adv.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 516ms",
-      "tempo_ms": 516,
+      "status": "fora",
+      "site_info": "Sem conexão: HTTPSConnectionPool(host='matheuszanoni.adv.br', port=443): Max retries exceeded",
+      "tempo_ms": null,
       "silenciado": false
     },
     {
       "cliente": "Paulo Puig adv",
       "site_url": "https://puigecosta.adv.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 348ms",
-      "tempo_ms": 348,
+      "status": "fora",
+      "site_info": "Sem conexão: HTTPSConnectionPool(host='puigecosta.adv.br', port=443): Max retries exceeded wi",
+      "tempo_ms": null,
       "silenciado": false
     },
     {
       "cliente": "André Barbosa Advogado",
       "site_url": "https://advogadoandrebarbosa.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 480ms",
-      "tempo_ms": 480,
+      "status": "fora",
+      "site_info": "Sem conexão: HTTPSConnectionPool(host='advogadoandrebarbosa.com.br', port=443): Max retries e",
+      "tempo_ms": null,
       "silenciado": false
     },
     {
       "cliente": "Gabriela Miranda",
       "site_url": "https://gabrielamiranda.adv.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 477ms",
-      "tempo_ms": 477,
+      "status": "fora",
+      "site_info": "Sem conexão: HTTPSConnectionPool(host='gabrielamiranda.adv.br', port=443): Max retries exceed",
+      "tempo_ms": null,
       "silenciado": false
     },
     {
       "cliente": "Moraes & Moraes",
       "site_url": "https://moraesemoraesadv.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 397ms",
-      "tempo_ms": 397,
+      "status": "fora",
+      "site_info": "Sem conexão: HTTPSConnectionPool(host='moraesemoraesadv.com.br', port=443): Max retries excee",
+      "tempo_ms": null,
       "silenciado": false
     },
     {
       "cliente": "Mauad Pitot & Caroli",
       "site_url": "https://mauadpitotcaroli.adv.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 814ms",
-      "tempo_ms": 814,
+      "status": "fora",
+      "site_info": "Sem conexão: HTTPSConnectionPool(host='mauadpitotcaroli.adv.br', port=443): Max retries excee",
+      "tempo_ms": null,
       "silenciado": false
     },
     {
       "cliente": "Jorge Noé Vizeu da Silva",
       "site_url": "https://noevizeuadvogados.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 327ms",
-      "tempo_ms": 327,
+      "status": "fora",
+      "site_info": "Sem conexão: HTTPSConnectionPool(host='noevizeuadvogados.com.br', port=443): Max retries exce",
+      "tempo_ms": null,
       "silenciado": false
     },
     {
@@ -829,8 +829,8 @@
       "site_url": "https://direito-trabalhista.rgmadv.com.br",
       "hospedagem": "VPS HOSTGATOR",
       "status": "ok",
-      "site_info": "HTTP 200 — 1511ms",
-      "tempo_ms": 1511,
+      "site_info": "HTTP 200 — 1670ms",
+      "tempo_ms": 1670,
       "silenciado": false
     }
   ]
