@@ -353,6 +353,50 @@
     return token ? token.trim() : null;
   }
 
+  async function tentarSalvarAck(nomeCliente, token, tentativa) {
+    const apiUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${ACK_PATH}`;
+    let sha = null;
+    let lista = [];
+
+    const getResp = await fetch(apiUrl + `?ref=${GITHUB_BRANCH}&t=${Date.now()}`, {
+      headers: { Authorization: `token ${token}` }
+    });
+    if (getResp.ok) {
+      const data = await getResp.json();
+      sha = data.sha;
+      lista = JSON.parse(decodeURIComponent(escape(atob(data.content))));
+    }
+    if (!lista.includes(nomeCliente)) lista.push(nomeCliente);
+
+    const novoConteudo = btoa(unescape(encodeURIComponent(JSON.stringify(lista, null, 2))));
+    const putResp = await fetch(apiUrl, {
+      method: 'PUT',
+      headers: { Authorization: `token ${token}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        message: `Silenciar alertas: ${nomeCliente}`,
+        content: novoConteudo,
+        branch: GITHUB_BRANCH,
+        ...(sha ? { sha } : {})
+      })
+    });
+
+    if (putResp.ok) return true;
+
+    if (putResp.status === 401) {
+      localStorage.removeItem('gh_pat');
+      throw new Error('Token inválido ou sem permissão — tente de novo');
+    }
+
+    // 409/422 costuma ser conflito de versão (o monitor salvou uma versão nova
+    // bem nesse instante) — tenta de novo automaticamente, pegando o sha atualizado
+    if ((putResp.status === 409 || putResp.status === 422) && tentativa < 3) {
+      await new Promise(r => setTimeout(r, 800));
+      return tentarSalvarAck(nomeCliente, token, tentativa + 1);
+    }
+
+    throw new Error(`Falha ao salvar (HTTP ${putResp.status})`);
+  }
+
   async function silenciarAlerta(nomeCliente, btnEl) {
     const token = getToken();
     if (!token) return;
@@ -360,40 +404,7 @@
     btnEl.textContent = 'Salvando...';
 
     try {
-      const apiUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${ACK_PATH}`;
-      let sha = null;
-      let lista = [];
-
-      const getResp = await fetch(apiUrl + `?ref=${GITHUB_BRANCH}`, {
-        headers: { Authorization: `token ${token}` }
-      });
-      if (getResp.ok) {
-        const data = await getResp.json();
-        sha = data.sha;
-        lista = JSON.parse(decodeURIComponent(escape(atob(data.content))));
-      }
-      if (!lista.includes(nomeCliente)) lista.push(nomeCliente);
-
-      const novoConteudo = btoa(unescape(encodeURIComponent(JSON.stringify(lista, null, 2))));
-      const putResp = await fetch(apiUrl, {
-        method: 'PUT',
-        headers: { Authorization: `token ${token}`, 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          message: `Silenciar alertas: ${nomeCliente}`,
-          content: novoConteudo,
-          branch: GITHUB_BRANCH,
-          ...(sha ? { sha } : {})
-        })
-      });
-
-      if (!putResp.ok) {
-        if (putResp.status === 401) {
-          localStorage.removeItem('gh_pat');
-          throw new Error('Token inválido ou sem permissão — tente de novo');
-        }
-        throw new Error('Falha ao salvar');
-      }
-
+      await tentarSalvarAck(nomeCliente, token, 1);
       btnEl.textContent = '🔕 Silenciado até resolver';
       btnEl.classList.add('ja-silenciado');
       btnEl.disabled = true;
