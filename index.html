@@ -149,23 +149,30 @@
   .card-cliente {
     border-radius: 10px;
     padding: 12px 14px;
-    transition: transform 0.12s, box-shadow 0.12s;
     border: 1px solid transparent;
     box-sizing: border-box;
-    cursor: pointer;
-    text-decoration: none;
-    display: block;
     position: relative;
   }
-  .card-cliente:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+  @media (hover: hover) {
+    .card-cliente:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+      transition: transform 0.12s, box-shadow 0.12s;
+    }
   }
   .card-cliente.ok    { background: var(--green-bg); border-color: var(--green-border); }
   .card-cliente.erro  { background: var(--red-bg); border-color: var(--red-border); }
   .card-cliente.lento { background: var(--yellow-bg); border-color: var(--yellow-border); }
-  .card-cliente.nc    { background: var(--surface); border-color: var(--border); cursor: default; }
+  .card-cliente.nc    { background: var(--surface); border-color: var(--border); }
   .card-cliente.silenciado { opacity: 0.55; }
+
+  .card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+  }
+  .card-cliente.nc .card-link { cursor: default; }
 
   .link-icone {
     position: absolute;
@@ -176,7 +183,10 @@
     opacity: 0;
     transition: opacity 0.15s;
   }
-  .card-cliente:hover .link-icone { opacity: 0.8; }
+  @media (hover: hover) {
+    .card-cliente:hover .link-icone { opacity: 0.8; }
+  }
+
 
   .status-row { display: flex; align-items: center; gap: 6px; margin-bottom: 6px; }
   .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
@@ -511,7 +521,7 @@
         }
       }
 
-      const conteudo = `
+      const conteudoLink = `
           <div class="status-row">
             <span class="dot ${dotClass}"></span>
             <span class="status-label">${label}</span>
@@ -521,13 +531,13 @@
           <div class="url-cliente">${escapeHtml(urlLimpa)}</div>
           ${hospedagemBadge}
           ${erroInfo}${lentoInfo}
-          ${botaoSilenciar}
           ${linkIcone}`;
 
-      if (c.site_url) {
-        return `<a class="card-cliente ${classe}${silenciadoClasse}" href="${escapeHtml(c.site_url)}" target="_blank" rel="noopener noreferrer">${conteudo}</a>`;
-      }
-      return `<div class="card-cliente ${classe}${silenciadoClasse}">${conteudo}</div>`;
+      const linkAbertura = c.site_url
+        ? `<a class="card-link" href="${escapeHtml(c.site_url)}" target="_blank" rel="noopener noreferrer">${conteudoLink}</a>`
+        : `<div class="card-link">${conteudoLink}</div>`;
+
+      return `<div class="card-cliente ${classe}${silenciadoClasse}">${linkAbertura}${botaoSilenciar}</div>`;
     }).join('');
   }
 
