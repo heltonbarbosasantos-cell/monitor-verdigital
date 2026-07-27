@@ -170,18 +170,29 @@ def _tentar_requisicao(url):
 
 
 def checar_site(url):
-    sucesso, resultado = _tentar_requisicao(url)
-    if sucesso:
-        return resultado
+    """
+    Faz até 3 tentativas com esperas crescentes (5s, 10s) antes de declarar o site fora.
+    Isso reduz falsos positivos causados por bloqueios temporários de IP de datacenter
+    (comum em hospedagens compartilhadas que barram tráfego de nuvem/robôs).
+    """
+    esperas = [0, 5, 10]  # segundos de espera antes de cada tentativa
 
-    time.sleep(4)
-    sucesso2, resultado2 = _tentar_requisicao(url)
+    resultado = None
+    for i, espera in enumerate(esperas):
+        if espera:
+            time.sleep(espera)
+        sucesso, resultado = _tentar_requisicao(url)
+        if sucesso:
+            if i > 0:
+                resultado["detalhe"] += f" (confirmado OK na tentativa {i+1})"
+            return resultado
 
-    if sucesso2:
-        resultado2["detalhe"] += " (confirmado OK na 2ª tentativa)"
-        return resultado2
+    # Falhou nas 3 tentativas — provavelmente é queda real, mas se o erro for
+    # de conexão (não HTTP), sinaliza que também pode ser bloqueio de IP do robô
+    if resultado and "Sem conexão" in resultado.get("detalhe", ""):
+        resultado["detalhe"] += " — se o site abrir normal no navegador, pode ser bloqueio de IP do monitor, não queda real"
 
-    return resultado2
+    return resultado
 
 
 def enviar_whatsapp(mensagem):
@@ -243,7 +254,8 @@ def main():
     status_anterior  = carregar_status_anterior()
     acknowledged     = buscar_acknowledged()  # clientes com alerta silenciado
     resultados       = []
-    alertas          = []
+    sites_fora       = []   # lista consolidada — vira UM alerta só no final
+    sites_voltaram   = []
     total_ok         = 0
     total_lento      = 0
     total_erro       = 0
@@ -264,12 +276,12 @@ def main():
         ant_status = status_anterior.get(nome, {}).get("status", "ok")
         esta_silenciado = nome in acknowledged
 
-        # Só alerta no WhatsApp quando o site está FORA (lento não avisa mais)
+        # Só alerta quando o site está FORA (lento não avisa mais)
         # e só se o cliente não estiver marcado como "ciente"
         if status == "fora" and ant_status != "fora" and not esta_silenciado:
-            alertas.append(f"🔴 SITE FORA: {nome}\n{site}\n{res['detalhe']}")
+            sites_fora.append(f"🔴 {nome}\n{site}\n{res['detalhe']}")
         if status == "ok" and ant_status == "fora":
-            alertas.append(f"✅ SITE VOLTOU: {nome}\n{site}")
+            sites_voltaram.append(f"✅ {nome} — {site}")
 
         resultados.append({
             "cliente":    nome,
@@ -283,11 +295,30 @@ def main():
 
         time.sleep(0.5)
 
-    for alerta in alertas:
-        print(f"[ALERTA] {alerta}")
-        enviar_whatsapp(alerta)
-        assunto = alerta.split('\n')[0]  # primeira linha vira o assunto do email
-        enviar_email(f"Monitor Ver Digital — {assunto}", alerta)
+    # Monta UMA mensagem só, juntando todos os sites fora e os que voltaram
+    # (em vez de mandar um email/whatsapp separado pra cada site)
+    partes_mensagem = []
+    if sites_fora:
+        partes_mensagem.append(f"🔴 SITES FORA ({len(sites_fora)}):\n\n" + "\n\n".join(sites_fora))
+    if sites_voltaram:
+        partes_mensagem.append(f"✅ SITES QUE VOLTARAM ({len(sites_voltaram)}):\n\n" + "\n".join(sites_voltaram))
+
+    if partes_mensagem:
+        mensagem_completa = "\n\n".join(partes_mensagem)
+        print(f"[ALERTA] Enviando resumo — {len(sites_fora)} fora, {len(sites_voltaram)} voltaram")
+
+        enviar_whatsapp(mensagem_completa)
+
+        if sites_fora and sites_voltaram:
+            assunto = f"⚠️ {len(sites_fora)} site(s) fora, {len(sites_voltaram)} recuperado(s)"
+        elif sites_fora:
+            assunto = f"🔴 {len(sites_fora)} site(s) fora do ar"
+        else:
+            assunto = f"✅ {len(sites_voltaram)} site(s) recuperado(s)"
+
+        enviar_email(f"Monitor Ver Digital — {assunto}", mensagem_completa)
+    else:
+        print("[ALERTA] Nenhuma mudança de status — nenhum alerta enviado")
 
     # Limpa a lista de "silenciados" — mantém só quem ainda está fora.
     # Assim que o site volta ao normal, ele sai da lista automaticamente
