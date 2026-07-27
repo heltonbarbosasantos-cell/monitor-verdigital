@@ -169,13 +169,16 @@ def _tentar_requisicao(url):
         return False, {"status": "fora", "detalhe": str(e)[:80], "tempo_ms": None}
 
 
-def checar_site(url):
+def checar_site(url, pular_retentativas=False):
     """
     Faz até 3 tentativas com esperas crescentes (5s, 10s) antes de declarar o site fora.
     Isso reduz falsos positivos causados por bloqueios temporários de IP de datacenter
     (comum em hospedagens compartilhadas que barram tráfego de nuvem/robôs).
+
+    Se pular_retentativas=True (cliente já marcado como "estou ciente"), faz só
+    1 tentativa — não precisa gastar tempo confirmando um problema já conhecido.
     """
-    esperas = [0, 5, 10]  # segundos de espera antes de cada tentativa
+    esperas = [0] if pular_retentativas else [0, 4, 8]
 
     resultado = None
     for i, espera in enumerate(esperas):
@@ -187,9 +190,9 @@ def checar_site(url):
                 resultado["detalhe"] += f" (confirmado OK na tentativa {i+1})"
             return resultado
 
-    # Falhou nas 3 tentativas — provavelmente é queda real, mas se o erro for
-    # de conexão (não HTTP), sinaliza que também pode ser bloqueio de IP do robô
-    if resultado and "Sem conexão" in resultado.get("detalhe", ""):
+    # Falhou — provavelmente é queda real, mas se o erro for de conexão
+    # (não HTTP) e não pulamos retentativas, sinaliza que pode ser bloqueio de IP
+    if not pular_retentativas and resultado and "Sem conexão" in resultado.get("detalhe", ""):
         resultado["detalhe"] += " — se o site abrir normal no navegador, pode ser bloqueio de IP do monitor, não queda real"
 
     return resultado
@@ -265,8 +268,10 @@ def main():
         site       = cliente["site"]
         hospedagem = cliente["hospedagem"]
 
-        print(f"  🔍 {nome} ({site})")
-        res    = checar_site(site)
+        esta_silenciado = nome in acknowledged
+
+        print(f"  🔍 {nome} ({site})" + (" [silenciado — check rápido]" if esta_silenciado else ""))
+        res    = checar_site(site, pular_retentativas=esta_silenciado)
         status = res["status"]
 
         if status == "ok":    total_ok += 1
@@ -274,7 +279,6 @@ def main():
         elif status == "fora":  total_erro += 1
 
         ant_status = status_anterior.get(nome, {}).get("status", "ok")
-        esta_silenciado = nome in acknowledged
 
         # Só alerta quando o site está FORA (lento não avisa mais)
         # e só se o cliente não estiver marcado como "ciente"
