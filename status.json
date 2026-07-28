@@ -1,5 +1,5 @@
 {
-  "ultima_verificacao": "27/07/2026 22:20:28",
+  "ultima_verificacao": "28/07/2026 08:04:58",
   "total_clientes": 92,
   "total_ok": 85,
   "total_lento": 4,
@@ -10,8 +10,8 @@
       "site_url": "https://abramoekaam.com.br",
       "hospedagem": "CPANEL 01",
       "status": "ok",
-      "site_info": "HTTP 200 — 1469ms",
-      "tempo_ms": 1469,
+      "site_info": "HTTP 200 — 1552ms",
+      "tempo_ms": 1552,
       "silenciado": false
     },
     {
@@ -19,8 +19,8 @@
       "site_url": "https://2findustrial.com.br",
       "hospedagem": "CPANEL 01",
       "status": "ok",
-      "site_info": "HTTP 200 — 1485ms",
-      "tempo_ms": 1485,
+      "site_info": "HTTP 200 — 2028ms",
+      "tempo_ms": 2028,
       "silenciado": false
     },
     {
@@ -28,8 +28,8 @@
       "site_url": "https://basicmarcas.com.br",
       "hospedagem": "CPANEL 01",
       "status": "ok",
-      "site_info": "HTTP 200 — 1529ms",
-      "tempo_ms": 1529,
+      "site_info": "HTTP 200 — 1433ms",
+      "tempo_ms": 1433,
       "silenciado": false
     },
     {
@@ -37,8 +37,8 @@
       "site_url": "https://fullservice.machadoguedes.adv.br",
       "hospedagem": "CPANEL 01",
       "status": "ok",
-      "site_info": "HTTP 200 — 835ms",
-      "tempo_ms": 835,
+      "site_info": "HTTP 200 — 628ms",
+      "tempo_ms": 628,
       "silenciado": false
     },
     {
@@ -46,8 +46,8 @@
       "site_url": "https://epex.ind.br",
       "hospedagem": "CPANEL 01",
       "status": "ok",
-      "site_info": "HTTP 200 — 1037ms",
-      "tempo_ms": 1037,
+      "site_info": "HTTP 200 — 1194ms",
+      "tempo_ms": 1194,
       "silenciado": false
     },
     {
@@ -55,8 +55,8 @@
       "site_url": "https://pisoplan.com.br",
       "hospedagem": "CPANEL 02",
       "status": "ok",
-      "site_info": "HTTP 200 — 359ms",
-      "tempo_ms": 359,
+      "site_info": "HTTP 200 — 397ms",
+      "tempo_ms": 397,
       "silenciado": false
     },
     {
@@ -64,8 +64,8 @@
       "site_url": "https://dmb.adv.br",
       "hospedagem": "CPANEL 02",
       "status": "ok",
-      "site_info": "HTTP 200 — 1099ms",
-      "tempo_ms": 1099,
+      "site_info": "HTTP 200 — 1282ms",
+      "tempo_ms": 1282,
       "silenciado": false
     },
     {
@@ -73,8 +73,8 @@
       "site_url": "https://autocenter101.com.br",
       "hospedagem": "CPANEL 02",
       "status": "ok",
-      "site_info": "HTTP 200 — 1267ms",
-      "tempo_ms": 1267,
+      "site_info": "HTTP 200 — 1268ms",
+      "tempo_ms": 1268,
       "silenciado": false
     },
     {
@@ -82,8 +82,8 @@
       "site_url": "https://saretacorrea.adv.br",
       "hospedagem": "CPANEL 02",
       "status": "ok",
-      "site_info": "HTTP 200 — 1316ms",
-      "tempo_ms": 1316,
+      "site_info": "HTTP 200 — 1202ms",
+      "tempo_ms": 1202,
       "silenciado": false
     },
     {
@@ -91,8 +91,8 @@
       "site_url": "https://joselucio.adv.br",
       "hospedagem": "CPANEL 02",
       "status": "ok",
-      "site_info": "HTTP 200 — 241ms",
-      "tempo_ms": 241,
+      "site_info": "HTTP 200 — 284ms",
+      "tempo_ms": 284,
       "silenciado": false
     },
     {
@@ -100,8 +100,8 @@
       "site_url": "https://leticiacosta.adv.br",
       "hospedagem": "CPANEL 02",
       "status": "ok",
-      "site_info": "HTTP 200 — 1359ms",
-      "tempo_ms": 1359,
+      "site_info": "HTTP 200 — 1277ms",
+      "tempo_ms": 1277,
       "silenciado": false
     },
     {
@@ -109,8 +109,8 @@
       "site_url": "https://enkartes.com.br",
       "hospedagem": "CPANEL 03",
       "status": "ok",
-      "site_info": "HTTP 200 — 2603ms",
-      "tempo_ms": 2603,
+      "site_info": "HTTP 200 — 2439ms",
+      "tempo_ms": 2439,
       "silenciado": false
     },
     {
@@ -127,8 +127,8 @@
       "site_url": "https://apoiomixedescartaveis.com.br",
       "hospedagem": "CPANEL 03",
       "status": "ok",
-      "site_info": "HTTP 200 — 1341ms",
-      "tempo_ms": 1341,
+      "site_info": "HTTP 200 — 1402ms",
+      "tempo_ms": 1402,
       "silenciado": false
     },
     {
@@ -136,8 +136,8 @@
       "site_url": "https://camposcarvalhoadvocacia.com.br",
       "hospedagem": "CPANEL 03",
       "status": "ok",
-      "site_info": "HTTP 200 — 1555ms",
-      "tempo_ms": 1555,
+      "site_info": "HTTP 200 — 1550ms",
+      "tempo_ms": 1550,
       "silenciado": false
     },
     {
@@ -145,8 +145,8 @@
       "site_url": "https://cendefi.com.br",
       "hospedagem": "CPANEL 03",
       "status": "ok",
-      "site_info": "HTTP 200 — 1509ms",
-      "tempo_ms": 1509,
+      "site_info": "HTTP 200 — 1772ms",
+      "tempo_ms": 1772,
       "silenciado": false
     },
     {
@@ -154,8 +154,8 @@
       "site_url": "https://renartsdecor.com.br",
       "hospedagem": "CPANEL 03",
       "status": "ok",
-      "site_info": "HTTP 200 — 1568ms",
-      "tempo_ms": 1568,
+      "site_info": "HTTP 200 — 1648ms",
+      "tempo_ms": 1648,
       "silenciado": false
     },
     {
@@ -163,8 +163,8 @@
       "site_url": "https://lfsgadvocacia.com.br",
       "hospedagem": "CPANEL 04",
       "status": "ok",
-      "site_info": "HTTP 200 — 460ms",
-      "tempo_ms": 460,
+      "site_info": "HTTP 200 — 445ms",
+      "tempo_ms": 445,
       "silenciado": false
     },
     {
@@ -172,8 +172,8 @@
       "site_url": "https://freskura.com.br",
       "hospedagem": "CPANEL 04",
       "status": "ok",
-      "site_info": "HTTP 200 — 1610ms",
-      "tempo_ms": 1610,
+      "site_info": "HTTP 200 — 1538ms",
+      "tempo_ms": 1538,
       "silenciado": false
     },
     {
@@ -181,8 +181,8 @@
       "site_url": "https://centralfunerariaaster.com.br",
       "hospedagem": "CPANEL 04",
       "status": "ok",
-      "site_info": "HTTP 200 — 1512ms",
-      "tempo_ms": 1512,
+      "site_info": "HTTP 200 — 1522ms",
+      "tempo_ms": 1522,
       "silenciado": false
     },
     {
@@ -190,8 +190,8 @@
       "site_url": "https://zecchinadvocacia.com.br",
       "hospedagem": "CPANEL 04",
       "status": "ok",
-      "site_info": "HTTP 200 — 339ms",
-      "tempo_ms": 339,
+      "site_info": "HTTP 200 — 379ms",
+      "tempo_ms": 379,
       "silenciado": false
     },
     {
@@ -199,8 +199,8 @@
       "site_url": "https://romaeventoscampinas.com.br",
       "hospedagem": "CPANEL 04",
       "status": "ok",
-      "site_info": "HTTP 200 — 1485ms",
-      "tempo_ms": 1485,
+      "site_info": "HTTP 200 — 1474ms",
+      "tempo_ms": 1474,
       "silenciado": false
     },
     {
@@ -208,8 +208,8 @@
       "site_url": "https://puigadvogados.com.br",
       "hospedagem": "CPANEL 04",
       "status": "ok",
-      "site_info": "HTTP 200 — 1126ms",
-      "tempo_ms": 1126,
+      "site_info": "HTTP 200 — 1182ms",
+      "tempo_ms": 1182,
       "silenciado": false
     },
     {
@@ -217,8 +217,8 @@
       "site_url": "https://torresecruz.com.br",
       "hospedagem": "CPANEL 04",
       "status": "ok",
-      "site_info": "HTTP 200 — 1362ms",
-      "tempo_ms": 1362,
+      "site_info": "HTTP 200 — 1452ms",
+      "tempo_ms": 1452,
       "silenciado": false
     },
     {
@@ -226,8 +226,8 @@
       "site_url": "https://leticiaenadia.adv.br",
       "hospedagem": "CPANEL 04",
       "status": "ok",
-      "site_info": "HTTP 200 — 1456ms",
-      "tempo_ms": 1456,
+      "site_info": "HTTP 200 — 1645ms",
+      "tempo_ms": 1645,
       "silenciado": false
     },
     {
@@ -235,8 +235,8 @@
       "site_url": "https://rafaelstarling.adv.br",
       "hospedagem": "CPANEL 04",
       "status": "ok",
-      "site_info": "HTTP 200 — 1554ms",
-      "tempo_ms": 1554,
+      "site_info": "HTTP 200 — 1417ms",
+      "tempo_ms": 1417,
       "silenciado": false
     },
     {
@@ -244,8 +244,8 @@
       "site_url": "https://prj.adv.br",
       "hospedagem": "CPANEL 04",
       "status": "ok",
-      "site_info": "HTTP 200 — 1482ms",
-      "tempo_ms": 1482,
+      "site_info": "HTTP 200 — 1543ms",
+      "tempo_ms": 1543,
       "silenciado": false
     },
     {
@@ -253,8 +253,8 @@
       "site_url": "https://arquiteturacomvillanueva.com",
       "hospedagem": "CPANEL 05",
       "status": "ok",
-      "site_info": "HTTP 200 — 1668ms",
-      "tempo_ms": 1668,
+      "site_info": "HTTP 200 — 1839ms",
+      "tempo_ms": 1839,
       "silenciado": false
     },
     {
@@ -263,7 +263,7 @@
       "hospedagem": "CPANEL 05",
       "status": "fora",
       "site_info": "HTTP 500",
-      "tempo_ms": 277,
+      "tempo_ms": 297,
       "silenciado": true
     },
     {
@@ -271,8 +271,8 @@
       "site_url": "https://sousaebalista.adv.br",
       "hospedagem": "CPANEL 05",
       "status": "ok",
-      "site_info": "HTTP 200 — 1351ms",
-      "tempo_ms": 1351,
+      "site_info": "HTTP 200 — 1303ms",
+      "tempo_ms": 1303,
       "silenciado": false
     },
     {
@@ -280,8 +280,8 @@
       "site_url": "https://montarelliengenharia.com.br",
       "hospedagem": "CPANEL 05",
       "status": "ok",
-      "site_info": "HTTP 200 — 388ms",
-      "tempo_ms": 388,
+      "site_info": "HTTP 200 — 249ms",
+      "tempo_ms": 249,
       "silenciado": false
     },
     {
@@ -289,8 +289,8 @@
       "site_url": "https://veronicafonseca.com.br",
       "hospedagem": "CPANEL 05",
       "status": "ok",
-      "site_info": "HTTP 200 — 309ms",
-      "tempo_ms": 309,
+      "site_info": "HTTP 200 — 313ms",
+      "tempo_ms": 313,
       "silenciado": false
     },
     {
@@ -298,8 +298,8 @@
       "site_url": "https://sfernandesadv.com.br",
       "hospedagem": "CPANEL 06",
       "status": "ok",
-      "site_info": "HTTP 200 — 1480ms",
-      "tempo_ms": 1480,
+      "site_info": "HTTP 200 — 1668ms",
+      "tempo_ms": 1668,
       "silenciado": false
     },
     {
@@ -307,8 +307,8 @@
       "site_url": "https://mpestruturasmetalicas.com.br",
       "hospedagem": "CPANEL 06",
       "status": "ok",
-      "site_info": "HTTP 200 — 1258ms",
-      "tempo_ms": 1258,
+      "site_info": "HTTP 200 — 1449ms",
+      "tempo_ms": 1449,
       "silenciado": false
     },
     {
@@ -316,8 +316,8 @@
       "site_url": "https://pergamumcontabilidade.com.br",
       "hospedagem": "CPANEL 06",
       "status": "ok",
-      "site_info": "HTTP 200 — 642ms",
-      "tempo_ms": 642,
+      "site_info": "HTTP 200 — 759ms",
+      "tempo_ms": 759,
       "silenciado": false
     },
     {
@@ -325,8 +325,8 @@
       "site_url": "https://rosangelameneses.adv.br",
       "hospedagem": "CPANEL 06",
       "status": "lento",
-      "site_info": "3206ms — 21154 chars",
-      "tempo_ms": 3206,
+      "site_info": "3240ms — 21056 chars",
+      "tempo_ms": 3240,
       "silenciado": false
     },
     {
@@ -334,8 +334,8 @@
       "site_url": "https://durigonadvogados.com.br",
       "hospedagem": "CPANEL 06",
       "status": "ok",
-      "site_info": "HTTP 200 — 264ms",
-      "tempo_ms": 264,
+      "site_info": "HTTP 200 — 262ms",
+      "tempo_ms": 262,
       "silenciado": false
     },
     {
@@ -343,8 +343,8 @@
       "site_url": "https://trabalhista.aimadvogados.com",
       "hospedagem": "CPANEL 06",
       "status": "ok",
-      "site_info": "HTTP 200 — 187ms",
-      "tempo_ms": 187,
+      "site_info": "HTTP 200 — 157ms",
+      "tempo_ms": 157,
       "silenciado": false
     },
     {
@@ -352,8 +352,8 @@
       "site_url": "https://safatendas.com.br",
       "hospedagem": "CPANEL 07",
       "status": "ok",
-      "site_info": "HTTP 200 — 1655ms",
-      "tempo_ms": 1655,
+      "site_info": "HTTP 200 — 1486ms",
+      "tempo_ms": 1486,
       "silenciado": false
     },
     {
@@ -361,8 +361,8 @@
       "site_url": "https://brazicom.com.br",
       "hospedagem": "CPANEL 07",
       "status": "ok",
-      "site_info": "HTTP 200 — 1035ms",
-      "tempo_ms": 1035,
+      "site_info": "HTTP 200 — 204ms",
+      "tempo_ms": 204,
       "silenciado": false
     },
     {
@@ -370,8 +370,8 @@
       "site_url": "https://casaarmani.com.br",
       "hospedagem": "CPANEL 07",
       "status": "ok",
-      "site_info": "HTTP 200 — 1453ms",
-      "tempo_ms": 1453,
+      "site_info": "HTTP 200 — 1662ms",
+      "tempo_ms": 1662,
       "silenciado": false
     },
     {
@@ -379,8 +379,8 @@
       "site_url": "https://guerraeoliveira.com.br",
       "hospedagem": "CPANEL 07",
       "status": "ok",
-      "site_info": "HTTP 200 — 361ms",
-      "tempo_ms": 361,
+      "site_info": "HTTP 200 — 374ms",
+      "tempo_ms": 374,
       "silenciado": false
     },
     {
@@ -397,8 +397,8 @@
       "site_url": "https://mrportoeparceria.com.br",
       "hospedagem": "CPANEL 07",
       "status": "ok",
-      "site_info": "HTTP 200 — 362ms",
-      "tempo_ms": 362,
+      "site_info": "HTTP 200 — 377ms",
+      "tempo_ms": 377,
       "silenciado": false
     },
     {
@@ -406,8 +406,8 @@
       "site_url": "https://evandaferreira.adv.br",
       "hospedagem": "CPANEL 07",
       "status": "ok",
-      "site_info": "HTTP 200 — 501ms",
-      "tempo_ms": 501,
+      "site_info": "HTTP 200 — 418ms",
+      "tempo_ms": 418,
       "silenciado": false
     },
     {
@@ -415,8 +415,8 @@
       "site_url": "https://infonetfibra.com.br",
       "hospedagem": "CPANEL 07",
       "status": "ok",
-      "site_info": "HTTP 200 — 370ms",
-      "tempo_ms": 370,
+      "site_info": "HTTP 200 — 451ms",
+      "tempo_ms": 451,
       "silenciado": false
     },
     {
@@ -424,17 +424,17 @@
       "site_url": "https://clinicapriscilanascimento.com.br",
       "hospedagem": "HOSTINGER",
       "status": "ok",
-      "site_info": "HTTP 200 — 577ms",
-      "tempo_ms": 577,
+      "site_info": "HTTP 200 — 1762ms",
+      "tempo_ms": 1762,
       "silenciado": false
     },
     {
       "cliente": "DWR Hospitalar",
       "site_url": "https://dwrhospitalar.com.br",
       "hospedagem": "HOSPEDAGEM DO CLIENTE",
-      "status": "ok",
-      "site_info": "HTTP 200 — 2849ms",
-      "tempo_ms": 2849,
+      "status": "lento",
+      "site_info": "5119ms — 394797 chars",
+      "tempo_ms": 5119,
       "silenciado": false
     },
     {
@@ -442,8 +442,8 @@
       "site_url": "https://m3tecno.com.br",
       "hospedagem": "HOSPEDAGEM DO CLIENTE",
       "status": "ok",
-      "site_info": "HTTP 200 — 242ms",
-      "tempo_ms": 242,
+      "site_info": "HTTP 200 — 229ms",
+      "tempo_ms": 229,
       "silenciado": false
     },
     {
@@ -451,8 +451,8 @@
       "site_url": "https://advocaciaflaviobalduino.com",
       "hospedagem": "HOSPEDAGEM DO CLIENTE",
       "status": "lento",
-      "site_info": "3616ms — 42501 chars",
-      "tempo_ms": 3616,
+      "site_info": "3489ms — 42546 chars",
+      "tempo_ms": 3489,
       "silenciado": false
     },
     {
@@ -460,8 +460,8 @@
       "site_url": "https://crespoecairesadvogados.com",
       "hospedagem": "HOSPEDAGEM DO CLIENTE",
       "status": "ok",
-      "site_info": "HTTP 200 — 671ms",
-      "tempo_ms": 671,
+      "site_info": "HTTP 200 — 1658ms",
+      "tempo_ms": 1658,
       "silenciado": false
     },
     {
@@ -469,8 +469,8 @@
       "site_url": "https://jacsys.com.br",
       "hospedagem": "HOSPEDAGEM DO CLIENTE",
       "status": "lento",
-      "site_info": "4251ms — 197571 chars",
-      "tempo_ms": 4251,
+      "site_info": "4244ms — 197571 chars",
+      "tempo_ms": 4244,
       "silenciado": false
     },
     {
@@ -478,17 +478,17 @@
       "site_url": "https://lojawltintas.com.br",
       "hospedagem": "HOSPEDAGEM DO CLIENTE",
       "status": "ok",
-      "site_info": "HTTP 200 — 2098ms",
-      "tempo_ms": 2098,
+      "site_info": "HTTP 200 — 1866ms",
+      "tempo_ms": 1866,
       "silenciado": false
     },
     {
       "cliente": "Inovision Contabilidade",
       "site_url": "https://inovisioncontabilidade.com.br",
       "hospedagem": "HOSTGATOR",
-      "status": "lento",
-      "site_info": "3030ms — 201755 chars",
-      "tempo_ms": 3030,
+      "status": "ok",
+      "site_info": "HTTP 200 — 2922ms",
+      "tempo_ms": 2922,
       "silenciado": false
     },
     {
@@ -496,8 +496,8 @@
       "site_url": "https://comercialdinamix.com.br",
       "hospedagem": "CPANEL 06",
       "status": "ok",
-      "site_info": "HTTP 200 — 492ms",
-      "tempo_ms": 492,
+      "site_info": "HTTP 200 — 503ms",
+      "tempo_ms": 503,
       "silenciado": false
     },
     {
@@ -505,8 +505,8 @@
       "site_url": "https://biancasilveiraadv.com.br",
       "hospedagem": "HOSTINGER",
       "status": "ok",
-      "site_info": "HTTP 200 — 233ms",
-      "tempo_ms": 233,
+      "site_info": "HTTP 200 — 211ms",
+      "tempo_ms": 211,
       "silenciado": false
     },
     {
@@ -514,8 +514,8 @@
       "site_url": "https://vitaltransportes.com.br",
       "hospedagem": "HOSTINGER",
       "status": "ok",
-      "site_info": "HTTP 200 — 1232ms",
-      "tempo_ms": 1232,
+      "site_info": "HTTP 200 — 1228ms",
+      "tempo_ms": 1228,
       "silenciado": false
     },
     {
@@ -523,8 +523,8 @@
       "site_url": "https://andrern.adv.br",
       "hospedagem": "HOSTINGER",
       "status": "ok",
-      "site_info": "HTTP 200 — 1581ms",
-      "tempo_ms": 1581,
+      "site_info": "HTTP 200 — 319ms",
+      "tempo_ms": 319,
       "silenciado": false
     },
     {
@@ -532,8 +532,8 @@
       "site_url": "https://paulaseifertpsicologia.com.br",
       "hospedagem": "HOSTINGER",
       "status": "ok",
-      "site_info": "HTTP 200 — 1532ms",
-      "tempo_ms": 1532,
+      "site_info": "HTTP 200 — 209ms",
+      "tempo_ms": 209,
       "silenciado": false
     },
     {
@@ -541,8 +541,8 @@
       "site_url": "https://mfbrindesegravacao.com.br",
       "hospedagem": "HOSTINGER",
       "status": "ok",
-      "site_info": "HTTP 200 — 1319ms",
-      "tempo_ms": 1319,
+      "site_info": "HTTP 200 — 1594ms",
+      "tempo_ms": 1594,
       "silenciado": false
     },
     {
@@ -550,8 +550,8 @@
       "site_url": "https://diegobritoadvogados.com.br",
       "hospedagem": "HOSTINGER",
       "status": "ok",
-      "site_info": "HTTP 200 — 229ms",
-      "tempo_ms": 229,
+      "site_info": "HTTP 200 — 215ms",
+      "tempo_ms": 215,
       "silenciado": false
     },
     {
@@ -559,8 +559,8 @@
       "site_url": "https://lgsprevidenciarista.com.br",
       "hospedagem": "HOSTINGER",
       "status": "ok",
-      "site_info": "HTTP 200 — 1670ms",
-      "tempo_ms": 1670,
+      "site_info": "HTTP 200 — 1356ms",
+      "tempo_ms": 1356,
       "silenciado": false
     },
     {
@@ -568,8 +568,8 @@
       "site_url": "https://mottadeoliveira.com.br",
       "hospedagem": "HOSTINGER",
       "status": "ok",
-      "site_info": "HTTP 200 — 354ms",
-      "tempo_ms": 354,
+      "site_info": "HTTP 200 — 210ms",
+      "tempo_ms": 210,
       "silenciado": false
     },
     {
@@ -577,8 +577,8 @@
       "site_url": "https://tocaarqeng.com.br",
       "hospedagem": "HOSTINGER",
       "status": "ok",
-      "site_info": "HTTP 200 — 1558ms",
-      "tempo_ms": 1558,
+      "site_info": "HTTP 200 — 1521ms",
+      "tempo_ms": 1521,
       "silenciado": false
     },
     {
@@ -586,8 +586,8 @@
       "site_url": "https://hsscontabil.com",
       "hospedagem": "HOSTINGER",
       "status": "ok",
-      "site_info": "HTTP 200 — 253ms",
-      "tempo_ms": 253,
+      "site_info": "HTTP 200 — 276ms",
+      "tempo_ms": 276,
       "silenciado": false
     },
     {
@@ -595,8 +595,8 @@
       "site_url": "https://psicologagabrielastrabello.com.br",
       "hospedagem": "HOSTINGER",
       "status": "ok",
-      "site_info": "HTTP 200 — 386ms",
-      "tempo_ms": 386,
+      "site_info": "HTTP 200 — 321ms",
+      "tempo_ms": 321,
       "silenciado": false
     },
     {
@@ -604,8 +604,8 @@
       "site_url": "https://mdnetotrabalhista.com.br",
       "hospedagem": "HOSTINGER",
       "status": "ok",
-      "site_info": "HTTP 200 — 349ms",
-      "tempo_ms": 349,
+      "site_info": "HTTP 200 — 327ms",
+      "tempo_ms": 327,
       "silenciado": false
     },
     {
@@ -613,8 +613,8 @@
       "site_url": "https://rgeprojetoseobras.com.br",
       "hospedagem": "HOSTINGER",
       "status": "ok",
-      "site_info": "HTTP 200 — 479ms",
-      "tempo_ms": 479,
+      "site_info": "HTTP 200 — 323ms",
+      "tempo_ms": 323,
       "silenciado": false
     },
     {
@@ -622,8 +622,8 @@
       "site_url": "https://dfwjateamento.com.br",
       "hospedagem": "HOSTINGER",
       "status": "ok",
-      "site_info": "HTTP 200 — 543ms",
-      "tempo_ms": 543,
+      "site_info": "HTTP 200 — 771ms",
+      "tempo_ms": 771,
       "silenciado": false
     },
     {
@@ -631,8 +631,8 @@
       "site_url": "https://oliveiradvocacia.com.br",
       "hospedagem": "HOSTINGER",
       "status": "ok",
-      "site_info": "HTTP 200 — 337ms",
-      "tempo_ms": 337,
+      "site_info": "HTTP 200 — 323ms",
+      "tempo_ms": 323,
       "silenciado": false
     },
     {
@@ -640,8 +640,8 @@
       "site_url": "https://deluscontabilidade.com.br",
       "hospedagem": "HOSTINGER",
       "status": "ok",
-      "site_info": "HTTP 200 — 379ms",
-      "tempo_ms": 379,
+      "site_info": "HTTP 200 — 337ms",
+      "tempo_ms": 337,
       "silenciado": false
     },
     {
@@ -649,8 +649,8 @@
       "site_url": "https://suzelecarvalho.adv.br",
       "hospedagem": "HOSTINGER",
       "status": "ok",
-      "site_info": "HTTP 200 — 225ms",
-      "tempo_ms": 225,
+      "site_info": "HTTP 200 — 191ms",
+      "tempo_ms": 191,
       "silenciado": false
     },
     {
@@ -658,8 +658,8 @@
       "site_url": "https://atelieded.com.br",
       "hospedagem": "HOSTINGER",
       "status": "ok",
-      "site_info": "HTTP 200 — 1569ms",
-      "tempo_ms": 1569,
+      "site_info": "HTTP 200 — 211ms",
+      "tempo_ms": 211,
       "silenciado": false
     },
     {
@@ -667,8 +667,8 @@
       "site_url": "https://efficacecontabilidade.com.br",
       "hospedagem": "HOSTINGER",
       "status": "ok",
-      "site_info": "HTTP 200 — 1548ms",
-      "tempo_ms": 1548,
+      "site_info": "HTTP 200 — 211ms",
+      "tempo_ms": 211,
       "silenciado": false
     },
     {
@@ -676,8 +676,8 @@
       "site_url": "https://moretticontabilidade.cnt.br",
       "hospedagem": "HOSTINGER",
       "status": "ok",
-      "site_info": "HTTP 200 — 240ms",
-      "tempo_ms": 240,
+      "site_info": "HTTP 200 — 317ms",
+      "tempo_ms": 317,
       "silenciado": false
     },
     {
@@ -685,8 +685,8 @@
       "site_url": "https://ecmadvocacia.com.br",
       "hospedagem": "HOSTINGER",
       "status": "ok",
-      "site_info": "HTTP 200 — 232ms",
-      "tempo_ms": 232,
+      "site_info": "HTTP 200 — 198ms",
+      "tempo_ms": 198,
       "silenciado": false
     },
     {
@@ -694,8 +694,8 @@
       "site_url": "https://brunocoelhoadvogados.com.br",
       "hospedagem": "HOSTINGER",
       "status": "ok",
-      "site_info": "HTTP 200 — 465ms",
-      "tempo_ms": 465,
+      "site_info": "HTTP 200 — 529ms",
+      "tempo_ms": 529,
       "silenciado": false
     },
     {
@@ -703,8 +703,8 @@
       "site_url": "https://cbuenoadvocacia.com.br",
       "hospedagem": "HOSTINGER",
       "status": "ok",
-      "site_info": "HTTP 200 — 234ms",
-      "tempo_ms": 234,
+      "site_info": "HTTP 200 — 213ms",
+      "tempo_ms": 213,
       "silenciado": false
     },
     {
@@ -712,8 +712,8 @@
       "site_url": "https://rrdassessoriacontabil.com.br",
       "hospedagem": "HOSTINGER",
       "status": "ok",
-      "site_info": "HTTP 200 — 476ms",
-      "tempo_ms": 476,
+      "site_info": "HTTP 200 — 328ms",
+      "tempo_ms": 328,
       "silenciado": false
     },
     {
@@ -721,8 +721,8 @@
       "site_url": "https://aeradvocacia.com.br",
       "hospedagem": "HOSTINGER",
       "status": "ok",
-      "site_info": "HTTP 200 — 1593ms",
-      "tempo_ms": 1593,
+      "site_info": "HTTP 200 — 340ms",
+      "tempo_ms": 340,
       "silenciado": false
     },
     {
@@ -730,8 +730,8 @@
       "site_url": "https://advocaciavps.com.br",
       "hospedagem": "HOSTINGER",
       "status": "ok",
-      "site_info": "HTTP 200 — 1530ms",
-      "tempo_ms": 1530,
+      "site_info": "HTTP 200 — 223ms",
+      "tempo_ms": 223,
       "silenciado": false
     },
     {
@@ -739,8 +739,8 @@
       "site_url": "https://britoeviana.adv.br",
       "hospedagem": "HOSTINGER",
       "status": "ok",
-      "site_info": "HTTP 200 — 743ms",
-      "tempo_ms": 743,
+      "site_info": "HTTP 200 — 1891ms",
+      "tempo_ms": 1891,
       "silenciado": false
     },
     {
@@ -748,8 +748,8 @@
       "site_url": "https://mateusburtet.adv.br",
       "hospedagem": "HOSTINGER",
       "status": "ok",
-      "site_info": "HTTP 200 — 1587ms",
-      "tempo_ms": 1587,
+      "site_info": "HTTP 200 — 206ms",
+      "tempo_ms": 206,
       "silenciado": false
     },
     {
@@ -757,8 +757,8 @@
       "site_url": "https://vssadvocacia.com",
       "hospedagem": "HOSTINGER",
       "status": "ok",
-      "site_info": "HTTP 200 — 664ms",
-      "tempo_ms": 664,
+      "site_info": "HTTP 200 — 597ms",
+      "tempo_ms": 597,
       "silenciado": false
     },
     {
@@ -766,8 +766,8 @@
       "site_url": "https://matheuszanoni.adv.br",
       "hospedagem": "HOSTINGER",
       "status": "ok",
-      "site_info": "HTTP 200 — 350ms",
-      "tempo_ms": 350,
+      "site_info": "HTTP 200 — 203ms",
+      "tempo_ms": 203,
       "silenciado": false
     },
     {
@@ -775,8 +775,8 @@
       "site_url": "https://puigecosta.adv.br",
       "hospedagem": "HOSTINGER",
       "status": "ok",
-      "site_info": "HTTP 200 — 253ms",
-      "tempo_ms": 253,
+      "site_info": "HTTP 200 — 320ms",
+      "tempo_ms": 320,
       "silenciado": false
     },
     {
@@ -784,8 +784,8 @@
       "site_url": "https://advogadoandrebarbosa.com.br",
       "hospedagem": "HOSTINGER",
       "status": "ok",
-      "site_info": "HTTP 200 — 344ms",
-      "tempo_ms": 344,
+      "site_info": "HTTP 200 — 203ms",
+      "tempo_ms": 203,
       "silenciado": false
     },
     {
@@ -793,8 +793,8 @@
       "site_url": "https://gabrielamiranda.adv.br",
       "hospedagem": "HOSTINGER",
       "status": "ok",
-      "site_info": "HTTP 200 — 247ms",
-      "tempo_ms": 247,
+      "site_info": "HTTP 200 — 202ms",
+      "tempo_ms": 202,
       "silenciado": false
     },
     {
@@ -802,8 +802,8 @@
       "site_url": "https://moraesemoraesadv.com.br",
       "hospedagem": "HOSTINGER",
       "status": "ok",
-      "site_info": "HTTP 200 — 244ms",
-      "tempo_ms": 244,
+      "site_info": "HTTP 200 — 198ms",
+      "tempo_ms": 198,
       "silenciado": false
     },
     {
@@ -811,8 +811,8 @@
       "site_url": "https://mauadpitotcaroli.adv.br",
       "hospedagem": "HOSTINGER",
       "status": "ok",
-      "site_info": "HTTP 200 — 654ms",
-      "tempo_ms": 654,
+      "site_info": "HTTP 200 — 636ms",
+      "tempo_ms": 636,
       "silenciado": false
     },
     {
@@ -820,8 +820,8 @@
       "site_url": "https://noevizeuadvogados.com.br",
       "hospedagem": "HOSTINGER",
       "status": "ok",
-      "site_info": "HTTP 200 — 1694ms",
-      "tempo_ms": 1694,
+      "site_info": "HTTP 200 — 1120ms",
+      "tempo_ms": 1120,
       "silenciado": false
     },
     {
@@ -829,8 +829,8 @@
       "site_url": "https://direito-trabalhista.rgmadv.com.br",
       "hospedagem": "VPS HOSTGATOR",
       "status": "ok",
-      "site_info": "HTTP 200 — 1638ms",
-      "tempo_ms": 1638,
+      "site_info": "HTTP 200 — 1608ms",
+      "tempo_ms": 1608,
       "silenciado": false
     }
   ]
