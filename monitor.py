@@ -37,7 +37,6 @@ TIMEOUT       = 10
 TAMANHO_MIN   = 1000
 TEMPO_LENTO   = 3000
 
-# URL pública onde o acknowledged.json fica publicado (mesma do painel)
 ACK_URL = "https://heltonbarbosasantos-cell.github.io/monitor-verdigital/acknowledged.json"
 
 HEADERS_NAVEGADOR = {
@@ -55,6 +54,19 @@ IGNORAR_LINKS = {
     'nao tem site', 'não tem site', 'sem site', 'em desenvolvimento'
 }
 
+# Sinais de que a página é uma tela de "conta de hospedagem suspensa",
+# domínio parqueado, ou erro genérico do provedor — não o site real do cliente.
+INDICADORES_SUSPENSAO_URL = [
+    'suspendedpage.cgi', 'account-suspended', 'accountsuspended',
+    'cgi-sys/suspendedpage',
+]
+
+INDICADORES_SUSPENSAO_TEXTO = [
+    'conta precisa de atenção', 'conta foi suspensa', 'account has been suspended',
+    'this account has been suspended', 'entre em contato com o seu provedor',
+    'domain has expired', 'domínio expirou', 'website is currently unavailable',
+]
+
 # ─────────────────────────────────────────────
 # FUNÇÕES
 # ─────────────────────────────────────────────
@@ -64,7 +76,6 @@ def normalizar(texto):
 
 
 def buscar_acknowledged():
-    """Busca a lista de clientes com alertas silenciados (marcados como 'ciente')"""
     try:
         resp = requests.get(ACK_URL, timeout=10)
         if resp.status_code == 200:
@@ -76,7 +87,7 @@ def buscar_acknowledged():
 
 def buscar_clientes():
     url = f"https://docs.google.com/spreadsheets/d/{SHEET_ID}/export?format=csv&gid={SHEET_GID}"
-    print(f"📋 Buscando planilha...")
+    print("📋 Buscando planilha...")
 
     try:
         resp = requests.get(url, timeout=30, allow_redirects=True)
@@ -144,6 +155,22 @@ def buscar_clientes():
     return clientes
 
 
+def _detectar_pagina_suspensa(url_final, texto_pagina):
+    """Verifica se a página é uma tela de conta suspensa/domínio parqueado,
+    em vez do site real do cliente."""
+    url_lower = (url_final or '').lower()
+    for indicador in INDICADORES_SUSPENSAO_URL:
+        if indicador in url_lower:
+            return True
+
+    texto_lower = (texto_pagina or '')[:5000].lower()
+    for indicador in INDICADORES_SUSPENSAO_TEXTO:
+        if indicador in texto_lower:
+            return True
+
+    return False
+
+
 def _tentar_requisicao(url):
     try:
         inicio = time.time()
@@ -151,14 +178,25 @@ def _tentar_requisicao(url):
                               verify=False, allow_redirects=True)
         tempo_ms = round((time.time() - inicio) * 1000)
         codigo   = resp.status_code
-        tamanho  = len(resp.text)
+        texto    = resp.text
+        tamanho  = len(texto)
 
         if codigo >= 400:
             return False, {"status": "fora", "detalhe": f"HTTP {codigo}", "tempo_ms": tempo_ms}
+
         if tamanho < TAMANHO_MIN:
             return False, {"status": "fora", "detalhe": f"Página vazia ({tamanho} chars)", "tempo_ms": tempo_ms}
+
+        if _detectar_pagina_suspensa(resp.url, texto):
+            return False, {
+                "status": "fora",
+                "detalhe": "Página de conta suspensa / domínio parqueado detectada (servidor responde, mas não é o site real)",
+                "tempo_ms": tempo_ms
+            }
+
         if tempo_ms > TEMPO_LENTO:
             return True, {"status": "lento", "detalhe": f"{tempo_ms}ms — {tamanho} chars", "tempo_ms": tempo_ms}
+
         return True, {"status": "ok", "detalhe": f"HTTP {codigo} — {tempo_ms}ms", "tempo_ms": tempo_ms}
 
     except requests.exceptions.ConnectionError as e:
@@ -171,12 +209,8 @@ def _tentar_requisicao(url):
 
 def checar_site(url, pular_retentativas=False):
     """
-    Faz até 3 tentativas com esperas crescentes (5s, 10s) antes de declarar o site fora.
-    Isso reduz falsos positivos causados por bloqueios temporários de IP de datacenter
-    (comum em hospedagens compartilhadas que barram tráfego de nuvem/robôs).
-
-    Se pular_retentativas=True (cliente já marcado como "estou ciente"), faz só
-    1 tentativa — não precisa gastar tempo confirmando um problema já conhecido.
+    Faz até 3 tentativas com esperas crescentes (4s, 8s) antes de declarar o site fora.
+    Se pular_retentativas=True (cliente já marcado como "estou ciente"), faz só 1 tentativa.
     """
     esperas = [0] if pular_retentativas else [0, 4, 8]
 
@@ -190,8 +224,6 @@ def checar_site(url, pular_retentativas=False):
                 resultado["detalhe"] += f" (confirmado OK na tentativa {i+1})"
             return resultado
 
-    # Falhou — provavelmente é queda real, mas se o erro for de conexão
-    # (não HTTP) e não pulamos retentativas, sinaliza que pode ser bloqueio de IP
     if not pular_retentativas and resultado and "Sem conexão" in resultado.get("detalhe", ""):
         resultado["detalhe"] += " — se o site abrir normal no navegador, pode ser bloqueio de IP do monitor, não queda real"
 
@@ -247,7 +279,6 @@ def main():
 
     os.makedirs("output", exist_ok=True)
 
-    # Diagnóstico — confirma se as credenciais foram carregadas, sem expor valores sensíveis
     print(f"[Config] WhatsApp configurado: {'sim' if (WHATSAPP_NUMERO and WHATSAPP_APIKEY) else 'não'}")
     print(f"[Config] Email configurado: {'sim' if (EMAIL_REMETENTE and EMAIL_SENHA and EMAIL_DESTINO) else 'não'}")
     if EMAIL_REMETENTE:
@@ -255,9 +286,9 @@ def main():
 
     clientes         = buscar_clientes()
     status_anterior  = carregar_status_anterior()
-    acknowledged     = buscar_acknowledged()  # clientes com alerta silenciado
+    acknowledged     = buscar_acknowledged()
     resultados       = []
-    sites_fora       = []   # lista consolidada — vira UM alerta só no final
+    sites_fora       = []
     sites_voltaram   = []
     total_ok         = 0
     total_lento      = 0
@@ -280,8 +311,6 @@ def main():
 
         ant_status = status_anterior.get(nome, {}).get("status", "ok")
 
-        # Só alerta quando o site está FORA (lento não avisa mais)
-        # e só se o cliente não estiver marcado como "ciente"
         if status == "fora" and ant_status != "fora" and not esta_silenciado:
             sites_fora.append(f"🔴 {nome}\n{site}\n{res['detalhe']}")
         if status == "ok" and ant_status == "fora":
@@ -299,8 +328,6 @@ def main():
 
         time.sleep(0.5)
 
-    # Monta UMA mensagem só, juntando todos os sites fora e os que voltaram
-    # (em vez de mandar um email/whatsapp separado pra cada site)
     partes_mensagem = []
     if sites_fora:
         partes_mensagem.append(f"🔴 SITES FORA ({len(sites_fora)}):\n\n" + "\n\n".join(sites_fora))
@@ -324,9 +351,6 @@ def main():
     else:
         print("[ALERTA] Nenhuma mudança de status — nenhum alerta enviado")
 
-    # Limpa a lista de "silenciados" — mantém só quem ainda está fora.
-    # Assim que o site volta ao normal, ele sai da lista automaticamente
-    # e volta a alertar numa próxima queda.
     nomes_fora_agora = {r["cliente"] for r in resultados if r["status"] == "fora"}
     acknowledged_atualizado = sorted(acknowledged & nomes_fora_agora)
 
