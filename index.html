@@ -22,6 +22,9 @@
     --yellow:       #ffc107;
     --yellow-bg:    #3a2e00;
     --yellow-border:#7a6000;
+    --blue:         #4fc3f7;
+    --blue-bg:      #0a2a38;
+    --blue-border:  #145a72;
     --text:      #e8eaf6;
     --muted:     #7986cb;
     --accent:    #00e676;
@@ -57,7 +60,9 @@
   .logo-text h1 { font-size: 14px; font-weight: 700; letter-spacing: 0.02em; }
   .logo-text span { font-size: 11px; color: var(--muted); display: block; font-weight: 400; font-family: 'JetBrains Mono', monospace; }
 
-  .btn-refresh {
+  .header-right { display: flex; align-items: center; gap: 8px; }
+
+  .btn-refresh, .btn-forcar {
     background: var(--surface2);
     border: 1px solid var(--border);
     color: var(--text);
@@ -69,10 +74,12 @@
     transition: background 0.2s;
   }
   .btn-refresh:hover { background: var(--accent); color: #04150c; border-color: var(--accent); }
+  .btn-forcar:hover { background: var(--blue); color: #04222e; border-color: var(--blue); }
+  .btn-forcar:disabled { opacity: 0.5; cursor: default; }
 
   .summary {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     gap: 14px;
     padding: 20px 32px 0;
   }
@@ -91,13 +98,15 @@
   .card-stat.verde.ativo    { border-color: var(--green); box-shadow: 0 0 12px #00e67630; }
   .card-stat.amarelo.ativo  { border-color: var(--yellow); box-shadow: 0 0 12px #ffc10730; }
   .card-stat.vermelho.ativo { border-color: var(--red); box-shadow: 0 0 12px #ff475730; }
+  .card-stat.azul.ativo     { border-color: var(--blue); box-shadow: 0 0 12px #4fc3f730; }
 
-  .card-stat .numero { font-size: 30px; font-weight: 800; font-family: 'JetBrains Mono', monospace; line-height: 1; }
+  .card-stat .numero { font-size: 28px; font-weight: 800; font-family: 'JetBrains Mono', monospace; line-height: 1; }
   .card-stat .label { font-size: 11px; color: var(--muted); margin-top: 6px; text-transform: uppercase; letter-spacing: 0.06em; }
   .card-stat.total .numero   { color: var(--text); }
   .card-stat.verde .numero   { color: var(--green); }
   .card-stat.amarelo .numero { color: var(--yellow); }
   .card-stat.vermelho .numero { color: var(--red); }
+  .card-stat.azul .numero    { color: var(--blue); }
 
   .controles {
     padding: 14px 32px 0;
@@ -160,10 +169,11 @@
       transition: transform 0.12s, box-shadow 0.12s;
     }
   }
-  .card-cliente.ok    { background: var(--green-bg); border-color: var(--green-border); }
-  .card-cliente.erro  { background: var(--red-bg); border-color: var(--red-border); }
-  .card-cliente.lento { background: var(--yellow-bg); border-color: var(--yellow-border); }
-  .card-cliente.nc    { background: var(--surface); border-color: var(--border); }
+  .card-cliente.ok          { background: var(--green-bg); border-color: var(--green-border); }
+  .card-cliente.erro        { background: var(--red-bg); border-color: var(--red-border); }
+  .card-cliente.lento       { background: var(--yellow-bg); border-color: var(--yellow-border); }
+  .card-cliente.verificando { background: var(--blue-bg); border-color: var(--blue-border); }
+  .card-cliente.nc          { background: var(--surface); border-color: var(--border); }
   .card-cliente.silenciado { opacity: 0.55; }
 
   .card-link {
@@ -187,25 +197,27 @@
     .card-cliente:hover .link-icone { opacity: 0.8; }
   }
 
-
   .status-row { display: flex; align-items: center; gap: 6px; margin-bottom: 6px; }
   .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
   .dot.ok     { background: var(--green);  box-shadow: 0 0 8px var(--green); }
   .dot.erro   { background: var(--red);    box-shadow: 0 0 8px var(--red); }
   .dot.lento  { background: var(--yellow); box-shadow: 0 0 8px var(--yellow); }
+  .dot.verificando { background: var(--blue); box-shadow: 0 0 8px var(--blue); }
   .dot.nc     { background: var(--muted); }
 
   .status-label { font-size: 9px; font-weight: 700; letter-spacing: 0.06em; font-family: 'JetBrains Mono', monospace; }
-  .card-cliente.ok .status-label     { color: var(--green); }
-  .card-cliente.lento .status-label  { color: var(--yellow); }
-  .card-cliente.erro .status-label   { color: var(--red); }
-  .card-cliente.nc .status-label     { color: var(--muted); }
+  .card-cliente.ok .status-label          { color: var(--green); }
+  .card-cliente.lento .status-label       { color: var(--yellow); }
+  .card-cliente.erro .status-label        { color: var(--red); }
+  .card-cliente.verificando .status-label { color: var(--blue); }
+  .card-cliente.nc .status-label          { color: var(--muted); }
 
   .nome-cliente { font-size: 13px; font-weight: 600; line-height: 1.3; margin-bottom: 4px; word-break: break-word; color: var(--text); }
   .url-cliente { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .card-cliente.ok .url-cliente     { color: #6fd9a3; }
-  .card-cliente.lento .url-cliente  { color: #d4a800; }
-  .card-cliente.erro .url-cliente   { color: #e89aa1; }
+  .card-cliente.ok .url-cliente          { color: #6fd9a3; }
+  .card-cliente.lento .url-cliente       { color: #d4a800; }
+  .card-cliente.erro .url-cliente        { color: #e89aa1; }
+  .card-cliente.verificando .url-cliente { color: #7fd0f2; }
 
   .hospedagem-badge {
     display: inline-block;
@@ -219,6 +231,7 @@
   }
 
   .detalhe-erro { font-size: 9px; color: #e89aa1; margin-top: 4px; font-family: 'JetBrains Mono', monospace; line-height: 1.3; }
+  .detalhe-info { font-size: 9px; color: #7fd0f2; margin-top: 4px; font-family: 'JetBrains Mono', monospace; line-height: 1.3; }
 
   .btn-silenciar {
     display: block;
@@ -276,6 +289,7 @@
     </div>
   </div>
   <div class="header-right">
+    <button class="btn-forcar" id="btn-forcar" onclick="forcarVerificacao()">⚡ Forçar verificação agora</button>
     <button class="btn-refresh" onclick="carregar()">↻ Atualizar</button>
   </div>
 </header>
@@ -306,33 +320,18 @@
 </div>
 
 <script>
-  const STATUS_URL = 'https://heltonbarbosasantos-cell.github.io/monitor-verdigital/status.json';
+  const STATUS_URL    = 'https://heltonbarbosasantos-cell.github.io/monitor-verdigital/status.json';
   const GITHUB_OWNER  = 'heltonbarbosasantos-cell';
   const GITHUB_REPO   = 'monitor-verdigital';
   const GITHUB_BRANCH = 'gh-pages';
   const ACK_PATH      = 'acknowledged.json';
+  const WORKFLOW_FILE = 'monitor.yml';
 
   let dadosGlobais = [];
   let filtroAtivo  = 'todos';
   let ordemAtiva   = 'nome';
   let countdown    = 60;
   let timer;
-
-  function setOrdem(tipo, btn) {
-    ordemAtiva = tipo;
-    document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('ativo'));
-    btn.classList.add('ativo');
-    renderCards();
-  }
-
-  function setFiltro(tipo) {
-    filtroAtivo = tipo;
-    document.querySelectorAll('.card-stat').forEach(c => c.classList.remove('ativo'));
-    const mapa = { todos: 'card-todos', ok: 'card-ok', lento: 'card-lento', erro: 'card-erro' };
-    const el = document.getElementById(mapa[tipo]);
-    if (el) el.classList.add('ativo');
-    renderCards();
-  }
 
   function escapeHtml(texto) {
     if (texto === null || texto === undefined) return '';
@@ -347,10 +346,54 @@
   function getToken() {
     let token = localStorage.getItem('gh_pat');
     if (!token) {
-      token = prompt('Cole seu GitHub Token (Personal Access Token com permissão de escrita neste repositório) para poder silenciar alertas:\n\nEsse token fica salvo só no seu navegador.');
+      token = prompt('Cole seu GitHub Token (Personal Access Token com permissão de escrita e Actions neste repositório):\n\nEsse token fica salvo só no seu navegador.');
       if (token) localStorage.setItem('gh_pat', token.trim());
     }
     return token ? token.trim() : null;
+  }
+
+  // ── Forçar verificação agora (dispara o workflow via API) ──
+  async function forcarVerificacao() {
+    const token = getToken();
+    if (!token) return;
+
+    const btn = document.getElementById('btn-forcar');
+    btn.disabled = true;
+    btn.textContent = '⏳ Disparando...';
+
+    try {
+      const url = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/actions/workflows/${WORKFLOW_FILE}/dispatches`;
+      const resp = await fetch(url, {
+        method: 'POST',
+        headers: {
+          Authorization: `token ${token}`,
+          'Content-Type': 'application/json',
+          Accept: 'application/vnd.github+json'
+        },
+        body: JSON.stringify({ ref: 'main' })
+      });
+
+      if (resp.status === 204) {
+        btn.textContent = '✅ Disparado! Aguarde ~2-3 min';
+        setTimeout(() => {
+          btn.textContent = '⚡ Forçar verificação agora';
+          btn.disabled = false;
+        }, 15000);
+      } else if (resp.status === 401) {
+        localStorage.removeItem('gh_pat');
+        throw new Error('Token inválido — tente de novo');
+      } else if (resp.status === 404) {
+        throw new Error('Workflow não encontrado — confira o nome do arquivo .yml');
+      } else if (resp.status === 403) {
+        throw new Error('Token sem permissão de Actions — recrie o token com permissão "Actions: Read and write"');
+      } else {
+        throw new Error(`Falha ao disparar (HTTP ${resp.status})`);
+      }
+    } catch (e) {
+      alert('Erro: ' + e.message);
+      btn.textContent = '⚡ Forçar verificação agora';
+      btn.disabled = false;
+    }
   }
 
   async function tentarSalvarAck(nomeCliente, token, tentativa) {
@@ -387,8 +430,6 @@
       throw new Error('Token inválido ou sem permissão — tente de novo');
     }
 
-    // 409/422 costuma ser conflito de versão (o monitor salvou uma versão nova
-    // bem nesse instante) — tenta de novo automaticamente, pegando o sha atualizado
     if ((putResp.status === 409 || putResp.status === 422) && tentativa < 3) {
       await new Promise(r => setTimeout(r, 800));
       return tentarSalvarAck(nomeCliente, token, tentativa + 1);
@@ -415,8 +456,6 @@
     }
   }
 
-  // Delegação de evento — evita ter que "costurar" o nome do cliente
-  // dentro de atributos HTML (o que quebraria com nomes tendo & ou aspas)
   document.getElementById('grid').addEventListener('click', function(e) {
     const btn = e.target.closest('.btn-silenciar');
     if (!btn || btn.classList.contains('ja-silenciado')) return;
@@ -425,6 +464,22 @@
     const nomeCliente = btn.dataset.cliente;
     silenciarAlerta(nomeCliente, btn);
   });
+
+  function setOrdem(tipo, btn) {
+    ordemAtiva = tipo;
+    document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('ativo'));
+    btn.classList.add('ativo');
+    renderCards();
+  }
+
+  function setFiltro(tipo) {
+    filtroAtivo = tipo;
+    document.querySelectorAll('.card-stat').forEach(c => c.classList.remove('ativo'));
+    const mapa = { todos: 'card-todos', ok: 'card-ok', lento: 'card-lento', erro: 'card-erro', verificando: 'card-verificando' };
+    const el = document.getElementById(mapa[tipo]);
+    if (el) el.classList.add('ativo');
+    renderCards();
+  }
 
   async function carregar() {
     document.getElementById('loading').style.display = 'flex';
@@ -441,6 +496,8 @@
 
       document.getElementById('ultima-verificacao').textContent =
         'Última verificação: ' + dados.ultima_verificacao;
+
+      const totalVerificando = dados.total_verificando || 0;
 
       const s = document.getElementById('summary');
       s.innerHTML = `
@@ -460,6 +517,11 @@
           <div class="numero">${dados.total_erro}</div>
           <div class="label">Com problema</div>
         </div>
+        ${totalVerificando > 0 ? `
+        <div class="card-stat azul" id="card-verificando" onclick="setFiltro('verificando')" title="Ver confirmando">
+          <div class="numero">${totalVerificando}</div>
+          <div class="label">Confirmando</div>
+        </div>` : ''}
       `;
 
       renderCards();
@@ -485,9 +547,10 @@
     grid.style.display = 'grid';
 
     const filtrados = dadosGlobais.filter(c => {
-      if (filtroAtivo === 'erro'  && c.status !== 'fora')  return false;
-      if (filtroAtivo === 'ok'    && c.status !== 'ok')    return false;
-      if (filtroAtivo === 'lento' && c.status !== 'lento') return false;
+      if (filtroAtivo === 'erro'        && c.status !== 'fora')        return false;
+      if (filtroAtivo === 'ok'          && c.status !== 'ok')          return false;
+      if (filtroAtivo === 'lento'       && c.status !== 'lento')       return false;
+      if (filtroAtivo === 'verificando' && c.status !== 'verificando') return false;
       if (busca && !c.cliente.toLowerCase().includes(busca)) return false;
       return true;
     });
@@ -508,10 +571,11 @@
       const status = c.status || 'nc';
       let classe, label, dotClass;
 
-      if (status === 'ok')         { classe = 'ok'; label = 'ONLINE'; dotClass = 'ok'; }
-      else if (status === 'lento') { classe = 'lento'; label = 'LENTO'; dotClass = 'lento'; }
-      else if (status === 'fora')  { classe = 'erro'; label = 'FORA'; dotClass = 'erro'; }
-      else                         { classe = 'nc'; label = 'N/C'; dotClass = 'nc'; }
+      if (status === 'ok')              { classe = 'ok'; label = 'ONLINE'; dotClass = 'ok'; }
+      else if (status === 'lento')      { classe = 'lento'; label = 'LENTO'; dotClass = 'lento'; }
+      else if (status === 'fora')       { classe = 'erro'; label = 'FORA'; dotClass = 'erro'; }
+      else if (status === 'verificando'){ classe = 'verificando'; label = 'CONFIRMANDO'; dotClass = 'verificando'; }
+      else                              { classe = 'nc'; label = 'N/C'; dotClass = 'nc'; }
 
       const silenciadoClasse = c.silenciado ? ' silenciado' : '';
 
@@ -519,6 +583,7 @@
       const tempoInfo = c.tempo_ms ? `<span style="font-size:9px;color:var(--muted);font-family:monospace">${c.tempo_ms}ms</span>` : '';
       const erroInfo  = status === 'fora'  ? `<div class="detalhe-erro">⚠ ${escapeHtml(c.site_info)}</div>` : '';
       const lentoInfo = status === 'lento' ? `<div class="detalhe-erro" style="color:#d4a800">⚠ ${escapeHtml(c.site_info)}</div>` : '';
+      const verifInfo = status === 'verificando' ? `<div class="detalhe-info">ℹ ${escapeHtml(c.site_info)}</div>` : '';
       const linkIcone = c.site_url ? `<span class="link-icone">↗</span>` : '';
       const hospedagemTexto = c.hospedagem ? String(c.hospedagem).slice(0, 30) : '';
       const hospedagemBadge = hospedagemTexto ? `<span class="hospedagem-badge">${escapeHtml(hospedagemTexto)}</span><br>` : '';
@@ -541,7 +606,7 @@
           <div class="nome-cliente">${escapeHtml(c.cliente)}</div>
           <div class="url-cliente">${escapeHtml(urlLimpa)}</div>
           ${hospedagemBadge}
-          ${erroInfo}${lentoInfo}
+          ${erroInfo}${lentoInfo}${verifInfo}
           ${linkIcone}`;
 
       const linkAbertura = c.site_url
