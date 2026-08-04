@@ -269,6 +269,15 @@ def carregar_status_anterior():
         return {}
 
 
+def eh_erro_de_conexao(detalhe):
+    """Identifica se a falha foi por problema de conexão/rede (possível bloqueio
+    temporário de IP do robô) em vez de um erro real do site (HTTP 4xx/5xx,
+    página vazia, ou conta suspensa)."""
+    if not detalhe:
+        return False
+    return "Sem conexão" in detalhe or "Timeout" in detalhe
+
+
 # ─────────────────────────────────────────────
 # MAIN
 # ─────────────────────────────────────────────
@@ -293,6 +302,7 @@ def main():
     total_ok         = 0
     total_lento      = 0
     total_erro       = 0
+    total_verificando = 0
 
     for cliente in clientes:
         nome       = cliente["cliente"]
@@ -305,11 +315,29 @@ def main():
         res    = checar_site(site, pular_retentativas=esta_silenciado)
         status = res["status"]
 
-        if status == "ok":    total_ok += 1
-        elif status == "lento": total_lento += 1
-        elif status == "fora":  total_erro += 1
+        # ── Confirmação em 2 rodadas para falhas de conexão ──
+        # Se falhou por "sem conexão"/"timeout" (não por HTTP real, página vazia
+        # ou conta suspensa), pode ser bloqueio temporário do IP do robô — não
+        # do site em si. Só confirma como FORA de verdade se falhar de novo na
+        # PRÓXIMA execução (que roda de um IP normalmente diferente).
+        ant_info = status_anterior.get(nome, {})
+        falhas_consecutivas_anterior = ant_info.get("falhas_consecutivas", 0)
 
-        ant_status = status_anterior.get(nome, {}).get("status", "ok")
+        if status == "fora" and eh_erro_de_conexao(res.get("detalhe", "")) and not esta_silenciado:
+            falhas_consecutivas = falhas_consecutivas_anterior + 1
+            if falhas_consecutivas < 2:
+                # Ainda não confirmado — mostra como "verificando", não conta como erro real
+                status = "verificando"
+                res["detalhe"] = f"Falha de conexão (1ª ocorrência, confirmando na próxima verificação): {res['detalhe']}"
+        else:
+            falhas_consecutivas = 0
+
+        if status == "ok":           total_ok += 1
+        elif status == "lento":       total_lento += 1
+        elif status == "fora":        total_erro += 1
+        elif status == "verificando": total_verificando += 1
+
+        ant_status = ant_info.get("status", "ok")
 
         if status == "fora" and ant_status != "fora" and not esta_silenciado:
             sites_fora.append(f"🔴 {nome}\n{site}\n{res['detalhe']}")
@@ -317,13 +345,14 @@ def main():
             sites_voltaram.append(f"✅ {nome} — {site}")
 
         resultados.append({
-            "cliente":    nome,
-            "site_url":   site,
-            "hospedagem": hospedagem,
-            "status":     status,
-            "site_info":  res["detalhe"],
-            "tempo_ms":   res["tempo_ms"],
-            "silenciado": esta_silenciado,
+            "cliente":            nome,
+            "site_url":           site,
+            "hospedagem":         hospedagem,
+            "status":             status,
+            "site_info":          res["detalhe"],
+            "tempo_ms":           res["tempo_ms"],
+            "silenciado":         esta_silenciado,
+            "falhas_consecutivas": falhas_consecutivas,
         })
 
         time.sleep(0.5)
@@ -363,13 +392,14 @@ def main():
         "total_ok":           total_ok,
         "total_lento":        total_lento,
         "total_erro":         total_erro,
+        "total_verificando":  total_verificando,
         "clientes":           resultados,
     }
 
     with open("output/status.json", "w", encoding="utf-8") as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
 
-    print(f"\n✅ Concluído: {total_ok} ok ({total_lento} lentos), {total_erro} com problema")
+    print(f"\n✅ Concluído: {total_ok} ok ({total_lento} lentos), {total_erro} com problema, {total_verificando} confirmando")
 
 
 if __name__ == "__main__":
