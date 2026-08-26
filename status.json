@@ -1,18 +1,18 @@
 {
-  "ultima_verificacao": "26/08/2026 00:05:38",
+  "ultima_verificacao": "26/08/2026 00:31:14",
   "total_clientes": 94,
-  "total_ok": 81,
-  "total_lento": 10,
+  "total_ok": 45,
+  "total_lento": 5,
   "total_erro": 1,
-  "total_verificando": 2,
+  "total_verificando": 43,
   "clientes": [
     {
       "cliente": "LFSG",
       "site_url": "https://lfsgadvocacia.com.br",
       "hospedagem": "CPANEL 04",
       "status": "ok",
-      "site_info": "HTTP 200 — 1515ms",
-      "tempo_ms": 1515,
+      "site_info": "HTTP 200 — 727ms",
+      "tempo_ms": 727,
       "silenciado": false,
       "falhas_consecutivas": 0
     },
@@ -21,8 +21,8 @@
       "site_url": "https://freskura.com.br",
       "hospedagem": "CPANEL 04",
       "status": "ok",
-      "site_info": "HTTP 200 — 1494ms",
-      "tempo_ms": 1494,
+      "site_info": "HTTP 200 — 1249ms",
+      "tempo_ms": 1249,
       "silenciado": false,
       "falhas_consecutivas": 0
     },
@@ -31,8 +31,8 @@
       "site_url": "https://arquiteturacomvillanueva.com",
       "hospedagem": "CPANEL 05",
       "status": "ok",
-      "site_info": "HTTP 200 — 2795ms",
-      "tempo_ms": 2795,
+      "site_info": "HTTP 200 — 638ms",
+      "tempo_ms": 638,
       "silenciado": false,
       "falhas_consecutivas": 0
     },
@@ -41,8 +41,8 @@
       "site_url": "https://enkartes.com.br",
       "hospedagem": "CPANEL 03",
       "status": "lento",
-      "site_info": "3086ms — 20524 chars",
-      "tempo_ms": 3086,
+      "site_info": "3135ms — 20479 chars",
+      "tempo_ms": 3135,
       "silenciado": false,
       "falhas_consecutivas": 0
     },
@@ -51,8 +51,8 @@
       "site_url": "https://dwrhospitalar.com.br",
       "hospedagem": "HOSPEDAGEM DO CLIENTE",
       "status": "lento",
-      "site_info": "5202ms — 393315 chars",
-      "tempo_ms": 5202,
+      "site_info": "5913ms — 393315 chars",
+      "tempo_ms": 5913,
       "silenciado": false,
       "falhas_consecutivas": 0
     },
@@ -60,19 +60,19 @@
       "cliente": "M3Tecno",
       "site_url": "https://m3tecno.com.br",
       "hospedagem": "HOSPEDAGEM DO CLIENTE",
-      "status": "lento",
-      "site_info": "5714ms — 35918 chars",
-      "tempo_ms": 5714,
+      "status": "verificando",
+      "site_info": "Falha de conexão (1ª ocorrência, confirmando na próxima verificação): Sem conexão: HTTPSConnectionPool(host='m3tecno.com.br', port=443): Max retries exceeded with  — se o site abrir normal no navegador, pode ser bloqueio de IP do monitor, não queda real",
+      "tempo_ms": null,
       "silenciado": false,
-      "falhas_consecutivas": 0
+      "falhas_consecutivas": 1
     },
     {
       "cliente": "Inovision Contabilidade",
       "site_url": "https://inovisioncontabilidade.com.br",
       "hospedagem": "HOSTGATOR",
-      "status": "ok",
-      "site_info": "HTTP 200 — 1796ms",
-      "tempo_ms": 1796,
+      "status": "lento",
+      "site_info": "3426ms — 201842 chars",
+      "tempo_ms": 3426,
       "silenciado": false,
       "falhas_consecutivas": 0
     },
@@ -81,8 +81,8 @@
       "site_url": "https://sfernandesadv.com.br",
       "hospedagem": "CPANEL 06",
       "status": "ok",
-      "site_info": "HTTP 200 — 1927ms",
-      "tempo_ms": 1927,
+      "site_info": "HTTP 200 — 1730ms",
+      "tempo_ms": 1730,
       "silenciado": false,
       "falhas_consecutivas": 0
     },
@@ -91,8 +91,8 @@
       "site_url": "https://mpestruturasmetalicas.com.br",
       "hospedagem": "CPANEL 06",
       "status": "ok",
-      "site_info": "HTTP 200 — 1658ms",
-      "tempo_ms": 1658,
+      "site_info": "HTTP 200 — 1497ms",
+      "tempo_ms": 1497,
       "silenciado": false,
       "falhas_consecutivas": 0
     },
@@ -101,8 +101,8 @@
       "site_url": "https://zecchinadvocacia.com.br",
       "hospedagem": "CPANEL 04",
       "status": "ok",
-      "site_info": "HTTP 200 — 580ms",
-      "tempo_ms": 580,
+      "site_info": "HTTP 200 — 504ms",
+      "tempo_ms": 504,
       "silenciado": false,
       "falhas_consecutivas": 0
     },
@@ -111,8 +111,8 @@
       "site_url": "https://centralfunerariaaster.com.br",
       "hospedagem": "CPANEL 04",
       "status": "ok",
-      "site_info": "HTTP 200 — 1934ms",
-      "tempo_ms": 1934,
+      "site_info": "HTTP 200 — 1680ms",
+      "tempo_ms": 1680,
       "silenciado": false,
       "falhas_consecutivas": 0
     },
@@ -121,8 +121,8 @@
       "site_url": "https://pisoplan.com.br",
       "hospedagem": "CPANEL 02",
       "status": "ok",
-      "site_info": "HTTP 200 — 731ms",
-      "tempo_ms": 731,
+      "site_info": "HTTP 200 — 686ms",
+      "tempo_ms": 686,
       "silenciado": false,
       "falhas_consecutivas": 0
     },
@@ -131,8 +131,8 @@
       "site_url": "https://safatendas.com.br",
       "hospedagem": "CPANEL 07",
       "status": "ok",
-      "site_info": "HTTP 200 — 1992ms",
-      "tempo_ms": 1992,
+      "site_info": "HTTP 200 — 1618ms",
+      "tempo_ms": 1618,
       "silenciado": false,
       "falhas_consecutivas": 0
     },
@@ -141,8 +141,8 @@
       "site_url": "https://peixinhocollection.com.br",
       "hospedagem": "CPANEL 05",
       "status": "ok",
-      "site_info": "HTTP 200 — 347ms",
-      "tempo_ms": 347,
+      "site_info": "HTTP 200 — 448ms",
+      "tempo_ms": 448,
       "silenciado": false,
       "falhas_consecutivas": 0
     },
@@ -151,8 +151,8 @@
       "site_url": "https://abramoekaam.com.br",
       "hospedagem": "CPANEL 01",
       "status": "ok",
-      "site_info": "HTTP 200 — 1709ms",
-      "tempo_ms": 1709,
+      "site_info": "HTTP 200 — 1942ms",
+      "tempo_ms": 1942,
       "silenciado": false,
       "falhas_consecutivas": 0
     },
@@ -161,8 +161,8 @@
       "site_url": "https://romaeventoscampinas.com.br",
       "hospedagem": "CPANEL 04",
       "status": "ok",
-      "site_info": "HTTP 200 — 1928ms",
-      "tempo_ms": 1928,
+      "site_info": "HTTP 200 — 1701ms",
+      "tempo_ms": 1701,
       "silenciado": false,
       "falhas_consecutivas": 0
     },
@@ -181,8 +181,8 @@
       "site_url": "https://dmb.adv.br",
       "hospedagem": "CPANEL 02",
       "status": "ok",
-      "site_info": "HTTP 200 — 1111ms",
-      "tempo_ms": 1111,
+      "site_info": "HTTP 200 — 1406ms",
+      "tempo_ms": 1406,
       "silenciado": false,
       "falhas_consecutivas": 0
     },
@@ -191,8 +191,8 @@
       "site_url": "https://saretacorrea.adv.br",
       "hospedagem": "CPANEL 02",
       "status": "ok",
-      "site_info": "HTTP 200 — 1349ms",
-      "tempo_ms": 1349,
+      "site_info": "HTTP 200 — 1495ms",
+      "tempo_ms": 1495,
       "silenciado": false,
       "falhas_consecutivas": 0
     },
@@ -201,8 +201,8 @@
       "site_url": "https://autocenter101.com.br",
       "hospedagem": "CPANEL 02",
       "status": "ok",
-      "site_info": "HTTP 200 — 1535ms",
-      "tempo_ms": 1535,
+      "site_info": "HTTP 200 — 1334ms",
+      "tempo_ms": 1334,
       "silenciado": false,
       "falhas_consecutivas": 0
     },
@@ -211,8 +211,8 @@
       "site_url": "https://apoiomixedescartaveis.com.br",
       "hospedagem": "CPANEL 03",
       "status": "ok",
-      "site_info": "HTTP 200 — 1418ms",
-      "tempo_ms": 1418,
+      "site_info": "HTTP 200 — 1652ms",
+      "tempo_ms": 1652,
       "silenciado": false,
       "falhas_consecutivas": 0
     },
@@ -221,8 +221,8 @@
       "site_url": "https://casaarmani.com.br",
       "hospedagem": "CPANEL 07",
       "status": "ok",
-      "site_info": "HTTP 200 — 1878ms",
-      "tempo_ms": 1878,
+      "site_info": "HTTP 200 — 1755ms",
+      "tempo_ms": 1755,
       "silenciado": false,
       "falhas_consecutivas": 0
     },
@@ -231,8 +231,8 @@
       "site_url": "https://puigadvogados.com.br",
       "hospedagem": "CPANEL 04",
       "status": "ok",
-      "site_info": "HTTP 200 — 1330ms",
-      "tempo_ms": 1330,
+      "site_info": "HTTP 200 — 1275ms",
+      "tempo_ms": 1275,
       "silenciado": false,
       "falhas_consecutivas": 0
     },
@@ -241,8 +241,8 @@
       "site_url": "https://2findustrial.com.br",
       "hospedagem": "CPANEL 01",
       "status": "ok",
-      "site_info": "HTTP 200 — 1791ms",
-      "tempo_ms": 1791,
+      "site_info": "HTTP 200 — 1799ms",
+      "tempo_ms": 1799,
       "silenciado": false,
       "falhas_consecutivas": 0
     },
@@ -251,8 +251,8 @@
       "site_url": "https://guerraeoliveira.com.br",
       "hospedagem": "CPANEL 07",
       "status": "ok",
-      "site_info": "HTTP 200 — 505ms",
-      "tempo_ms": 505,
+      "site_info": "HTTP 200 — 556ms",
+      "tempo_ms": 556,
       "silenciado": false,
       "falhas_consecutivas": 0
     },
@@ -261,8 +261,8 @@
       "site_url": "https://torresecruz.com.br",
       "hospedagem": "CPANEL 04",
       "status": "ok",
-      "site_info": "HTTP 200 — 1610ms",
-      "tempo_ms": 1610,
+      "site_info": "HTTP 200 — 1396ms",
+      "tempo_ms": 1396,
       "silenciado": false,
       "falhas_consecutivas": 0
     },
@@ -271,8 +271,8 @@
       "site_url": "https://joselucio.adv.br",
       "hospedagem": "CPANEL 02",
       "status": "ok",
-      "site_info": "HTTP 200 — 257ms",
-      "tempo_ms": 257,
+      "site_info": "HTTP 200 — 433ms",
+      "tempo_ms": 433,
       "silenciado": false,
       "falhas_consecutivas": 0
     },
@@ -281,8 +281,8 @@
       "site_url": "https://comercialdinamix.com.br",
       "hospedagem": "CPANEL 06",
       "status": "ok",
-      "site_info": "HTTP 200 — 486ms",
-      "tempo_ms": 486,
+      "site_info": "HTTP 200 — 711ms",
+      "tempo_ms": 711,
       "silenciado": false,
       "falhas_consecutivas": 0
     },
@@ -291,8 +291,8 @@
       "site_url": "https://leticiaenadia.adv.br",
       "hospedagem": "CPANEL 04",
       "status": "ok",
-      "site_info": "HTTP 200 — 1536ms",
-      "tempo_ms": 1536,
+      "site_info": "HTTP 200 — 1822ms",
+      "tempo_ms": 1822,
       "silenciado": false,
       "falhas_consecutivas": 0
     },
@@ -301,8 +301,8 @@
       "site_url": "https://camposcarvalhoadvocacia.com.br",
       "hospedagem": "CPANEL 03",
       "status": "ok",
-      "site_info": "HTTP 200 — 1851ms",
-      "tempo_ms": 1851,
+      "site_info": "HTTP 200 — 1494ms",
+      "tempo_ms": 1494,
       "silenciado": false,
       "falhas_consecutivas": 0
     },
@@ -310,29 +310,29 @@
       "cliente": "Bianca Adv",
       "site_url": "https://biancasilveiraadv.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 1156ms",
-      "tempo_ms": 1156,
+      "status": "verificando",
+      "site_info": "Falha de conexão (1ª ocorrência, confirmando na próxima verificação): Sem conexão: HTTPSConnectionPool(host='biancasilveiraadv.com.br', port=443): Max retries exce — se o site abrir normal no navegador, pode ser bloqueio de IP do monitor, não queda real",
+      "tempo_ms": null,
       "silenciado": false,
-      "falhas_consecutivas": 0
+      "falhas_consecutivas": 1
     },
     {
       "cliente": "Clinica Priscila Nascimento",
       "site_url": "https://clinicapriscilanascimento.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 634ms",
-      "tempo_ms": 634,
+      "status": "verificando",
+      "site_info": "Falha de conexão (1ª ocorrência, confirmando na próxima verificação): Sem conexão: HTTPSConnectionPool(host='clinicapriscilanascimento.com.br', port=443): Max retr — se o site abrir normal no navegador, pode ser bloqueio de IP do monitor, não queda real",
+      "tempo_ms": null,
       "silenciado": false,
-      "falhas_consecutivas": 0
+      "falhas_consecutivas": 1
     },
     {
       "cliente": "Leticia Adv",
       "site_url": "https://leticiacosta.adv.br",
       "hospedagem": "CPANEL 02",
       "status": "ok",
-      "site_info": "HTTP 200 — 1674ms",
-      "tempo_ms": 1674,
+      "site_info": "HTTP 200 — 1433ms",
+      "tempo_ms": 1433,
       "silenciado": false,
       "falhas_consecutivas": 0
     },
@@ -341,8 +341,8 @@
       "site_url": "https://sousaebalista.adv.br",
       "hospedagem": "CPANEL 05",
       "status": "ok",
-      "site_info": "HTTP 200 — 1173ms",
-      "tempo_ms": 1173,
+      "site_info": "HTTP 200 — 1615ms",
+      "tempo_ms": 1615,
       "silenciado": false,
       "falhas_consecutivas": 0
     },
@@ -350,19 +350,19 @@
       "cliente": "Flávio Balduino",
       "site_url": "https://advocaciaflaviobalduino.com",
       "hospedagem": "HOSPEDAGEM DO CLIENTE",
-      "status": "ok",
-      "site_info": "HTTP 200 — 1464ms (confirmado OK na tentativa 2)",
-      "tempo_ms": 1464,
+      "status": "verificando",
+      "site_info": "Falha de conexão (1ª ocorrência, confirmando na próxima verificação): Sem conexão: HTTPSConnectionPool(host='advocaciaflaviobalduino.com', port=443): Max retries e — se o site abrir normal no navegador, pode ser bloqueio de IP do monitor, não queda real",
+      "tempo_ms": null,
       "silenciado": false,
-      "falhas_consecutivas": 0
+      "falhas_consecutivas": 1
     },
     {
       "cliente": "Crespo e Caires",
       "site_url": "https://crespoecairesadvogados.com",
       "hospedagem": "HOSPEDAGEM DO CLIENTE",
       "status": "ok",
-      "site_info": "HTTP 200 — 756ms",
-      "tempo_ms": 756,
+      "site_info": "HTTP 200 — 758ms",
+      "tempo_ms": 758,
       "silenciado": false,
       "falhas_consecutivas": 0
     },
@@ -371,8 +371,8 @@
       "site_url": "https://renartsdecor.com.br",
       "hospedagem": "CPANEL 03",
       "status": "ok",
-      "site_info": "HTTP 200 — 1961ms",
-      "tempo_ms": 1961,
+      "site_info": "HTTP 200 — 1834ms",
+      "tempo_ms": 1834,
       "silenciado": false,
       "falhas_consecutivas": 0
     },
@@ -381,8 +381,8 @@
       "site_url": "https://cendefi.com.br",
       "hospedagem": "CPANEL 03",
       "status": "ok",
-      "site_info": "HTTP 200 — 2674ms",
-      "tempo_ms": 2674,
+      "site_info": "HTTP 200 — 1951ms",
+      "tempo_ms": 1951,
       "silenciado": false,
       "falhas_consecutivas": 0
     },
@@ -391,8 +391,8 @@
       "site_url": "https://rafaelstarling.adv.br",
       "hospedagem": "CPANEL 04",
       "status": "ok",
-      "site_info": "HTTP 200 — 1573ms",
-      "tempo_ms": 1573,
+      "site_info": "HTTP 200 — 1670ms",
+      "tempo_ms": 1670,
       "silenciado": false,
       "falhas_consecutivas": 0
     },
@@ -401,8 +401,8 @@
       "site_url": "https://montarelliengenharia.com.br",
       "hospedagem": "CPANEL 05",
       "status": "ok",
-      "site_info": "HTTP 200 — 382ms",
-      "tempo_ms": 382,
+      "site_info": "HTTP 200 — 372ms",
+      "tempo_ms": 372,
       "silenciado": false,
       "falhas_consecutivas": 0
     },
@@ -410,29 +410,29 @@
       "cliente": "Vital Transportes",
       "site_url": "https://vitaltransportes.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 1123ms",
-      "tempo_ms": 1123,
+      "status": "verificando",
+      "site_info": "Falha de conexão (1ª ocorrência, confirmando na próxima verificação): Sem conexão: HTTPSConnectionPool(host='vitaltransportes.com.br', port=443): Max retries excee — se o site abrir normal no navegador, pode ser bloqueio de IP do monitor, não queda real",
+      "tempo_ms": null,
       "silenciado": false,
-      "falhas_consecutivas": 0
+      "falhas_consecutivas": 1
     },
     {
       "cliente": "André RN",
       "site_url": "https://andrern.adv.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 1152ms",
-      "tempo_ms": 1152,
+      "status": "verificando",
+      "site_info": "Falha de conexão (1ª ocorrência, confirmando na próxima verificação): Sem conexão: HTTPSConnectionPool(host='andrern.adv.br', port=443): Max retries exceeded with  — se o site abrir normal no navegador, pode ser bloqueio de IP do monitor, não queda real",
+      "tempo_ms": null,
       "silenciado": false,
-      "falhas_consecutivas": 0
+      "falhas_consecutivas": 1
     },
     {
       "cliente": "Paulo Adv",
       "site_url": "https://prj.adv.br",
       "hospedagem": "CPANEL 04",
       "status": "ok",
-      "site_info": "HTTP 200 — 1676ms",
-      "tempo_ms": 1676,
+      "site_info": "HTTP 200 — 1461ms",
+      "tempo_ms": 1461,
       "silenciado": false,
       "falhas_consecutivas": 0
     },
@@ -440,79 +440,79 @@
       "cliente": "Paula Roberta",
       "site_url": "https://paulaseifertpsicologia.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 209ms",
-      "tempo_ms": 209,
+      "status": "verificando",
+      "site_info": "Falha de conexão (1ª ocorrência, confirmando na próxima verificação): Sem conexão: HTTPSConnectionPool(host='paulaseifertpsicologia.com.br', port=443): Max retries — se o site abrir normal no navegador, pode ser bloqueio de IP do monitor, não queda real",
+      "tempo_ms": null,
       "silenciado": false,
-      "falhas_consecutivas": 0
+      "falhas_consecutivas": 1
     },
     {
       "cliente": "M F Brindes",
       "site_url": "https://mfbrindesegravacao.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 331ms",
-      "tempo_ms": 331,
+      "status": "verificando",
+      "site_info": "Falha de conexão (1ª ocorrência, confirmando na próxima verificação): Sem conexão: HTTPSConnectionPool(host='mfbrindesegravacao.com.br', port=443): Max retries exc — se o site abrir normal no navegador, pode ser bloqueio de IP do monitor, não queda real",
+      "tempo_ms": null,
       "silenciado": false,
-      "falhas_consecutivas": 0
+      "falhas_consecutivas": 1
     },
     {
       "cliente": "Braga e Roas Advogados",
       "site_url": "https://bragaroasadvogados.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 218ms",
-      "tempo_ms": 218,
+      "status": "verificando",
+      "site_info": "Falha de conexão (1ª ocorrência, confirmando na próxima verificação): Sem conexão: HTTPSConnectionPool(host='bragaroasadvogados.com.br', port=443): Max retries exc — se o site abrir normal no navegador, pode ser bloqueio de IP do monitor, não queda real",
+      "tempo_ms": null,
       "silenciado": false,
-      "falhas_consecutivas": 0
+      "falhas_consecutivas": 1
     },
     {
       "cliente": "Diego Adv",
       "site_url": "https://diegobritoadvogados.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 1432ms",
-      "tempo_ms": 1432,
+      "status": "verificando",
+      "site_info": "Falha de conexão (1ª ocorrência, confirmando na próxima verificação): Sem conexão: HTTPSConnectionPool(host='diegobritoadvogados.com.br', port=443): Max retries ex — se o site abrir normal no navegador, pode ser bloqueio de IP do monitor, não queda real",
+      "tempo_ms": null,
       "silenciado": false,
-      "falhas_consecutivas": 0
+      "falhas_consecutivas": 1
     },
     {
       "cliente": "Luis Gustavo Advogado",
       "site_url": "https://lgsprevidenciarista.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 1433ms",
-      "tempo_ms": 1433,
+      "status": "verificando",
+      "site_info": "Falha de conexão (1ª ocorrência, confirmando na próxima verificação): Sem conexão: HTTPSConnectionPool(host='lgsprevidenciarista.com.br', port=443): Max retries ex — se o site abrir normal no navegador, pode ser bloqueio de IP do monitor, não queda real",
+      "tempo_ms": null,
       "silenciado": false,
-      "falhas_consecutivas": 0
+      "falhas_consecutivas": 1
     },
     {
       "cliente": "Luiz Motta Advogado",
       "site_url": "https://mottadeoliveira.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "lento",
-      "site_info": "6158ms — 22210 chars",
-      "tempo_ms": 6158,
+      "status": "verificando",
+      "site_info": "Falha de conexão (1ª ocorrência, confirmando na próxima verificação): Sem conexão: HTTPSConnectionPool(host='mottadeoliveira.com.br', port=443): Max retries exceed — se o site abrir normal no navegador, pode ser bloqueio de IP do monitor, não queda real",
+      "tempo_ms": null,
       "silenciado": false,
-      "falhas_consecutivas": 0
+      "falhas_consecutivas": 1
     },
     {
       "cliente": "Toca Engenharia",
       "site_url": "https://tocaarqeng.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 1477ms",
-      "tempo_ms": 1477,
+      "status": "verificando",
+      "site_info": "Falha de conexão (1ª ocorrência, confirmando na próxima verificação): Sem conexão: HTTPSConnectionPool(host='tocaarqeng.com.br', port=443): Max retries exceeded wi — se o site abrir normal no navegador, pode ser bloqueio de IP do monitor, não queda real",
+      "tempo_ms": null,
       "silenciado": false,
-      "falhas_consecutivas": 0
+      "falhas_consecutivas": 1
     },
     {
       "cliente": "Jacsys",
       "site_url": "https://jacsys.com.br",
       "hospedagem": "HOSPEDAGEM DO CLIENTE",
       "status": "ok",
-      "site_info": "HTTP 200 — 704ms",
-      "tempo_ms": 704,
+      "site_info": "HTTP 200 — 1877ms",
+      "tempo_ms": 1877,
       "silenciado": false,
       "falhas_consecutivas": 0
     },
@@ -521,8 +521,8 @@
       "site_url": "https://hsscontabil.com",
       "hospedagem": "CPANEL 06",
       "status": "ok",
-      "site_info": "HTTP 200 — 445ms",
-      "tempo_ms": 445,
+      "site_info": "HTTP 200 — 443ms",
+      "tempo_ms": 443,
       "silenciado": false,
       "falhas_consecutivas": 0
     },
@@ -530,61 +530,61 @@
       "cliente": "Gabriela Psicóloga",
       "site_url": "https://psicologagabrielastrabello.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 198ms",
-      "tempo_ms": 198,
+      "status": "verificando",
+      "site_info": "Falha de conexão (1ª ocorrência, confirmando na próxima verificação): Sem conexão: HTTPSConnectionPool(host='psicologagabrielastrabello.com.br', port=443): Max ret — se o site abrir normal no navegador, pode ser bloqueio de IP do monitor, não queda real",
+      "tempo_ms": null,
       "silenciado": false,
-      "falhas_consecutivas": 0
+      "falhas_consecutivas": 1
     },
     {
       "cliente": "MD Neto",
       "site_url": "https://mdnetotrabalhista.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "lento",
-      "site_info": "5784ms — 21555 chars",
-      "tempo_ms": 5784,
+      "status": "verificando",
+      "site_info": "Falha de conexão (1ª ocorrência, confirmando na próxima verificação): Sem conexão: HTTPSConnectionPool(host='mdnetotrabalhista.com.br', port=443): Max retries exce — se o site abrir normal no navegador, pode ser bloqueio de IP do monitor, não queda real",
+      "tempo_ms": null,
       "silenciado": false,
-      "falhas_consecutivas": 0
+      "falhas_consecutivas": 1
     },
     {
       "cliente": "RGE Projetos e Obras (ALM Construção)",
       "site_url": "https://rgeprojetoseobras.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "lento",
-      "site_info": "5067ms — 31740 chars",
-      "tempo_ms": 5067,
+      "status": "verificando",
+      "site_info": "Falha de conexão (1ª ocorrência, confirmando na próxima verificação): Sem conexão: HTTPSConnectionPool(host='rgeprojetoseobras.com.br', port=443): Max retries exce — se o site abrir normal no navegador, pode ser bloqueio de IP do monitor, não queda real",
+      "tempo_ms": null,
       "silenciado": false,
-      "falhas_consecutivas": 0
+      "falhas_consecutivas": 1
     },
     {
       "cliente": "Lucas Oliveira Adv",
       "site_url": "https://oliveiradvocacia.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "lento",
-      "site_info": "5849ms — 23491 chars",
-      "tempo_ms": 5849,
+      "status": "verificando",
+      "site_info": "Falha de conexão (1ª ocorrência, confirmando na próxima verificação): Sem conexão: HTTPSConnectionPool(host='oliveiradvocacia.com.br', port=443): Max retries excee — se o site abrir normal no navegador, pode ser bloqueio de IP do monitor, não queda real",
+      "tempo_ms": null,
       "silenciado": false,
-      "falhas_consecutivas": 0
+      "falhas_consecutivas": 1
     },
     {
       "cliente": "DFW",
       "site_url": "https://dfwjateamento.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 1948ms",
-      "tempo_ms": 1948,
+      "status": "verificando",
+      "site_info": "Falha de conexão (1ª ocorrência, confirmando na próxima verificação): Sem conexão: HTTPSConnectionPool(host='dfwjateamento.com.br', port=443): Max retries exceeded — se o site abrir normal no navegador, pode ser bloqueio de IP do monitor, não queda real",
+      "tempo_ms": null,
       "silenciado": false,
-      "falhas_consecutivas": 0
+      "falhas_consecutivas": 1
     },
     {
       "cliente": "Suzele Advogada",
       "site_url": "https://suzelecarvalho.adv.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 1127ms",
-      "tempo_ms": 1127,
+      "status": "verificando",
+      "site_info": "Falha de conexão (1ª ocorrência, confirmando na próxima verificação): Sem conexão: HTTPSConnectionPool(host='suzelecarvalho.adv.br', port=443): Max retries exceede — se o site abrir normal no navegador, pode ser bloqueio de IP do monitor, não queda real",
+      "tempo_ms": null,
       "silenciado": false,
-      "falhas_consecutivas": 0
+      "falhas_consecutivas": 1
     },
     {
       "cliente": "Koru Contabilidade",
@@ -600,19 +600,19 @@
       "cliente": "Delus Contabilidade",
       "site_url": "https://deluscontabilidade.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "lento",
-      "site_info": "4971ms — 37149 chars",
-      "tempo_ms": 4971,
+      "status": "verificando",
+      "site_info": "Falha de conexão (1ª ocorrência, confirmando na próxima verificação): Sem conexão: HTTPSConnectionPool(host='deluscontabilidade.com.br', port=443): Max retries exc — se o site abrir normal no navegador, pode ser bloqueio de IP do monitor, não queda real",
+      "tempo_ms": null,
       "silenciado": false,
-      "falhas_consecutivas": 0
+      "falhas_consecutivas": 1
     },
     {
       "cliente": "WL Tintas",
       "site_url": "https://lojawltintas.com.br",
       "hospedagem": "HOSPEDAGEM DO CLIENTE",
-      "status": "ok",
-      "site_info": "HTTP 200 — 1583ms",
-      "tempo_ms": 1583,
+      "status": "lento",
+      "site_info": "3617ms — 359422 chars",
+      "tempo_ms": 3617,
       "silenciado": false,
       "falhas_consecutivas": 0
     },
@@ -621,8 +621,8 @@
       "site_url": "https://fullservice.machadoguedes.adv.br",
       "hospedagem": "CPANEL 01",
       "status": "ok",
-      "site_info": "HTTP 200 — 648ms",
-      "tempo_ms": 648,
+      "site_info": "HTTP 200 — 1125ms",
+      "tempo_ms": 1125,
       "silenciado": false,
       "falhas_consecutivas": 0
     },
@@ -630,39 +630,39 @@
       "cliente": "Ateliê D&D",
       "site_url": "https://atelieded.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 1476ms",
-      "tempo_ms": 1476,
+      "status": "verificando",
+      "site_info": "Falha de conexão (1ª ocorrência, confirmando na próxima verificação): Sem conexão: HTTPSConnectionPool(host='atelieded.com.br', port=443): Max retries exceeded wit — se o site abrir normal no navegador, pode ser bloqueio de IP do monitor, não queda real",
+      "tempo_ms": null,
       "silenciado": false,
-      "falhas_consecutivas": 0
+      "falhas_consecutivas": 1
     },
     {
       "cliente": "Efficace Contábil",
       "site_url": "https://efficacecontabilidade.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 222ms",
-      "tempo_ms": 222,
+      "status": "verificando",
+      "site_info": "Falha de conexão (1ª ocorrência, confirmando na próxima verificação): Sem conexão: HTTPSConnectionPool(host='efficacecontabilidade.com.br', port=443): Max retries  — se o site abrir normal no navegador, pode ser bloqueio de IP do monitor, não queda real",
+      "tempo_ms": null,
       "silenciado": false,
-      "falhas_consecutivas": 0
+      "falhas_consecutivas": 1
     },
     {
       "cliente": "Moretti Contabilidade",
       "site_url": "https://moretticontabilidade.cnt.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 582ms",
-      "tempo_ms": 582,
+      "status": "verificando",
+      "site_info": "Falha de conexão (1ª ocorrência, confirmando na próxima verificação): Sem conexão: HTTPSConnectionPool(host='moretticontabilidade.cnt.br', port=443): Max retries e — se o site abrir normal no navegador, pode ser bloqueio de IP do monitor, não queda real",
+      "tempo_ms": null,
       "silenciado": false,
-      "falhas_consecutivas": 0
+      "falhas_consecutivas": 1
     },
     {
       "cliente": "EPEX",
       "site_url": "https://epex.ind.br",
       "hospedagem": "CPANEL 01",
       "status": "ok",
-      "site_info": "HTTP 200 — 1181ms",
-      "tempo_ms": 1181,
+      "site_info": "HTTP 200 — 1590ms",
+      "tempo_ms": 1590,
       "silenciado": false,
       "falhas_consecutivas": 0
     },
@@ -670,11 +670,11 @@
       "cliente": "ECM Advocacia",
       "site_url": "https://ecmadvocacia.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 1372ms",
-      "tempo_ms": 1372,
+      "status": "verificando",
+      "site_info": "Falha de conexão (1ª ocorrência, confirmando na próxima verificação): Sem conexão: HTTPSConnectionPool(host='ecmadvocacia.com.br', port=443): Max retries exceeded  — se o site abrir normal no navegador, pode ser bloqueio de IP do monitor, não queda real",
+      "tempo_ms": null,
       "silenciado": false,
-      "falhas_consecutivas": 0
+      "falhas_consecutivas": 1
     },
     {
       "cliente": "RGM Advocacia",
@@ -682,7 +682,7 @@
       "hospedagem": "VPS HOSTGATOR",
       "status": "fora",
       "site_info": "Página de conta suspensa / domínio parqueado detectada (servidor responde, mas não é o site real)",
-      "tempo_ms": 688,
+      "tempo_ms": 347,
       "silenciado": false,
       "falhas_consecutivas": 0
     },
@@ -691,8 +691,8 @@
       "site_url": "https://pergamumcontabilidade.com.br",
       "hospedagem": "CPANEL 06",
       "status": "ok",
-      "site_info": "HTTP 200 — 793ms",
-      "tempo_ms": 793,
+      "site_info": "HTTP 200 — 1064ms",
+      "tempo_ms": 1064,
       "silenciado": false,
       "falhas_consecutivas": 0
     },
@@ -701,8 +701,8 @@
       "site_url": "https://mrportoeparceria.com.br",
       "hospedagem": "CPANEL 07",
       "status": "ok",
-      "site_info": "HTTP 200 — 400ms",
-      "tempo_ms": 400,
+      "site_info": "HTTP 200 — 1015ms",
+      "tempo_ms": 1015,
       "silenciado": false,
       "falhas_consecutivas": 0
     },
@@ -711,8 +711,8 @@
       "site_url": "https://rosangelameneses.adv.br",
       "hospedagem": "CPANEL 06",
       "status": "lento",
-      "site_info": "3074ms — 21234 chars",
-      "tempo_ms": 3074,
+      "site_info": "3945ms — 21200 chars",
+      "tempo_ms": 3945,
       "silenciado": false,
       "falhas_consecutivas": 0
     },
@@ -720,39 +720,39 @@
       "cliente": "Bruno Advocacia",
       "site_url": "https://brunocoelhoadvogados.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 1103ms",
-      "tempo_ms": 1103,
+      "status": "verificando",
+      "site_info": "Falha de conexão (1ª ocorrência, confirmando na próxima verificação): Sem conexão: HTTPSConnectionPool(host='brunocoelhoadvogados.com.br', port=443): Max retries e — se o site abrir normal no navegador, pode ser bloqueio de IP do monitor, não queda real",
+      "tempo_ms": null,
       "silenciado": false,
-      "falhas_consecutivas": 0
+      "falhas_consecutivas": 1
     },
     {
       "cliente": "Bueno Pasqualotto Advocacia",
       "site_url": "https://cbuenoadvocacia.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 1160ms",
-      "tempo_ms": 1160,
+      "status": "verificando",
+      "site_info": "Falha de conexão (1ª ocorrência, confirmando na próxima verificação): Sem conexão: HTTPSConnectionPool(host='cbuenoadvocacia.com.br', port=443): Max retries exceed — se o site abrir normal no navegador, pode ser bloqueio de IP do monitor, não queda real",
+      "tempo_ms": null,
       "silenciado": false,
-      "falhas_consecutivas": 0
+      "falhas_consecutivas": 1
     },
     {
       "cliente": "Rafael Contador",
       "site_url": "https://rrdassessoriacontabil.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 206ms",
-      "tempo_ms": 206,
+      "status": "verificando",
+      "site_info": "Falha de conexão (1ª ocorrência, confirmando na próxima verificação): Sem conexão: HTTPSConnectionPool(host='rrdassessoriacontabil.com.br', port=443): Max retries  — se o site abrir normal no navegador, pode ser bloqueio de IP do monitor, não queda real",
+      "tempo_ms": null,
       "silenciado": false,
-      "falhas_consecutivas": 0
+      "falhas_consecutivas": 1
     },
     {
       "cliente": "Durigon Advocacia",
       "site_url": "https://durigonadvogados.com.br",
       "hospedagem": "CPANEL 06",
       "status": "ok",
-      "site_info": "HTTP 200 — 287ms",
-      "tempo_ms": 287,
+      "site_info": "HTTP 200 — 685ms",
+      "tempo_ms": 685,
       "silenciado": false,
       "falhas_consecutivas": 0
     },
@@ -760,59 +760,59 @@
       "cliente": "Andrea e Ricardo",
       "site_url": "https://aeradvocacia.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 225ms",
-      "tempo_ms": 225,
+      "status": "verificando",
+      "site_info": "Falha de conexão (1ª ocorrência, confirmando na próxima verificação): Sem conexão: HTTPSConnectionPool(host='aeradvocacia.com.br', port=443): Max retries exceeded  — se o site abrir normal no navegador, pode ser bloqueio de IP do monitor, não queda real",
+      "tempo_ms": null,
       "silenciado": false,
-      "falhas_consecutivas": 0
+      "falhas_consecutivas": 1
     },
     {
       "cliente": "Viviane Adv",
       "site_url": "https://advocaciavps.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "lento",
-      "site_info": "6021ms — 33002 chars",
-      "tempo_ms": 6021,
+      "status": "verificando",
+      "site_info": "Falha de conexão (1ª ocorrência, confirmando na próxima verificação): Sem conexão: HTTPSConnectionPool(host='advocaciavps.com.br', port=443): Max retries exceeded  — se o site abrir normal no navegador, pode ser bloqueio de IP do monitor, não queda real",
+      "tempo_ms": null,
       "silenciado": false,
-      "falhas_consecutivas": 0
+      "falhas_consecutivas": 1
     },
     {
       "cliente": "Fagner Adv",
       "site_url": "https://britoeviana.adv.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 210ms",
-      "tempo_ms": 210,
+      "status": "verificando",
+      "site_info": "Falha de conexão (1ª ocorrência, confirmando na próxima verificação): Sem conexão: HTTPSConnectionPool(host='britoeviana.adv.br', port=443): Max retries exceeded w — se o site abrir normal no navegador, pode ser bloqueio de IP do monitor, não queda real",
+      "tempo_ms": null,
       "silenciado": false,
-      "falhas_consecutivas": 0
+      "falhas_consecutivas": 1
     },
     {
       "cliente": "Mateus Burtet Adv",
       "site_url": "https://mateusburtet.adv.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 1477ms",
-      "tempo_ms": 1477,
+      "status": "verificando",
+      "site_info": "Falha de conexão (1ª ocorrência, confirmando na próxima verificação): Sem conexão: HTTPSConnectionPool(host='mateusburtet.adv.br', port=443): Max retries exceeded  — se o site abrir normal no navegador, pode ser bloqueio de IP do monitor, não queda real",
+      "tempo_ms": null,
       "silenciado": false,
-      "falhas_consecutivas": 0
+      "falhas_consecutivas": 1
     },
     {
       "cliente": "Vanuza Adv",
       "site_url": "https://vssadvocacia.com",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 620ms",
-      "tempo_ms": 620,
+      "status": "verificando",
+      "site_info": "Falha de conexão (1ª ocorrência, confirmando na próxima verificação): Sem conexão: HTTPSConnectionPool(host='vssadvocacia.com', port=443): Max retries exceeded wit — se o site abrir normal no navegador, pode ser bloqueio de IP do monitor, não queda real",
+      "tempo_ms": null,
       "silenciado": false,
-      "falhas_consecutivas": 0
+      "falhas_consecutivas": 1
     },
     {
       "cliente": "Evanda Adv",
       "site_url": "https://evandaferreira.adv.br",
       "hospedagem": "CPANEL 07",
       "status": "ok",
-      "site_info": "HTTP 200 — 588ms",
-      "tempo_ms": 588,
+      "site_info": "HTTP 200 — 785ms",
+      "tempo_ms": 785,
       "silenciado": false,
       "falhas_consecutivas": 0
     },
@@ -820,29 +820,29 @@
       "cliente": "Matheus Zanoni",
       "site_url": "https://matheuszanoni.adv.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 431ms",
-      "tempo_ms": 431,
+      "status": "verificando",
+      "site_info": "Falha de conexão (1ª ocorrência, confirmando na próxima verificação): Sem conexão: HTTPSConnectionPool(host='matheuszanoni.adv.br', port=443): Max retries exceeded — se o site abrir normal no navegador, pode ser bloqueio de IP do monitor, não queda real",
+      "tempo_ms": null,
       "silenciado": false,
-      "falhas_consecutivas": 0
+      "falhas_consecutivas": 1
     },
     {
       "cliente": "Paulo Puig adv",
       "site_url": "https://puigecosta.adv.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 1366ms (confirmado OK na tentativa 2)",
-      "tempo_ms": 1366,
+      "status": "verificando",
+      "site_info": "Falha de conexão (1ª ocorrência, confirmando na próxima verificação): Sem conexão: HTTPSConnectionPool(host='puigecosta.adv.br', port=443): Max retries exceeded wi — se o site abrir normal no navegador, pode ser bloqueio de IP do monitor, não queda real",
+      "tempo_ms": null,
       "silenciado": false,
-      "falhas_consecutivas": 0
+      "falhas_consecutivas": 1
     },
     {
       "cliente": "Infonet",
       "site_url": "https://infonetfibra.com.br",
       "hospedagem": "CPANEL 07",
       "status": "ok",
-      "site_info": "HTTP 200 — 761ms",
-      "tempo_ms": 761,
+      "site_info": "HTTP 200 — 697ms",
+      "tempo_ms": 697,
       "silenciado": false,
       "falhas_consecutivas": 0
     },
@@ -850,39 +850,39 @@
       "cliente": "André Barbosa Advogado",
       "site_url": "https://advogadoandrebarbosa.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 1808ms",
-      "tempo_ms": 1808,
+      "status": "verificando",
+      "site_info": "Falha de conexão (1ª ocorrência, confirmando na próxima verificação): Sem conexão: HTTPSConnectionPool(host='advogadoandrebarbosa.com.br', port=443): Max retries e — se o site abrir normal no navegador, pode ser bloqueio de IP do monitor, não queda real",
+      "tempo_ms": null,
       "silenciado": false,
-      "falhas_consecutivas": 0
+      "falhas_consecutivas": 1
     },
     {
       "cliente": "Gabriela Miranda",
       "site_url": "https://gabrielamiranda.adv.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 212ms",
-      "tempo_ms": 212,
+      "status": "verificando",
+      "site_info": "Falha de conexão (1ª ocorrência, confirmando na próxima verificação): Sem conexão: HTTPSConnectionPool(host='gabrielamiranda.adv.br', port=443): Max retries exceed — se o site abrir normal no navegador, pode ser bloqueio de IP do monitor, não queda real",
+      "tempo_ms": null,
       "silenciado": false,
-      "falhas_consecutivas": 0
+      "falhas_consecutivas": 1
     },
     {
       "cliente": "Moraes & Moraes",
       "site_url": "https://moraesemoraesadv.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 210ms",
-      "tempo_ms": 210,
+      "status": "verificando",
+      "site_info": "Falha de conexão (1ª ocorrência, confirmando na próxima verificação): Sem conexão: HTTPSConnectionPool(host='moraesemoraesadv.com.br', port=443): Max retries excee — se o site abrir normal no navegador, pode ser bloqueio de IP do monitor, não queda real",
+      "tempo_ms": null,
       "silenciado": false,
-      "falhas_consecutivas": 0
+      "falhas_consecutivas": 1
     },
     {
       "cliente": "Pinheiro Machado",
       "site_url": "https://pinheiromachadoadvogados.com.br",
       "hospedagem": "CPANEL 06",
       "status": "ok",
-      "site_info": "HTTP 200 — 385ms",
-      "tempo_ms": 385,
+      "site_info": "HTTP 200 — 469ms",
+      "tempo_ms": 469,
       "silenciado": false,
       "falhas_consecutivas": 0
     },
@@ -891,8 +891,8 @@
       "site_url": "https://veronicafonseca.com.br",
       "hospedagem": "CPANEL 05",
       "status": "ok",
-      "site_info": "HTTP 200 — 364ms",
-      "tempo_ms": 364,
+      "site_info": "HTTP 200 — 448ms",
+      "tempo_ms": 448,
       "silenciado": false,
       "falhas_consecutivas": 0
     },
@@ -901,8 +901,8 @@
       "site_url": "https://lucasguntzel.adv.br",
       "hospedagem": "CPANEL 06",
       "status": "ok",
-      "site_info": "HTTP 200 — 356ms",
-      "tempo_ms": 356,
+      "site_info": "HTTP 200 — 447ms",
+      "tempo_ms": 447,
       "silenciado": false,
       "falhas_consecutivas": 0
     },
@@ -910,41 +910,41 @@
       "cliente": "Mauad Pitot & Caroli",
       "site_url": "https://mauadpitotcaroli.adv.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 784ms",
-      "tempo_ms": 784,
+      "status": "verificando",
+      "site_info": "Falha de conexão (1ª ocorrência, confirmando na próxima verificação): Sem conexão: HTTPSConnectionPool(host='mauadpitotcaroli.adv.br', port=443): Max retries excee — se o site abrir normal no navegador, pode ser bloqueio de IP do monitor, não queda real",
+      "tempo_ms": null,
       "silenciado": false,
-      "falhas_consecutivas": 0
+      "falhas_consecutivas": 1
     },
     {
       "cliente": "Jorge Noé Vizeu da Silva",
       "site_url": "https://noevizeuadvogados.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 1233ms",
-      "tempo_ms": 1233,
+      "status": "verificando",
+      "site_info": "Falha de conexão (1ª ocorrência, confirmando na próxima verificação): Sem conexão: HTTPSConnectionPool(host='noevizeuadvogados.com.br', port=443): Max retries exce — se o site abrir normal no navegador, pode ser bloqueio de IP do monitor, não queda real",
+      "tempo_ms": null,
       "silenciado": false,
-      "falhas_consecutivas": 0
+      "falhas_consecutivas": 1
     },
     {
       "cliente": "Lilian Greyce ADV",
       "site_url": "https://liliangreyce.adv.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 1294ms",
-      "tempo_ms": 1294,
+      "status": "verificando",
+      "site_info": "Falha de conexão (1ª ocorrência, confirmando na próxima verificação): Sem conexão: HTTPSConnectionPool(host='liliangreyce.adv.br', port=443): Max retries exceeded  — se o site abrir normal no navegador, pode ser bloqueio de IP do monitor, não queda real",
+      "tempo_ms": null,
       "silenciado": false,
-      "falhas_consecutivas": 0
+      "falhas_consecutivas": 1
     },
     {
       "cliente": "Amarinho & Yang Advocacia",
       "site_url": "https://amarinhoyang.com.br",
       "hospedagem": "HOSTINGER",
-      "status": "ok",
-      "site_info": "HTTP 200 — 212ms",
-      "tempo_ms": 212,
+      "status": "verificando",
+      "site_info": "Falha de conexão (1ª ocorrência, confirmando na próxima verificação): Sem conexão: HTTPSConnectionPool(host='amarinhoyang.com.br', port=443): Max retries exceeded  — se o site abrir normal no navegador, pode ser bloqueio de IP do monitor, não queda real",
+      "tempo_ms": null,
       "silenciado": false,
-      "falhas_consecutivas": 0
+      "falhas_consecutivas": 1
     }
   ]
 }
