@@ -35,9 +35,10 @@ COL_HOSPEDAGEM  = 19   # Coluna T
 
 TIMEOUT       = 10
 TAMANHO_MIN   = 1000
-TEMPO_LENTO   = 3000
+TEMPO_LENTO   = 6000  # GitHub Actions roda fora do Brasil — latência natural é maior
 
-ACK_URL = "https://heltonbarbosasantos-cell.github.io/monitor-verdigital/acknowledged.json"
+ACK_URL    = "https://heltonbarbosasantos-cell.github.io/monitor-verdigital/acknowledged.json"
+STATUS_URL = "https://heltonbarbosasantos-cell.github.io/monitor-verdigital/status.json"
 
 HEADERS_NAVEGADOR = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -54,8 +55,6 @@ IGNORAR_LINKS = {
     'nao tem site', 'não tem site', 'sem site', 'em desenvolvimento'
 }
 
-# Sinais de que a página é uma tela de "conta de hospedagem suspensa",
-# domínio parqueado, ou erro genérico do provedor — não o site real do cliente.
 INDICADORES_SUSPENSAO_URL = [
     'suspendedpage.cgi', 'account-suspended', 'accountsuspended',
     'cgi-sys/suspendedpage',
@@ -83,6 +82,25 @@ def buscar_acknowledged():
     except Exception:
         pass
     return set()
+
+
+def carregar_status_anterior():
+    """
+    Busca o resultado da execução ANTERIOR publicado no GitHub Pages.
+
+    Importante: cada execução do GitHub Actions começa do zero (checkout limpo),
+    sem nenhum arquivo salvo de execuções passadas — por isso não dá pra ler um
+    arquivo local. Precisa buscar o status.json já publicado, que é o resultado
+    real da última vez que o monitor rodou.
+    """
+    try:
+        resp = requests.get(STATUS_URL, timeout=15)
+        if resp.status_code == 200:
+            dados = resp.json()
+            return {c["cliente"]: c for c in dados.get("clientes", [])}
+    except Exception as e:
+        print(f"[Aviso] Não foi possível carregar status anterior: {e}")
+    return {}
 
 
 def buscar_clientes():
@@ -156,8 +174,6 @@ def buscar_clientes():
 
 
 def _detectar_pagina_suspensa(url_final, texto_pagina):
-    """Verifica se a página é uma tela de conta suspensa/domínio parqueado,
-    em vez do site real do cliente."""
     url_lower = (url_final or '').lower()
     for indicador in INDICADORES_SUSPENSAO_URL:
         if indicador in url_lower:
@@ -208,10 +224,6 @@ def _tentar_requisicao(url):
 
 
 def checar_site(url, pular_retentativas=False):
-    """
-    Faz até 3 tentativas com esperas crescentes (4s, 8s) antes de declarar o site fora.
-    Se pular_retentativas=True (cliente já marcado como "estou ciente"), faz só 1 tentativa.
-    """
     esperas = [0] if pular_retentativas else [0, 4, 8]
 
     resultado = None
@@ -230,6 +242,12 @@ def checar_site(url, pular_retentativas=False):
     return resultado
 
 
+def eh_erro_de_conexao(detalhe):
+    if not detalhe:
+        return False
+    return "Sem conexão" in detalhe or "Timeout" in detalhe
+
+
 def enviar_whatsapp(mensagem):
     if not WHATSAPP_NUMERO or not WHATSAPP_APIKEY:
         return
@@ -242,7 +260,7 @@ def enviar_whatsapp(mensagem):
 
 def enviar_email(assunto, mensagem):
     if not EMAIL_REMETENTE or not EMAIL_SENHA or not EMAIL_DESTINO:
-        print("[Email] Não enviado: faltam credenciais (EMAIL_REMETENTE/EMAIL_SENHA/EMAIL_DESTINO)")
+        print("[Email] Não enviado: faltam credenciais")
         return
     try:
         msg = MIMEText(mensagem)
@@ -250,7 +268,6 @@ def enviar_email(assunto, mensagem):
         msg["From"]    = EMAIL_REMETENTE
         msg["To"]      = EMAIL_DESTINO
 
-        print(f"[Email] Conectando em {EMAIL_SMTP_HOST}:{EMAIL_SMTP_PORT}...")
         with smtplib.SMTP(EMAIL_SMTP_HOST, EMAIL_SMTP_PORT, timeout=15) as servidor:
             servidor.starttls()
             servidor.login(EMAIL_REMETENTE, EMAIL_SENHA)
@@ -258,24 +275,6 @@ def enviar_email(assunto, mensagem):
         print(f"[Email] ✅ Enviado com sucesso para {EMAIL_DESTINO}")
     except Exception as e:
         print(f"[Email] ❌ Erro ao enviar: {type(e).__name__}: {e}")
-
-
-def carregar_status_anterior():
-    try:
-        with open("output/status.json", "r", encoding="utf-8") as f:
-            dados = json.load(f)
-            return {c["cliente"]: c for c in dados.get("clientes", [])}
-    except Exception:
-        return {}
-
-
-def eh_erro_de_conexao(detalhe):
-    """Identifica se a falha foi por problema de conexão/rede (possível bloqueio
-    temporário de IP do robô) em vez de um erro real do site (HTTP 4xx/5xx,
-    página vazia, ou conta suspensa)."""
-    if not detalhe:
-        return False
-    return "Sem conexão" in detalhe or "Timeout" in detalhe
 
 
 # ─────────────────────────────────────────────
@@ -290,19 +289,19 @@ def main():
 
     print(f"[Config] WhatsApp configurado: {'sim' if (WHATSAPP_NUMERO and WHATSAPP_APIKEY) else 'não'}")
     print(f"[Config] Email configurado: {'sim' if (EMAIL_REMETENTE and EMAIL_SENHA and EMAIL_DESTINO) else 'não'}")
-    if EMAIL_REMETENTE:
-        print(f"[Config] Email remetente: {EMAIL_REMETENTE} | destino: {EMAIL_DESTINO} | servidor: {EMAIL_SMTP_HOST}:{EMAIL_SMTP_PORT}")
 
     clientes         = buscar_clientes()
     status_anterior  = carregar_status_anterior()
     acknowledged     = buscar_acknowledged()
-    resultados       = []
-    sites_fora       = []
-    sites_voltaram   = []
-    total_ok         = 0
-    total_lento      = 0
-    total_erro       = 0
-    total_verificando = 0
+    print(f"[Config] Status anterior carregado: {len(status_anterior)} clientes")
+
+    resultados         = []
+    sites_fora         = []
+    sites_voltaram     = []
+    total_ok           = 0
+    total_lento        = 0
+    total_erro         = 0
+    total_verificando  = 0
 
     for cliente in clientes:
         nome       = cliente["cliente"]
@@ -315,20 +314,14 @@ def main():
         res    = checar_site(site, pular_retentativas=esta_silenciado)
         status = res["status"]
 
-        # ── Confirmação em 2 rodadas para falhas de conexão ──
-        # Se falhou por "sem conexão"/"timeout" (não por HTTP real, página vazia
-        # ou conta suspensa), pode ser bloqueio temporário do IP do robô — não
-        # do site em si. Só confirma como FORA de verdade se falhar de novo na
-        # PRÓXIMA execução (que roda de um IP normalmente diferente).
         ant_info = status_anterior.get(nome, {})
         falhas_consecutivas_anterior = ant_info.get("falhas_consecutivas", 0)
 
         if status == "fora" and eh_erro_de_conexao(res.get("detalhe", "")) and not esta_silenciado:
             falhas_consecutivas = falhas_consecutivas_anterior + 1
             if falhas_consecutivas < 2:
-                # Ainda não confirmado — mostra como "verificando", não conta como erro real
                 status = "verificando"
-                res["detalhe"] = f"Falha de conexão (1ª ocorrência, confirmando na próxima verificação): {res['detalhe']}"
+                res["detalhe"] = f"Falha de conexão ({falhas_consecutivas}ª ocorrência, confirmando na próxima verificação): {res['detalhe']}"
         else:
             falhas_consecutivas = 0
 
@@ -345,13 +338,13 @@ def main():
             sites_voltaram.append(f"✅ {nome} — {site}")
 
         resultados.append({
-            "cliente":            nome,
-            "site_url":           site,
-            "hospedagem":         hospedagem,
-            "status":             status,
-            "site_info":          res["detalhe"],
-            "tempo_ms":           res["tempo_ms"],
-            "silenciado":         esta_silenciado,
+            "cliente":             nome,
+            "site_url":            site,
+            "hospedagem":          hospedagem,
+            "status":              status,
+            "site_info":           res["detalhe"],
+            "tempo_ms":            res["tempo_ms"],
+            "silenciado":          esta_silenciado,
             "falhas_consecutivas": falhas_consecutivas,
         })
 
