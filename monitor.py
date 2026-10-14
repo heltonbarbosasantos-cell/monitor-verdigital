@@ -30,8 +30,8 @@ EMAIL_SMTP_PORT = int(os.environ.get("EMAIL_SMTP_PORT", "587"))
 
 COL_CLIENTE     = 0    # Coluna A
 COL_SITUACAO    = 3    # Coluna D
-COL_LINK        = 18   # Coluna S
-COL_HOSPEDAGEM  = 19   # Coluna T
+COL_LINK        = 17   # Coluna R
+COL_HOSPEDAGEM  = 18   # Coluna S
 
 TIMEOUT       = 10
 TAMANHO_MIN   = 1000
