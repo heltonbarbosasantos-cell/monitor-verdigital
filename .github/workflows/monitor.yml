@@ -1,15 +1,30 @@
 name: Monitor de Sites
 
 on:
+  # Reserva: o agendador do GitHub atrasa por horas em repositórios públicos.
+  # A corrente abaixo (cada execução dispara a próxima) é quem garante os 15 min.
   schedule:
-    - cron: '*/15 * * * *'
+    - cron: '7,22,37,52 * * * *'
   workflow_dispatch:
+
+# Só uma execução por vez; se outra chegar, ela espera (a mais antiga da fila é descartada).
+concurrency:
+  group: monitor
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  actions: write
 
 jobs:
   monitorar:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
 
     steps:
+      - name: Marcar horario de inicio
+        run: echo "INICIO=$(date +%s)" >> "$GITHUB_ENV"
+
       - name: Checkout do repositorio
         uses: actions/checkout@v4
 
@@ -38,3 +53,16 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./output
           keep_files: true
+
+      # Roda sempre (mesmo se o monitor falhar) para a corrente não quebrar.
+      - name: Esperar e disparar a proxima verificacao
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          alvo=$(( INICIO + 900 ))
+          agora=$(date +%s)
+          if [ "$alvo" -gt "$agora" ]; then
+            sleep $(( alvo - agora ))
+          fi
+          gh workflow run monitor.yml --repo "${{ github.repository }}" --ref "${{ github.ref_name }}"
