@@ -150,14 +150,20 @@ def buscar_clientes():
     url = f"https://docs.google.com/spreadsheets/d/{SHEET_ID}/export?format=csv&gid={SHEET_GID}"
     print("📋 Buscando planilha...")
 
-    try:
-        resp = requests.get(url, timeout=30, allow_redirects=True)
-        resp.raise_for_status()
-        resp.encoding = 'utf-8'
-        texto_csv = resp.text
-    except Exception as e:
-        print(f"❌ Erro ao ler planilha: {e}")
-        return []
+    texto_csv = None
+    for tentativa in range(1, 4):
+        try:
+            resp = requests.get(url, timeout=30, allow_redirects=True)
+            resp.raise_for_status()
+            resp.encoding = 'utf-8'
+            texto_csv = resp.text
+            break
+        except Exception as e:
+            print(f"❌ Erro ao ler planilha (tentativa {tentativa}/3): {e}")
+            if tentativa < 3:
+                time.sleep(10 * tentativa)
+    if texto_csv is None:
+        return None  # falha de rede do Google: diferente de "planilha vazia"
 
     linhas = list(csv.reader(io.StringIO(texto_csv)))
     if not linhas:
@@ -452,6 +458,12 @@ def main():
     print(f"[Config] Email configurado: {'sim' if (EMAIL_REMETENTE and EMAIL_SENHA and EMAIL_DESTINO) else 'não'}")
 
     clientes = buscar_clientes()
+
+    if clientes is None:
+        # Google Planilhas fora do ar/lento: não é problema da planilha. Não alarma;
+        # a próxima rodada (15 min) tenta de novo e o painel mantém o último status bom.
+        print("[Aviso] Não consegui acessar o Google Planilhas após 3 tentativas — rodada pulada")
+        sys.exit(1)
 
     if not clientes:
         aviso = ("⚠️ MONITOR SEM CLIENTES\n"
